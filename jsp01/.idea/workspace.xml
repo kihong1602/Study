@@ -2,18 +2,52 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="jsp01:war exploded" />
+      <artifact name="hta01:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b980941-7760-4035-870a-04a5c77bff0f" name="변경" comment="modified jsp01" />
+    <list default="true" id="2b980941-7760-4035-870a-04a5c77bff0f" name="변경" comment="modified jsp01">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/Gugudan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/Hello.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/Hi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/favorite/Favorite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/favorite/FavoriteResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/gugudan/GugudanForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/gugudan/GugudanResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/login/LoginForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/login/LoginProcess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/login/LoginSuccess.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/gugudan/gugudan-form.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/gugudan/gugudan-result.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/hello.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/hi.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/join-form.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/join-process.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/join-success.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/login/login-form.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/login/login-process.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/login/login-success.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/HelloServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="New Servlet" />
+        <option value="Jsp File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -40,24 +74,34 @@
     &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;라이브러리&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.46605295&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.saveactions&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Markdown&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp" />
+      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\join" />
+      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\login" />
+      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\gugudan" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Tomcat 10.1.13" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.13" ALTERNATIVE_JRE_ENABLED="false">
       <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
       <deployment>
-        <artifact name="jsp01:war exploded">
+        <artifact name="hta01:war exploded">
           <settings>
             <option name="CONTEXT_PATH" value="/" />
           </settings>
@@ -137,7 +181,7 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="jsp01:war exploded" />
+          <artifact name="hta01:war exploded" />
         </option>
       </method>
     </configuration>
@@ -160,6 +204,12 @@
       <workItem from="1694523012215" duration="238000" />
       <workItem from="1694523261905" duration="211000" />
       <workItem from="1694523477932" duration="540000" />
+      <workItem from="1694524079726" duration="132000" />
+      <workItem from="1694525099370" duration="477000" />
+      <workItem from="1694563412258" duration="466000" />
+      <workItem from="1694563887374" duration="1924000" />
+      <workItem from="1694565892377" duration="14548000" />
+      <workItem from="1694586976132" duration="4637000" />
     </task>
     <task id="LOCAL-00001" summary="modified jsp01">
       <option name="closed" value="true" />
