@@ -9,11 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b980941-7760-4035-870a-04a5c77bff0f" name="변경" comment="JTHA study day02">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/join/join-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/join/join-form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/join/join-process.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/join/join-process.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="2b980941-7760-4035-870a-04a5c77bff0f" name="변경" comment="JTHA study day02/ modified join" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -188,7 +184,7 @@
       <workItem from="1694563887374" duration="1924000" />
       <workItem from="1694565892377" duration="14548000" />
       <workItem from="1694586976132" duration="4970000" />
-      <workItem from="1694593433050" duration="810000" />
+      <workItem from="1694593433050" duration="1304000" />
     </task>
     <task id="LOCAL-00001" summary="modified jsp01">
       <option name="closed" value="true" />
@@ -206,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694592690471</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="JTHA study day02/ modified join">
+      <option name="closed" value="true" />
+      <created>1694594720115</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694594720115</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,6 +219,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="modified jsp01" />
     <MESSAGE value="JTHA study day02" />
-    <option name="LAST_COMMIT_MESSAGE" value="JTHA study day02" />
+    <MESSAGE value="JTHA study day02/ modified join" />
+    <option name="LAST_COMMIT_MESSAGE" value="JTHA study day02/ modified join" />
   </component>
 </project>
