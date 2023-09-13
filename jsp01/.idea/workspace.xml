@@ -9,32 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2b980941-7760-4035-870a-04a5c77bff0f" name="변경" comment="modified jsp01">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/Gugudan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/Hello.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/Hi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/favorite/Favorite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/favorite/FavoriteResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/gugudan/GugudanForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/gugudan/GugudanResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/login/LoginForm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/login/LoginProcess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/login/LoginSuccess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/gugudan/gugudan-form.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/gugudan/gugudan-result.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/hello.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/hi.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/join-form.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/join-process.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/join-success.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/login/login-form.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/login/login-process.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/login/login-success.jsp" afterDir="false" />
+    <list default="true" id="2b980941-7760-4035-870a-04a5c77bff0f" name="변경" comment="JTHA study day02">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/HelloServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/join/join-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/join/join-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/join/join-process.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/join/join-process.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,8 +69,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp" />
       <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\join" />
+      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp" />
       <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\login" />
       <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\gugudan" />
     </key>
@@ -209,7 +187,8 @@
       <workItem from="1694563412258" duration="466000" />
       <workItem from="1694563887374" duration="1924000" />
       <workItem from="1694565892377" duration="14548000" />
-      <workItem from="1694586976132" duration="4637000" />
+      <workItem from="1694586976132" duration="4970000" />
+      <workItem from="1694593433050" duration="810000" />
     </task>
     <task id="LOCAL-00001" summary="modified jsp01">
       <option name="closed" value="true" />
@@ -219,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1694523077486</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="JTHA study day02">
+      <option name="closed" value="true" />
+      <created>1694592690471</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694592690471</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,6 +214,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="modified jsp01" />
-    <option name="LAST_COMMIT_MESSAGE" value="modified jsp01" />
+    <MESSAGE value="JTHA study day02" />
+    <option name="LAST_COMMIT_MESSAGE" value="JTHA study day02" />
   </component>
 </project>

@@ -13,14 +13,14 @@
 </head>
 <body>
 <form id="Myform" action="join-process.jsp" method="post">
-    <input type="text" name="userId" placeholder="ID">
-    <input type="password" name="userPw" placeholder="Password">
-    <input type="text" name="userName" placeholder="Name">
-    <input type="text" name="userAddress" placeholder="Address">
-    <input type="text" name="userZipcode" placeholder="Zipcode">
-    <input type="email" name="userEmail" placeholder="Email">
-    <input type="tel" name="userTel" placeholder="tel">
-    <input type="date" name="userBirth">
+    <div><input type="text" name="userId" placeholder="ID" required></div>
+    <div><input type="password" name="userPw" placeholder="Password" required></div>
+    <div><input type="text" name="userName" placeholder="Name"></div>
+    <div><input type="text" name="userAddress" placeholder="Address"></div>
+    <div><input type="text" name="userZipcode" placeholder="Zipcode"></div>
+    <div><input type="email" name="userEmail" placeholder="Email"></div>
+    <div><input type="tel" name="userTel" placeholder="tel"></div>
+    <div><input type="date" name="userBirth"></div>
     <label for="agree"><input type="checkbox" id="agree">개인정보제공에 동의합니다.</label>
     <button id="btn">제출</button>
     <script>

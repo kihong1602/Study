@@ -16,6 +16,7 @@
 </head>
 <body>
 <%
+    response.setContentType("text/html;charset:UTF-8");
     List<String[]> userSave = new ArrayList<>();
     Map<String, List<String[]>> userList = new HashMap<>();
     String userId = request.getParameter("userId");
