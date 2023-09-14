@@ -9,12 +9,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7cce4a5a-a9be-466f-a9f0-7b0c61549659" name="변경" comment="">
+    <list default="true" id="2b980941-7760-4035-870a-04a5c77bff0f" name="변경" comment="JTHA study day02/ modified join">
       <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/day02.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/common/Person.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/util/cookie/CookieManagerV1.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/com/util/cookie/CookieManagerV2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/day02.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/cookie/cookie-read.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/cookie/cookie.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/first.jsp" afterDir="false" />
@@ -25,8 +25,6 @@
       <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/second.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/third.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/js/jquery-3.7.1.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/Gugudan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/Gugudan.java" afterDir="false" />
@@ -57,6 +55,18 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jsp File" />
+        <option value="Class" />
+        <option value="New Servlet" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -71,42 +81,59 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 2
+  &quot;associatedIndex&quot;: 4
 }</component>
-  <component name="ProjectId" id="2VNzV1GdYADTrQfMltUS2RuKquI" />
+  <component name="ProjectId" id="2VI01DavrdTDG0XSUASeOueGeSG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "true",
+    "Repository.Attach.Sources": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main 병합 중",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "모듈",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "라이브러리",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.45057473",
-    "settings.editor.selected.configurable": "File.Encoding",
+    "project.structure.side.proportion": "0.46605295",
+    "settings.editor.selected.configurable": "fileTemplates",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\js" />
+      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp" />
+      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\day02" />
+      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\day02\cookie" />
+      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\day01" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Tomcat 10.1.13" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.13" ALTERNATIVE_JRE_ENABLED="false">
       <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
-      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="hta01:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/" />
+            <option name="CONTEXT_PATH" value="/hta01" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="88f1a373-3c80-445d-8d71-08710f99da33" />
+        <option name="BASE_DIRECTORY_NAME" value="0edf070b-44ef-4ed6-a6ee-0f4883b411c5" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -114,7 +141,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="50850" />
+        <option name="DEBUG_PORT" value="61448" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -179,7 +206,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="jsp01:war exploded" />
           <artifact name="hta01:war exploded" />
         </option>
       </method>
@@ -188,21 +214,74 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="7cce4a5a-a9be-466f-a9f0-7b0c61549659" name="변경" comment="" />
-      <created>1694691347829</created>
+      <changelist id="2b980941-7760-4035-870a-04a5c77bff0f" name="변경" comment="" />
+      <created>1694508070214</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1694691347829</updated>
-      <workItem from="1694691349050" duration="186000" />
-      <workItem from="1694691545604" duration="802000" />
-      <workItem from="1694692913530" duration="119000" />
-      <workItem from="1694693045330" duration="82000" />
-      <workItem from="1694693130538" duration="281000" />
-      <workItem from="1694693476760" duration="210000" />
+      <updated>1694508070214</updated>
+      <workItem from="1694508072348" duration="113000" />
+      <workItem from="1694508189690" duration="136000" />
+      <workItem from="1694508347380" duration="862000" />
+      <workItem from="1694511431356" duration="249000" />
+      <workItem from="1694511688368" duration="251000" />
+      <workItem from="1694512064700" duration="466000" />
+      <workItem from="1694512547268" duration="199000" />
+      <workItem from="1694523012215" duration="238000" />
+      <workItem from="1694523261905" duration="211000" />
+      <workItem from="1694523477932" duration="540000" />
+      <workItem from="1694524079726" duration="132000" />
+      <workItem from="1694525099370" duration="477000" />
+      <workItem from="1694563412258" duration="466000" />
+      <workItem from="1694563887374" duration="1924000" />
+      <workItem from="1694565892377" duration="14548000" />
+      <workItem from="1694586976132" duration="4970000" />
+      <workItem from="1694593433050" duration="1304000" />
+      <workItem from="1694649848764" duration="27000" />
+      <workItem from="1694649935075" duration="5042000" />
+      <workItem from="1694656624082" duration="1946000" />
+      <workItem from="1694658587028" duration="4242000" />
+      <workItem from="1694663092905" duration="26000" />
+      <workItem from="1694663310640" duration="9531000" />
+      <workItem from="1694676751376" duration="3024000" />
     </task>
+    <task id="LOCAL-00001" summary="modified jsp01">
+      <option name="closed" value="true" />
+      <created>1694523077486</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1694523077486</updated>
+    </task>
+    <task id="LOCAL-00002" summary="JTHA study day02">
+      <option name="closed" value="true" />
+      <created>1694592690471</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1694592690471</updated>
+    </task>
+    <task id="LOCAL-00003" summary="JTHA study day02/ modified join">
+      <option name="closed" value="true" />
+      <created>1694594720115</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1694594720115</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="modified jsp01" />
+    <MESSAGE value="JTHA study day02" />
+    <MESSAGE value="JTHA study day02/ modified join" />
+    <option name="LAST_COMMIT_MESSAGE" value="JTHA study day02/ modified join" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
