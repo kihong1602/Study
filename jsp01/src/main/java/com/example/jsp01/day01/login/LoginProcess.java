@@ -1,4 +1,4 @@
-package com.example.jsp01.login;
+package com.example.jsp01.day01.login;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

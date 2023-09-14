@@ -7,19 +7,29 @@
 <body>
 <h1><%= "Hello World!" %>
 </h1>
-<br/>
+<hr>
+<h2>Day01</h2>
 <a href="hello-servlet">Hello Servlet</a>
-<br>
-<a href="gugudan/gugudan-form.jsp">Gugudan Form</a>
-<br>
-<a href="favorite-form">Favorite</a>
-<br>
-<a href="login/login-form.jsp">Login Page</a>
 <br><br>
-<a href="hello.jsp">hello</a>
-<br>
-<a href="hi.jsp">hi</a>
-<br>
-<a href="join/join-form.jsp">Join</a>
+<a href="day01/gugudan/gugudan-form.jsp">Gugudan Form</a>
+<br><br>
+<a href="favorite-form">Favorite</a>
+<br><br>
+<a href="day01/login/login-form.jsp">Login Page</a>
+<br><br>
+<a href="day01/hello.jsp">hello</a>
+<br><br>
+<a href="day01/hi.jsp?name=judas&age=27">hi</a>
+<br><br>
+<a href="day01/join/join-form.jsp">Join</a>
+<hr>
+<h2>Day02</h2>
+<a href="day02/first.jsp">request,session,application</a>
+<br><br>
+<a href="day02/cookie/cookie.jsp">Cookie</a>
+<br><br>
+<a href="day02/popup/popup-main.jsp">popup</a>
+<br><br>
+<a href="day02/login/login-main.jsp">Login V2</a>
 </body>
 </html>
