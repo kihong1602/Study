@@ -1,4 +1,4 @@
-package com.example.jsp01;
+package com.example.jsp01.day01;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,14 +8,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "gugudan", value = "/gugudan")
-//WebServlet 어노테이션 사용 시 Web.xml 에 매핑안해줘도 된다.
-public class Gugudan extends HttpServlet {
+@WebServlet(name = "hello", value = "/hello")
+public class Hello extends HttpServlet {
 	
-	private String message;
+	private static final long serialVersionUID = 1L;
 	
-	public void init() {
-		message = "Hello Gugudan";
+	public Hello() {
+		super();
 	}
 	
 	@Override
@@ -23,10 +22,13 @@ public class Gugudan extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 		
-		// Hello
 		PrintWriter out = response.getWriter();
-		out.println("<html><body>");
-		out.println("<h1>" + message + "</h1>");
-		out.println("</body></html>");
+		out.println("Hello Servlet");
+		out.println("""
+				<a href ="hi">hi</a>
+				""");
+		//"""사용시 JS에서 사용하는 백틱과 같이 코드블록기능함
 	}
+	//client 서버로 데이터 보내줄 때 <from action ="URI" method ="get or post"
+	
 }

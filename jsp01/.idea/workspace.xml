@@ -9,25 +9,53 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="2b980941-7760-4035-870a-04a5c77bff0f" name="변경" comment="modified jsp01">
+    <list default="true" id="7cce4a5a-a9be-466f-a9f0-7b0c61549659" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/common/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/util/cookie/CookieManagerV1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/util/cookie/CookieManagerV2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/day02.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/cookie/cookie-read.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/cookie/cookie.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/first.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/login/login-main.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/login/login-process.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/popup/popup-cookie.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/popup/popup-main.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/second.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/third.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/jquery-3.7.1.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/Gugudan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/Gugudan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/Hello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/Hello.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/HelloServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/Hi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/Hi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/favorite/Favorite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/favorite/Favorite.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/favorite/FavoriteResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/favorite/FavoriteResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/gugudan/GugudanForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/gugudan/GugudanForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/gugudan/GugudanResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/gugudan/GugudanResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/login/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/login/LoginForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/login/LoginProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/login/LoginProcess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/login/LoginSuccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/login/LoginSuccess.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/gugudan/gugudan-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/gugudan/gugudan-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/gugudan/gugudan-result.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/gugudan/gugudan-result.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/hello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/hello.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/hi.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/hi.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/join/join-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/join/join-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/join/join-process.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/join/join-process.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/join/join-success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/join/join-success.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login/login-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/login/login-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login/login-process.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/login/login-process.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login/login-success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/login/login-success.jsp" afterDir="false" />
     </list>
-=======
-    <list default="true" id="2b980941-7760-4035-870a-04a5c77bff0f" name="변경" comment="JTHA study day02/ modified join" />
->>>>>>> 91ba27b52421fe24edc0e42e8f34fc024b8f917f
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="New Servlet" />
-        <option value="Jsp File" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -39,45 +67,33 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
+  &quot;associatedIndex&quot;: 2
 }</component>
-  <component name="ProjectId" id="2VI01DavrdTDG0XSUASeOueGeSG" />
+  <component name="ProjectId" id="2VNzV1GdYADTrQfMltUS2RuKquI" />
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kks45/Desktop/Study/jsp01&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;라이브러리&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.46605295&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.Markdown&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main 병합 중",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "모듈",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.45057473",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\join" />
-      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp" />
-      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\login" />
-      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\gugudan" />
-    </key>
-  </component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Tomcat 10.1.13" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.13" ALTERNATIVE_JRE_ENABLED="false">
       <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
@@ -85,12 +101,12 @@
       <deployment>
         <artifact name="hta01:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/hta01_war_exploded" />
+            <option name="CONTEXT_PATH" value="/" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="0edf070b-44ef-4ed6-a6ee-0f4883b411c5" />
+        <option name="BASE_DIRECTORY_NAME" value="88f1a373-3c80-445d-8d71-08710f99da33" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -98,7 +114,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="61448" />
+        <option name="DEBUG_PORT" value="50850" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -163,10 +179,7 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-<<<<<<< HEAD
           <artifact name="jsp01:war exploded" />
-=======
->>>>>>> 91ba27b52421fe24edc0e42e8f34fc024b8f917f
           <artifact name="hta01:war exploded" />
         </option>
       </method>
@@ -175,69 +188,21 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
-      <changelist id="2b980941-7760-4035-870a-04a5c77bff0f" name="변경" comment="" />
-      <created>1694508070214</created>
+      <changelist id="7cce4a5a-a9be-466f-a9f0-7b0c61549659" name="변경" comment="" />
+      <created>1694691347829</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1694508070214</updated>
-      <workItem from="1694508072348" duration="113000" />
-      <workItem from="1694508189690" duration="136000" />
-      <workItem from="1694508347380" duration="862000" />
-      <workItem from="1694511431356" duration="249000" />
-      <workItem from="1694511688368" duration="251000" />
-      <workItem from="1694512064700" duration="466000" />
-      <workItem from="1694512547268" duration="199000" />
-      <workItem from="1694523012215" duration="238000" />
-      <workItem from="1694523261905" duration="211000" />
-      <workItem from="1694523477932" duration="540000" />
-<<<<<<< HEAD
-      <workItem from="1694524831466" duration="688000" />
-      <workItem from="1694525890393" duration="24000" />
-      <workItem from="1694525916728" duration="1000" />
-=======
-      <workItem from="1694524079726" duration="132000" />
-      <workItem from="1694525099370" duration="477000" />
-      <workItem from="1694563412258" duration="466000" />
-      <workItem from="1694563887374" duration="1924000" />
-      <workItem from="1694565892377" duration="14548000" />
-      <workItem from="1694586976132" duration="4970000" />
-      <workItem from="1694593433050" duration="1304000" />
->>>>>>> 91ba27b52421fe24edc0e42e8f34fc024b8f917f
+      <updated>1694691347829</updated>
+      <workItem from="1694691349050" duration="186000" />
+      <workItem from="1694691545604" duration="802000" />
+      <workItem from="1694692913530" duration="119000" />
+      <workItem from="1694693045330" duration="82000" />
+      <workItem from="1694693130538" duration="281000" />
+      <workItem from="1694693476760" duration="210000" />
     </task>
-    <task id="LOCAL-00001" summary="modified jsp01">
-      <option name="closed" value="true" />
-      <created>1694523077486</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1694523077486</updated>
-    </task>
-    <task id="LOCAL-00002" summary="JTHA study day02">
-      <option name="closed" value="true" />
-      <created>1694592690471</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1694592690471</updated>
-    </task>
-    <task id="LOCAL-00003" summary="JTHA study day02/ modified join">
-      <option name="closed" value="true" />
-      <created>1694594720115</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1694594720115</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="modified jsp01" />
-    <MESSAGE value="JTHA study day02" />
-    <MESSAGE value="JTHA study day02/ modified join" />
-    <option name="LAST_COMMIT_MESSAGE" value="JTHA study day02/ modified join" />
   </component>
 </project>
