@@ -31,5 +31,9 @@
 <a href="day02/popup/popup-main.jsp">popup</a>
 <br><br>
 <a href="day02/login/login-main.jsp">Login V2</a>
+<br><br>
+<a href="day03/mariaDbTest.jsp">mariaDB Connecting Test</a>
+<br><br>
+<a href="day03/oracleTest.jsp">oracle Connecting Test</a>
 </body>
 </html>

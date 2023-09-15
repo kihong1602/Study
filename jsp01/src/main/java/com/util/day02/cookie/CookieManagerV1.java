@@ -1,4 +1,4 @@
-package com.util.cookie;
+package com.util.day02.cookie;
 
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;

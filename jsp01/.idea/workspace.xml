@@ -10,45 +10,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2b980941-7760-4035-870a-04a5c77bff0f" name="변경" comment="JTHA study day02/ modified join">
-      <change afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/day02.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/common/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/util/cookie/CookieManagerV1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/util/cookie/CookieManagerV2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/cookie/cookie-read.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/cookie/cookie.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/first.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/login/login-main.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/login/login-process.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/popup/popup-cookie.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/popup/popup-main.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/second.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/day02/third.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/js/jquery-3.7.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day03/MemberDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day03/alert/ScriptWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day03/controller/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day03/controller/FrontController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day03/controller/MemberDeleteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day03/controller/MemberFormController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day03/controller/MemberInsertController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day03/controller/MemberListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day03/controller/MemberSelectController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day03/member/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day03/member/MemberService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day03/view/MyView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day03/dbtest.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day03/insert-process.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day03/insert.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day03/joinMember/join-delete.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day03/joinMember/join-save.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day03/joinMember/join-select.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day03/joinMember/join.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day03/joinMember/member-list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day03/mariaDbTest.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/day03/oracleTest.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sql.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/Gugudan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/Gugudan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/Hello.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/Hello.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/HelloServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/Hi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/Hi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/favorite/Favorite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/favorite/Favorite.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/favorite/FavoriteResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/favorite/FavoriteResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/gugudan/GugudanForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/gugudan/GugudanForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/gugudan/GugudanResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/gugudan/GugudanResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/login/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/login/LoginForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/login/LoginProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/login/LoginProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/jsp01/login/LoginSuccess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/jsp01/day01/login/LoginSuccess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/gugudan/gugudan-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/gugudan/gugudan-form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/gugudan/gugudan-result.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/gugudan/gugudan-result.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/hello.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/hello.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/hi.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/hi.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/util/cookie/CookieManagerV1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/util/day02/cookie/CookieManagerV1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/util/cookie/CookieManagerV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/util/day02/cookie/CookieManagerV2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/day02/login/login-main.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day02/login/login-main.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/day02/login/login-process.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day02/login/login-process.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/day02/popup/popup-cookie.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day02/popup/popup-cookie.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/join/join-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/join/join-form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/join/join-process.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/join/join-process.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/join/join-success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/join/join-success.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login/login-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/login/login-form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login/login-process.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/login/login-process.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login/login-success.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/day01/login/login-success.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,9 +56,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
-        <option value="Class" />
         <option value="New Servlet" />
+        <option value="Interface" />
+        <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -90,41 +86,49 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "true",
-    "Repository.Attach.Sources": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "라이브러리",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.46605295",
-    "settings.editor.selected.configurable": "fileTemplates",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kks45/desktop/Tools/mariadb-java-client-3.2.0-sources.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;라이브러리&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.45078197&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;oracle&quot;,
+      &quot;mariadb&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\day03" />
+      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\java\com\example\jsp01\day03\controller" />
+      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\day03\joinMember" />
+      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\WEB-INF\lib" />
       <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\js" />
-      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp" />
-      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\day02" />
-      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\day02\cookie" />
-      <recent name="C:\Users\kks45\desktop\Study\jsp01\src\main\webapp\day01" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 10.1.13" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.1.13" ALTERNATIVE_JRE_ENABLED="false">
       <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
+      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="hta01:war exploded">
           <settings>
@@ -243,6 +247,14 @@
       <workItem from="1694663092905" duration="26000" />
       <workItem from="1694663310640" duration="9531000" />
       <workItem from="1694676751376" duration="3024000" />
+      <workItem from="1694684071230" duration="1141000" />
+      <workItem from="1694736097744" duration="2805000" />
+      <workItem from="1694738912705" duration="971000" />
+      <workItem from="1694739899615" duration="489000" />
+      <workItem from="1694740407967" duration="1025000" />
+      <workItem from="1694741458894" duration="5844000" />
+      <workItem from="1694747555354" duration="18128000" />
+      <workItem from="1694773573283" duration="263000" />
     </task>
     <task id="LOCAL-00001" summary="modified jsp01">
       <option name="closed" value="true" />

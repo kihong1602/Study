@@ -1,5 +1,5 @@
 <%@ page import="jakarta.servlet.http.Cookie" %>
-<%@ page import="com.util.cookie.CookieManagerV2" %><%--
+<%@ page import="com.util.day02.cookie.CookieManagerV2" %><%--
   Created by IntelliJ IDEA.
   User: kks45
   Date: 2023-09-14
