@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet(name = "FrontController", urlPatterns = "/")
+@WebServlet(name = "FrontController", urlPatterns = "/day03/join-membership/*")
 public class FrontController extends HttpServlet {
 	
 	private final Map<String, Controller> controllerMap = new HashMap<>();

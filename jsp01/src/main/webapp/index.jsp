@@ -35,5 +35,7 @@
 <a href="day03/mariaDbTest.jsp">mariaDB Connecting Test</a>
 <br><br>
 <a href="day03/oracleTest.jsp">oracle Connecting Test</a>
+<br><br>
+<a href="day03/join-membership/join.jsp">Join Menu</a>
 </body>
 </html>
