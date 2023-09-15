@@ -36,6 +36,6 @@
 <br><br>
 <a href="day03/oracleTest.jsp">oracle Connecting Test</a>
 <br><br>
-<a href="day03/join-member/join.jsp">Join Menu</a>
+<a href="day03/join.jsp">Join Menu</a>
 </body>
 </html>

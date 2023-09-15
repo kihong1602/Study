@@ -20,7 +20,7 @@ public class MemberInsertController implements Controller {
 	public MyView process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String viewPath = "/day03/joinMember/join-save.jsp";
+		String viewPath = "/day03/join-member/join-save.jsp";
 		String id = request.getParameter("userID");
 		String password = request.getParameter("userPW");
 		String name = request.getParameter("userName");

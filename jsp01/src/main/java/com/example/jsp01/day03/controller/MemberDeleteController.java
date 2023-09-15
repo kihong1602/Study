@@ -21,7 +21,7 @@ public class MemberDeleteController implements Controller {
 	public MyView process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String viewPath = "/day03/joinMember/join-delete.jsp";
+		String viewPath = "/day03/join-member/join-delete.jsp";
 		String id = request.getParameter("userID");
 		String pw = request.getParameter("userPW");
 		

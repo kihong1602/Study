@@ -1,6 +1,5 @@
-package com.example.jsp01.day03.controller;
+package com.example.jsp01.day03;
 
-import com.example.jsp01.day03.MemberDao;
 import com.example.jsp01.day03.member.Member;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

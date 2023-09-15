@@ -21,7 +21,7 @@ public class MemberListController implements Controller {
 	public MyView process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String viewPath = "/day03/joinMember/member-list.jsp";
+		String viewPath = "/day03/join-member/member-list.jsp";
 		
 		ArrayList<Member> memberList = (ArrayList<Member>) memberService.getUserList();
 		

@@ -4,25 +4,25 @@
     <root id="1">
       <DefaultCasing>lower/lower</DefaultCasing>
       <DefaultEngine>InnoDB</DefaultEngine>
-      <Grants>databasename|schema||blanc||ALTER|G
-databasename|schema||blanc||ALTER ROUTINE|G
-databasename|schema||blanc||CREATE|G
-databasename|schema||blanc||CREATE ROUTINE|G
-databasename|schema||blanc||CREATE TEMPORARY TABLES|G
-databasename|schema||blanc||CREATE VIEW|G
-databasename|schema||blanc||DELETE|G
-databasename|schema||blanc||DELETE HISTORY|G
-databasename|schema||blanc||DROP|G
-databasename|schema||blanc||EVENT|G
-databasename|schema||blanc||EXECUTE|G
-databasename|schema||blanc||INDEX|G
-databasename|schema||blanc||INSERT|G
-databasename|schema||blanc||LOCK TABLES|G
-databasename|schema||blanc||REFERENCES|G
-databasename|schema||blanc||SELECT|G
-databasename|schema||blanc||SHOW VIEW|G
-databasename|schema||blanc||TRIGGER|G
-databasename|schema||blanc||UPDATE|G</Grants>
+      <Grants>example|schema||blanc||ALTER|G
+example|schema||blanc||ALTER ROUTINE|G
+example|schema||blanc||CREATE|G
+example|schema||blanc||CREATE ROUTINE|G
+example|schema||blanc||CREATE TEMPORARY TABLES|G
+example|schema||blanc||CREATE VIEW|G
+example|schema||blanc||DELETE|G
+example|schema||blanc||DELETE HISTORY|G
+example|schema||blanc||DROP|G
+example|schema||blanc||EVENT|G
+example|schema||blanc||EXECUTE|G
+example|schema||blanc||INDEX|G
+example|schema||blanc||INSERT|G
+example|schema||blanc||LOCK TABLES|G
+example|schema||blanc||REFERENCES|G
+example|schema||blanc||SELECT|G
+example|schema||blanc||SHOW VIEW|G
+example|schema||blanc||TRIGGER|G
+example|schema||blanc||UPDATE|G</Grants>
       <ServerVersion>10.6.5</ServerVersion>
     </root>
     <collation id="2" parent="1" name="big5_chinese_ci">
@@ -1036,47 +1036,8 @@ databasename|schema||blanc||UPDATE|G</Grants>
     </schema>
     <schema id="325" parent="1" name="example">
       <Current>1</Current>
-      <Grants>example|||blanc||ALTER|G
-example|||blanc||CREATE|G
-example|||blanc||CREATE VIEW|G
-example|||blanc||DELETE|G
-example|||blanc||DELETE HISTORY|G
-example|||blanc||DROP|G
-example|||blanc||INDEX|G
-example|||blanc||INSERT|G
-example|||blanc||REFERENCES|G
-example|||blanc||SELECT|G
-example|||blanc||SHOW VIEW|G
-example|||blanc||TRIGGER|G
-example|||blanc||UPDATE|G
-member|||blanc||ALTER|G
-member|||blanc||CREATE|G
-member|||blanc||CREATE VIEW|G
-member|||blanc||DELETE|G
-member|||blanc||DELETE HISTORY|G
-member|||blanc||DROP|G
-member|||blanc||INDEX|G
-member|||blanc||INSERT|G
-member|||blanc||REFERENCES|G
-member|||blanc||SELECT|G
-member|||blanc||SHOW VIEW|G
-member|||blanc||TRIGGER|G
-member|||blanc||UPDATE|G
-test|||blanc||ALTER|G
-test|||blanc||CREATE|G
-test|||blanc||CREATE VIEW|G
-test|||blanc||DELETE|G
-test|||blanc||DELETE HISTORY|G
-test|||blanc||DROP|G
-test|||blanc||INDEX|G
-test|||blanc||INSERT|G
-test|||blanc||REFERENCES|G
-test|||blanc||SELECT|G
-test|||blanc||SHOW VIEW|G
-test|||blanc||TRIGGER|G
-test|||blanc||UPDATE|G</Grants>
-      <IntrospectionTimestamp>2023-09-16.02:42:34</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-09-15.08:42:34</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-09-16.07:28:10</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-09-15.13:28:10</LocalIntrospectionTimestamp>
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
     <user id="326" parent="1" name="blanc"/>

@@ -11,16 +11,16 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet(name = "FrontController", urlPatterns = "/day03/join-membership/*")
+@WebServlet(name = "FrontController", urlPatterns = "/day03/front-controller/*")
 public class FrontController extends HttpServlet {
 	
 	private final Map<String, Controller> controllerMap = new HashMap<>();
 	
 	public FrontController() {
-		controllerMap.put("join-save", new MemberInsertController(new MemberService()));
-		controllerMap.put("join-select", new MemberSelectController(new MemberService()));
-		controllerMap.put("join-delete", new MemberDeleteController(new MemberService()));
-		controllerMap.put("member-list", new MemberListController(new MemberService()));
+		controllerMap.put("/day03/front-controller/join-save", new MemberInsertController(new MemberService()));
+		controllerMap.put("/day03/front-controller/join-select", new MemberSelectController(new MemberService()));
+		controllerMap.put("/day03/front-controller/join-delete", new MemberDeleteController(new MemberService()));
+		controllerMap.put("/day03/front-controller/member-list", new MemberListController(new MemberService()));
 	}
 	
 	@Override

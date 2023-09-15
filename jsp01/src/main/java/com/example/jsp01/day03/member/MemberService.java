@@ -98,15 +98,15 @@ public class MemberService {
 	
 	public Member removeMember(Member member) {
 		connectDB();
-		String name = member.getName();
+		String id = member.getName();
 		String pw = member.getPw();
 		
-		Member deleteMember = new Member(name, null, null, null);
-		String sql = "DELETE FROM MEMBER WHERE NAME = ? AND PASSWORD = ?;";
+		Member deleteMember = new Member(id, null, null, null);
+		String sql = "DELETE FROM MEMBER WHERE NAME = ?;";
 		try {
 			ps = conn.prepareStatement(sql);
-			ps.setString(1, name);
-			ps.setString(2, pw);
+			ps.setString(1, id);
+//			ps.setString(2, pw);
 			
 			result = ps.executeUpdate();
 			conn.close();
@@ -117,7 +117,7 @@ public class MemberService {
 	}
 	
 	private void connectDB() {
-		String url = "jdbc:mariadb:/localhost:3307/member";
+		String url = "jdbc:mariadb://localhost:3307/example";
 		String id = "blanc";
 		String pw = "1234";
 		try {

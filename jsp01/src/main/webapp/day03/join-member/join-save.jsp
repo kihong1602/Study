@@ -1,3 +1,5 @@
+<%@ page import="com.example.jsp01.day03.member.Member" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: kks45
@@ -12,6 +14,7 @@
     <title>Title</title>
 </head>
 <body>
+<h1>join-membership!</h1>
 
 </body>
 </html>

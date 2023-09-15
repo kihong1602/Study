@@ -21,7 +21,7 @@ public class MemberSelectController implements Controller {
 	public MyView process(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
-		String viewPath = "/day03/joinMember/join-select.jsp";
+		String viewPath = "/day03/join-member/join-select.jsp";
 		String id = request.getParameter("userID");
 		String name = request.getParameter("userName");
 		String email = request.getParameter("userEmail");
