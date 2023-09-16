@@ -35,7 +35,7 @@ public class MemberService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return new Member(name, id, pw, email);
+		return new Member(id, pw, name, email);
 	}
 	
 	public Member getMember(Member member) {
@@ -60,7 +60,7 @@ public class MemberService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return new Member(name, id, password, email);
+		return new Member(id, password, name, email);
 	}
 	
 	public List<Member> getUserList() {
@@ -85,7 +85,7 @@ public class MemberService {
 				name = resultSet.getString("NAME");
 				email = resultSet.getString("EMAIL");
 				
-				Member member = new Member(name, id, pw, email);
+				Member member = new Member(id, pw, name, email);
 				memberList.add(member);
 			}
 			
@@ -98,17 +98,17 @@ public class MemberService {
 	
 	public Member removeMember(Member member) {
 		connectDB();
-		String id = member.getName();
+		String id = member.getId();
 		String pw = member.getPw();
 		
 		Member deleteMember = new Member(id, null, null, null);
-		String sql = "DELETE FROM MEMBER WHERE NAME = ?;";
+		String sql = "DELETE FROM MEMBER WHERE ID = ?;";
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
 //			ps.setString(2, pw);
 			
-			result = ps.executeUpdate();
+			ps.execute();
 			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();

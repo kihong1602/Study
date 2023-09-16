@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.jsp01.day03.member.Member" %><%--
   Created by IntelliJ IDEA.
   User: kks45
   Date: 2023-09-15
@@ -12,6 +12,15 @@
     <title>Title</title>
 </head>
 <body>
+<% Member member = (Member) request.getAttribute("selectMember");
+    String id = member.getId();
+    String pw = member.getPw();
+%>
 <h1>member-select</h1>
+<h3>id : <%= id%>
+</h3>
+<h3>password : <%= pw%>
+</h3>
+
 </body>
 </html>

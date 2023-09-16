@@ -17,10 +17,14 @@ public class FrontController extends HttpServlet {
 	private final Map<String, Controller> controllerMap = new HashMap<>();
 	
 	public FrontController() {
-		controllerMap.put("/day03/front-controller/join-save", new MemberInsertController(new MemberService()));
-		controllerMap.put("/day03/front-controller/join-select", new MemberSelectController(new MemberService()));
-		controllerMap.put("/day03/front-controller/join-delete", new MemberDeleteController(new MemberService()));
-		controllerMap.put("/day03/front-controller/member-list", new MemberListController(new MemberService()));
+		controllerMap.put("/day03/front-controller/join-save",
+				new MemberInsertController(new MemberService()));
+		controllerMap.put("/day03/front-controller/join-select",
+				new MemberSelectController(new MemberService()));
+		controllerMap.put("/day03/front-controller/join-delete",
+				new MemberDeleteController(new MemberService()));
+		controllerMap.put("/day03/front-controller/member-list",
+				new MemberListController(new MemberService()));
 	}
 	
 	@Override

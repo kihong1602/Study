@@ -15,6 +15,17 @@
 </head>
 <body>
 <h1>join-membership!</h1>
-
+<%
+    Member member = (Member) request.getAttribute("saveMember");
+    String id = member.getId();
+    String name = member.getName();
+    String email = member.getEmail();
+%>
+<h3>id : <%= id%>
+</h3>
+<h3>name : <%= name%>
+</h3>
+<h3>email : <%= email%>
+</h3>
 </body>
 </html>
