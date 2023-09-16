@@ -25,7 +25,7 @@
 
   <br>
 - jquery에서 ajax를 사용해 지정한 url로 request
-  - 해당 url에서 `request.getParamet()`로 cookie생성 조건을 확인하고,
+  - 해당 url에서 `request.getParameter()`로 cookie생성 조건을 확인하고,
   - 조건이 맞다면 Cookie생성
     - `setMaxAge()`,`setPath()`를 사용해 쿠키 유지기간과 보낼 경로 설정
     - `response.addCookie()`로 response에 cookie를 담아서 전송.
