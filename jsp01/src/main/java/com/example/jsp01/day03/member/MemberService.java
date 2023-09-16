@@ -102,11 +102,11 @@ public class MemberService {
 		String pw = member.getPw();
 		
 		Member deleteMember = new Member(id, null, null, null);
-		String sql = "DELETE FROM MEMBER WHERE ID = ?;";
+		String sql = "DELETE FROM MEMBER WHERE ID = ? AND PASSWORD = ?;";
 		try {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
-//			ps.setString(2, pw);
+			ps.setString(2, pw);
 			
 			ps.execute();
 			conn.close();

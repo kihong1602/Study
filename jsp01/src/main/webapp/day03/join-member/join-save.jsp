@@ -21,11 +21,11 @@
     String name = member.getName();
     String email = member.getEmail();
 %>
-<h3>id : <%= id%>
-</h3>
-<h3>name : <%= name%>
-</h3>
-<h3>email : <%= email%>
+<hr>
+<h2>Save Complete</h2>
+<h3>ID || NAME || EMAIL</h3>
+<h3>-------------------</h3>
+<h3><%= id%> || <%= name%> || <%= email%>
 </h3>
 </body>
 </html>

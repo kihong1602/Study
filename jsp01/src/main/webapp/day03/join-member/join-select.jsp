@@ -16,11 +16,12 @@
     String id = member.getId();
     String pw = member.getPw();
 %>
-<h1>member-select</h1>
-<h3>id : <%= id%>
+<h1>Find-Password</h1>
+<hr>
+<h2>Password Find Complete</h2>
+<h3>ID || PASSWORD</h3>
+<h3>--------------</h3>
+<h3><%= id%> || <%= pw%>
 </h3>
-<h3>password : <%= pw%>
-</h3>
-
 </body>
 </html>

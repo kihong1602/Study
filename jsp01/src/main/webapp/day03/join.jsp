@@ -38,12 +38,12 @@
 <br>
 <hr>
 <br>
-<h2>회원검색</h2>
-<form id="selectMember" action="front-controller/join-select" method="post">
+<h2>비밀번호 찾기</h2>
+<form id="findPw" action="front-controller/join-select" method="post">
     <div><input type="text" name="userID" placeholder="ID" required></div>
     <div><input type="text" name="userName" placeholder="Name"></div>
     <div><input type="email" name="userEmail" placeholder="Email"></div>
-    <input type="submit" value="회원검색">
+    <input type="submit" value="비밀번호 찾기">
 </form>
 <br>
 <hr>

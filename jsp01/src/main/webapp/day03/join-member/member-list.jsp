@@ -14,6 +14,10 @@
 </head>
 <body>
 <h1>member-list</h1>
+<hr>
+<h2>List Search Complete</h2>
+<h3>ID || PW || NAME || EMAIL</h3>
+<h3>-------------------------</h3>
 <%
     ArrayList<Member> memberList = (ArrayList<Member>) request.getAttribute("memberList");
     for (Member member : memberList) {
@@ -26,5 +30,6 @@
         out.println("</h3>");
     }
 %>
+<h3>-------------------------</h3>
 </body>
 </html>
