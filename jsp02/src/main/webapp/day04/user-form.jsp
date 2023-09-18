@@ -219,7 +219,7 @@
 
   $("#btnIDCheck").on("click", function () {
     $.ajax({
-      url: "idCheck.jsp",
+      url: "front-controller/user/id-check",
       data: {
         userID: $("#userID").val(),
       },

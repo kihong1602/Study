@@ -1,6 +1,7 @@
 package com.example.jsp02.day04.frontController;
 
 import com.example.jsp02.day04.controller.Controller;
+import com.example.jsp02.day04.controller.IdCheckController;
 import com.example.jsp02.day04.controller.UserListController;
 import com.example.jsp02.day04.controller.UserRemoveController;
 import com.example.jsp02.day04.controller.UserSaveController;
@@ -31,6 +32,8 @@ public class FrontController extends HttpServlet {
 				new UserListController(new UserService()));
 		controllerMap.put("/day04/front-controller/user/user-remove",
 				new UserRemoveController(new UserService()));
+		controllerMap.put("/day04/front-controller/user/id-check",
+				new IdCheckController(new UserService()));
 	}
 	
 	@Override

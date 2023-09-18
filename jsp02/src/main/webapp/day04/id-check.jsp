@@ -8,7 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    int count = (int) request.getAttribute("count");
-    Map<String, Integer> map = new HashMap<>();
-
+    response.setContentType("application/json; charset= UTF-8");
+    String json = (String) request.getAttribute("count");
+    out.println(json);
 %>

@@ -1,13 +1,16 @@
 package com.example.jsp02.day04.service;
 
 import com.example.jsp02.day04.entity.User;
+import com.google.gson.Gson;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UserService {
 	
@@ -149,7 +152,7 @@ public class UserService {
 		return userList;
 	}
 	
-	public int idCheck(User user) {
+	public String idCheck(User user) {
 		connectDB();
 		String id = user.getId();
 		int result = 0;
@@ -171,8 +174,11 @@ public class UserService {
 			e.printStackTrace();
 			
 		}
-		
-		return result;
+		Map<String, Integer> map = new HashMap<>();
+		map.put("count", result);
+		Gson gson = new Gson();
+		String json = gson.toJson(map);
+		return json;
 	}
 	
 	public void connectDB() {
