@@ -7,7 +7,10 @@ import com.example.jsp02.day04.controller.UserListController;
 import com.example.jsp02.day04.controller.UserRemoveController;
 import com.example.jsp02.day04.controller.UserSaveController;
 import com.example.jsp02.day04.controller.UserSelectController;
+import com.example.jsp02.day04.entity.User;
+import com.example.jsp02.day04.service.UserService;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -15,15 +18,17 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+@WebServlet(name = "front-controller", urlPatterns = "/day04/front-controller/user/*")
 public class FrontController extends HttpServlet {
 	
-	private Map<String, Controller> controllerMap;
+	private final Map<String, Controller> controllerMap = new HashMap<>();
 	
 	public FrontController() {
-		controllerMap.put("/front-controller/user/user-save", new UserSaveController());
-		controllerMap.put("/front-controller/user/user-select", new UserSelectController());
-		controllerMap.put("/front-controller/user/user-list", new UserListController());
-		controllerMap.put("/front-controller/user/user-remove", new UserRemoveController());
+		controllerMap.put("/day04/front-controller/user/user-save",
+				new UserSaveController(new UserService()));
+		controllerMap.put("/day04/front-controller/user/user-select", new UserSelectController(new UserService()));
+		controllerMap.put("/day04/front-controller/user/user-list", new UserListController(new UserService()));
+		controllerMap.put("/day04/front-controller/user/user-remove", new UserRemoveController(new UserService()));
 	}
 	
 	@Override
@@ -46,7 +51,7 @@ public class FrontController extends HttpServlet {
 	}
 	
 	private MyView viewResolver(String viewName) {
-		return new MyView("/day04/"+viewName+".jsp");
+		return new MyView("/day04/" + viewName + ".jsp");
 	}
 	
 	private HashMap<String, String> createParamMap(HttpServletRequest request) {

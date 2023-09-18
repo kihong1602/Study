@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.jsp02.day04.entity.User" %><%--
   Created by IntelliJ IDEA.
   User: kks45
   Date: 2023-09-18
@@ -12,6 +12,9 @@
     <title>Title</title>
 </head>
 <body>
-
+<%
+    User user = (User)request.getAttribute("removeUser");
+%>
+<h2>Delete Complete <%=user.getId()%></h2>
 </body>
 </html>

@@ -1,4 +1,5 @@
-<%--
+<%@ page import="java.util.Map" %>
+<%@ page import="com.example.jsp02.day04.entity.User" %><%--
   Created by IntelliJ IDEA.
   User: kks45
   Date: 2023-09-18
@@ -9,9 +10,17 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>user save</title>
 </head>
 <body>
-
+<%
+    User saveUser = (User) request.getAttribute("saveUser");
+%>
+<h2><%= saveUser.getNo()%>
+</h2>
+<h2><%= saveUser.getId()%>
+</h2>
+<h2><%= saveUser.getName()%>
+</h2>
 </body>
 </html>

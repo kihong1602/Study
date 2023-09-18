@@ -5,26 +5,24 @@ import com.example.jsp02.day04.entity.User;
 import com.example.jsp02.day04.service.UserService;
 import java.util.Map;
 
-public class UserSelectController implements Controller {
+public class IdCheckController implements Controller {
 	
 	UserService userService;
 	
-	public UserSelectController(UserService userService) {
+	public IdCheckController(UserService userService) {
 		this.userService = userService;
 	}
 	
 	@Override
 	public ModelView process(Map<String, String> paramMap) {
-		String viewName = "user-select";
+		String viewName = "user/id-check";
 		
 		String id = paramMap.get("userID");
-		
 		User user = new User.UserBuilder(id).build();
-		User selectUser = userService.selectUser(user);
+		int count = userService.idCheck(user);
 		
 		ModelView modelView = new ModelView(viewName);
-		modelView.getModel().put("selectUser",selectUser);
-		
+		modelView.getModel().put("count",count);
 		return modelView;
 	}
 }

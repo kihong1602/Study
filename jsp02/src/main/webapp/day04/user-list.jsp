@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.example.jsp02.day04.entity.User" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: kks45
   Date: 2023-09-18
@@ -12,6 +13,12 @@
     <title>Title</title>
 </head>
 <body>
+    <%
+        List<User> userList = (List<User>) request.getAttribute("userList");
+		for(User user : userList){
+			out.println(user.toString()+"<br>");
 
+        }
+    %>
 </body>
 </html>
