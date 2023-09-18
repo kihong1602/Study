@@ -1,8 +1,8 @@
 package com.example.jsp02.day04.controller;
 
-import com.example.jsp02.day04.View.ModelView;
 import com.example.jsp02.day04.entity.User;
 import com.example.jsp02.day04.service.UserService;
+import com.example.jsp02.day04.view.ModelView;
 import java.util.Map;
 
 public class IdCheckController implements Controller {
@@ -22,7 +22,7 @@ public class IdCheckController implements Controller {
 		int count = userService.idCheck(user);
 		
 		ModelView modelView = new ModelView(viewName);
-		modelView.getModel().put("count",count);
+		modelView.getModel().put("count", count);
 		return modelView;
 	}
 }

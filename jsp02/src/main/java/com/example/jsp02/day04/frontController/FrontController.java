@@ -1,14 +1,13 @@
 package com.example.jsp02.day04.frontController;
 
-import com.example.jsp02.day04.View.ModelView;
-import com.example.jsp02.day04.View.MyView;
 import com.example.jsp02.day04.controller.Controller;
 import com.example.jsp02.day04.controller.UserListController;
 import com.example.jsp02.day04.controller.UserRemoveController;
 import com.example.jsp02.day04.controller.UserSaveController;
 import com.example.jsp02.day04.controller.UserSelectController;
-import com.example.jsp02.day04.entity.User;
 import com.example.jsp02.day04.service.UserService;
+import com.example.jsp02.day04.view.ModelView;
+import com.example.jsp02.day04.view.MyView;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -26,9 +25,12 @@ public class FrontController extends HttpServlet {
 	public FrontController() {
 		controllerMap.put("/day04/front-controller/user/user-save",
 				new UserSaveController(new UserService()));
-		controllerMap.put("/day04/front-controller/user/user-select", new UserSelectController(new UserService()));
-		controllerMap.put("/day04/front-controller/user/user-list", new UserListController(new UserService()));
-		controllerMap.put("/day04/front-controller/user/user-remove", new UserRemoveController(new UserService()));
+		controllerMap.put("/day04/front-controller/user/user-select",
+				new UserSelectController(new UserService()));
+		controllerMap.put("/day04/front-controller/user/user-list",
+				new UserListController(new UserService()));
+		controllerMap.put("/day04/front-controller/user/user-remove",
+				new UserRemoveController(new UserService()));
 	}
 	
 	@Override
