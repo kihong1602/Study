@@ -7,17 +7,19 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="layout/header.jsp" %>
+<%@include file="/layout/header.jsp" %>
 <%
     ArrayList<Object> list = (ArrayList<Object>) request.getAttribute("loginCheck");
     boolean check = (boolean) list.get(0);
     String id = (String) list.get(1);
     String name = (String) list.get(2);
+    session.setAttribute("loggedID", id);
+    session.setAttribute("loggedName", name);
 
     if (check) {
-        ScriptWriter.alertAndNext(response, "로그인성공!", "/join/info.jsp");
+        ScriptWriter.alertAndNext(response, "로그인성공!", "/join/user/user-select?userID=" + id);
     } else {
         ScriptWriter.alertAndBack(response, "로그인 실패..");
     }
 %>
-<%@include file="layout/footer.jsp" %>
+<%@include file="/layout/footer.jsp" %>

@@ -48,12 +48,16 @@ public class UserService {
 			} else {
 				System.out.println("저장 실패");
 			}
-			sql = "SELECT no FROM user WHERE ID = ?;";
+			sql = "SELECT * FROM user WHERE ID = ?;";
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, id);
 			resultSet = ps.executeQuery();
 			while (resultSet.next()) {
-				no = resultSet.getInt(1);
+				no = resultSet.getInt("NO");
+				String confirmEmail = resultSet.getString("EMAIL");
+				String confirmTel = resultSet.getString("TEL");
+				System.out.println(confirmTel);
+				System.out.println(confirmEmail);
 			}
 			resultSet.close();
 			connection.close();
@@ -217,6 +221,96 @@ public class UserService {
 		list.add(id);
 		list.add(name);
 		return list;
+	}
+	
+	public User checkUser(User user) {
+		connectDB();
+		String id = user.getId();
+		String pw = user.getPassword();
+		String name = null;
+		int postcode = 0;
+		String address = null;
+		String addressDetail = null;
+		String email = null;
+		String tel = null;
+		String sql = "SELECT NAME,POSTCODE, ADDRESS,ADDRESS_DETAIL,EMAIL,TEL FROM USER WHERE ID = ? AND PASSWORD = ?;";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, pw);
+			
+			resultSet = ps.executeQuery();
+			if (resultSet.next()) {
+				name = resultSet.getString("NAME");
+				postcode = resultSet.getInt("POSTCODE");
+				address = resultSet.getString("ADDRESS");
+				addressDetail = resultSet.getString("ADDRESS_DETAIL");
+				email = resultSet.getString("EMAIL");
+				tel = resultSet.getString("TEL");
+			}
+			resultSet.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return new User.UserBuilder(id).name(name).postcode(postcode).address(address)
+				.addressDetail(addressDetail).email(email).tel(tel).build();
+	}
+	
+	public User InfoUpdate(User user) {
+		connectDB();
+		String id = user.getId();
+		String name = "";
+		String email = user.getEmail();
+		String tel = user.getTel();
+		int postcode = user.getPostcode();
+		String address = user.getAddress();
+		String addressDetail = user.getAddressDetail();
+		String regDate = "";
+		
+		String sql = "UPDATE USER SET TEL =?,EMAIL=?,ADDRESS = ?, ADDRESS_DETAIL = ?,POSTCODE = ? WHERE ID = ?;";
+		System.out.println(postcode + address + addressDetail + email + tel + id);
+		
+		try {
+			ps = connection.prepareStatement(sql);
+			
+			ps.setString(1, tel);
+			ps.setString(2, email);
+			ps.setString(3, address);
+			ps.setString(4, addressDetail);
+			ps.setInt(5, postcode);
+			ps.setString(6, id);
+			
+			int result = ps.executeUpdate();
+			if (result <= 0) {
+				System.out.println("업데이트 실패");
+			} else {
+				System.out.println("업데이트 성공");
+				sql = "SELECT POSTCODE, FROM USER WHERE ID = ?;";
+				ps = connection.prepareStatement(sql);
+				ps.setString(1, id);
+				
+				resultSet = ps.executeQuery();
+				if (resultSet.next()) {
+					id = resultSet.getString("ID");
+					name = resultSet.getString("NAME");
+					email = resultSet.getString("EMAIL");
+					tel = resultSet.getString("TEL");
+					postcode = resultSet.getInt("POSTCODE");
+					address = resultSet.getString("ADDRESS");
+					addressDetail = resultSet.getString("ADDRESS_DETAIL");
+					regDate = resultSet.getString("REG_DATE");
+				}
+			}
+			resultSet.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return new User.UserBuilder(id).name(name).email(email).tel(tel)
+				.postcode(postcode)
+				.address(address).addressDetail(addressDetail).regDate(regDate).build();
 	}
 	
 	public void connectDB() {

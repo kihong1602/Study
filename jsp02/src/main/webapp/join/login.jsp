@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="layout/header.jsp" %>
+<%@include file="../layout/header.jsp" %>
 <main>
     <div class="form-signin w-100 m-auto">
         <form action="user/user-login" method="post">
@@ -34,4 +34,4 @@
         </form>
     </div>
 </main>
-<%@include file="layout/footer.jsp" %>
+<%@include file="../layout/footer.jsp" %>

@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<%@include file="layout/header.jsp" %>
+<%@include file="../layout/header.jsp" %>
 <div class="form-signin w-100 m-auto">
     <form action="user/user-select" method="post">
         <div class="form-floating">
@@ -15,12 +15,7 @@
                    placeholder="ID">
             <label for="userID">userID</label>
         </div>
-        <div class="form-floating">
-            <input type="password" class="form-control" id="userPW" name="userPW"
-                   placeholder="Password">
-            <label for="userPW">Password</label>
-        </div>
         <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>
     </form>
 </div>
-<<%@include file="layout/footer.jsp" %>
+<<%@include file="../layout/footer.jsp" %>

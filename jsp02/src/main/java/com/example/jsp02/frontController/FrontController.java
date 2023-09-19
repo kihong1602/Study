@@ -4,6 +4,8 @@ import com.example.jsp02.View.ModelView;
 import com.example.jsp02.View.MyView;
 import com.example.jsp02.controller.Controller;
 import com.example.jsp02.controller.IdCheckController;
+import com.example.jsp02.controller.UserInfoModifiedController;
+import com.example.jsp02.controller.UserInfoUpdateController;
 import com.example.jsp02.controller.UserListController;
 import com.example.jsp02.controller.UserLoginController;
 import com.example.jsp02.controller.UserRemoveController;
@@ -37,6 +39,10 @@ public class FrontController extends HttpServlet {
 				new IdCheckController(new UserService()));
 		controllerMap.put("/join/user/user-login",
 				new UserLoginController(new UserService()));
+		controllerMap.put("/join/user/user-modified",
+				new UserInfoModifiedController(new UserService()));
+		controllerMap.put("/join/user/user-update",
+				new UserInfoUpdateController(new UserService()));
 	}
 	
 	@Override
@@ -59,7 +65,7 @@ public class FrontController extends HttpServlet {
 	}
 	
 	private MyView viewResolver(String viewName) {
-		return new MyView("/join/" + viewName + ".jsp");
+		return new MyView("/join/process/" + viewName + ".jsp");
 	}
 	
 	private HashMap<String, String> createParamMap(HttpServletRequest request) {

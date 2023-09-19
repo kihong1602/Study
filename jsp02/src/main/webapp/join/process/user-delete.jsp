@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@include file="layout/header.jsp" %>
+<%@include file="/layout/header.jsp" %>
 <%
     User user = (User) request.getAttribute("removeUser");
 %>
@@ -14,4 +14,4 @@
 <h2>Delete Complete <%=user.getId()%>
 </h2>
 <hr>
-<%@include file="layout/footer.jsp" %>
+<%@include file="/layout/footer.jsp" %>

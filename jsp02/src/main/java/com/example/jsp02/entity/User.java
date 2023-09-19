@@ -22,6 +22,8 @@ public class User {
 		this.address = userBuilder.address;
 		this.addressDetail = userBuilder.addressDetail;
 		this.regDate = userBuilder.regDate;
+		this.email = userBuilder.email;
+		this.tel = userBuilder.tel;
 	}
 	
 	@Override
