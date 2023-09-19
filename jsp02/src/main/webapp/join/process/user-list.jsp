@@ -7,12 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<%@include file="/layout/header.jsp" %>
 <%
     List<User> userList = (List<User>) request.getAttribute("userList");
     for (User user : userList) {
@@ -20,5 +15,4 @@
         out.println("<hr>");
     }
 %>
-</body>
-</html>
+<%@include file="/layout/footer.jsp" %>

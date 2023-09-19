@@ -3,7 +3,6 @@ package com.example.jsp02.controller;
 import com.example.jsp02.View.ModelView;
 import com.example.jsp02.entity.User;
 import com.example.jsp02.service.UserService;
-import java.util.List;
 import java.util.Map;
 
 public class UserLoginController implements Controller {
@@ -20,7 +19,7 @@ public class UserLoginController implements Controller {
 		String pw = paramMap.get("userPW");
 		
 		User user = new User.UserBuilder(id).password(pw).build();
-		List<Object> loginCheck = userService.loginCheck(user);
+		Map<String, Object> loginCheck = userService.loginCheck(user);
 		
 		String viewName = "user-login";
 		

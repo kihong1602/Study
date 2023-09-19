@@ -6,12 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+<%@include file="/layout/header.jsp" %>
+<%
+    session.removeAttribute("loggedID");
+    session.removeAttribute("loggedName");
+%>
+<h2>로그아웃 완료</h2>
+<%@include file="/layout/footer.jsp" %>

@@ -1,5 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="com.example.jsp02.alert.ScriptWriter" %><%--
+<%@ page import="com.example.jsp02.alert.ScriptWriter" %>
+<%@ page import="java.util.HashMap" %><%--
   Created by IntelliJ IDEA.
   User: kks45
   Date: 2023-09-19
@@ -9,10 +10,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/layout/header.jsp" %>
 <%
-    ArrayList<Object> list = (ArrayList<Object>) request.getAttribute("loginCheck");
-    boolean check = (boolean) list.get(0);
-    String id = (String) list.get(1);
-    String name = (String) list.get(2);
+    HashMap<String, Object> loginMap = (HashMap<String, Object>) request.getAttribute("loginCheck");
+    boolean check = (boolean) loginMap.get("check");
+    String id = (String) loginMap.get("userID");
+    String name = (String) loginMap.get("userName");
+
     session.setAttribute("loggedID", id);
     session.setAttribute("loggedName", name);
 

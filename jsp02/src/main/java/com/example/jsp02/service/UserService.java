@@ -191,10 +191,10 @@ public class UserService {
 		return json;
 	}
 	
-	public List<Object> loginCheck(User user) {
+	public Map<String, Object> loginCheck(User user) {
 		connectDB();
 		boolean check = false;
-		List<Object> list = new ArrayList<>();
+		Map<String, Object> loginMap = new HashMap<>();
 		String id = user.getId();
 		String pw = user.getPassword();
 		String name = "";
@@ -217,10 +217,10 @@ public class UserService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		list.add(check);
-		list.add(id);
-		list.add(name);
-		return list;
+		loginMap.put("check", check);
+		loginMap.put("userID", id);
+		loginMap.put("userName", name);
+		return loginMap;
 	}
 	
 	public User checkUser(User user) {
@@ -270,7 +270,6 @@ public class UserService {
 		String regDate = "";
 		
 		String sql = "UPDATE USER SET TEL =?,EMAIL=?,ADDRESS = ?, ADDRESS_DETAIL = ?,POSTCODE = ? WHERE ID = ?;";
-		System.out.println(postcode + address + addressDetail + email + tel + id);
 		
 		try {
 			ps = connection.prepareStatement(sql);
@@ -287,7 +286,7 @@ public class UserService {
 				System.out.println("업데이트 실패");
 			} else {
 				System.out.println("업데이트 성공");
-				sql = "SELECT POSTCODE, FROM USER WHERE ID = ?;";
+				sql = "SELECT * FROM USER WHERE ID = ?;";
 				ps = connection.prepareStatement(sql);
 				ps.setString(1, id);
 				
