@@ -1,4 +1,5 @@
-<%@ page import="com.example.jsp02.day04.entity.User" %><%--
+<%@ page import="com.example.jsp02.entity.User" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: kks45
   Date: 2023-09-18
@@ -13,8 +14,11 @@
 </head>
 <body>
 <%
-    User user = (User)request.getAttribute("removeUser");
+    List<User> userList = (List<User>) request.getAttribute("userList");
+    for (User user : userList) {
+        out.println(user.toString() + "<br>");
+        out.println("<hr>");
+    }
 %>
-<h2>Delete Complete <%=user.getId()%></h2>
 </body>
 </html>

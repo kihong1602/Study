@@ -1,8 +1,8 @@
-package com.example.jsp02.day04.controller;
+package com.example.jsp02.controller;
 
-import com.example.jsp02.day04.entity.User;
-import com.example.jsp02.day04.service.UserService;
-import com.example.jsp02.day04.view.ModelView;
+import com.example.jsp02.View.ModelView;
+import com.example.jsp02.entity.User;
+import com.example.jsp02.service.UserService;
 import java.util.Map;
 
 public class UserSelectController implements Controller {

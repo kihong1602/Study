@@ -1,6 +1,6 @@
-package com.example.jsp02.day04.service;
+package com.example.jsp02.service;
 
-import com.example.jsp02.day04.entity.User;
+import com.example.jsp02.entity.User;
 import com.google.gson.Gson;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -26,9 +26,11 @@ public class UserService {
 		int postCode = user.getPostcode();
 		String address = user.getAddress();
 		String addressDetail = user.getAddressDetail();
+		String email = user.getEmail();
+		String tel = user.getTel();
 		
 		int no = 0;
-		String sql = "INSERT INTO USER(id,password,name,postcode,address,address_detail) VALUES(?,?,?,?,?,?);";
+		String sql = "INSERT INTO USER(id,password,name,postcode,address,address_detail,email,tel) VALUES(?,?,?,?,?,?,?,?);";
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, id);
@@ -37,6 +39,8 @@ public class UserService {
 			ps.setString(4, String.valueOf(postCode));
 			ps.setString(5, address);
 			ps.setString(6, addressDetail);
+			ps.setString(7, email);
+			ps.setString(8, tel);
 			
 			int result = ps.executeUpdate();
 			if (result > 0) {
@@ -134,10 +138,12 @@ public class UserService {
 				String address = resultSet.getString(6);
 				String addressDetail = resultSet.getString(7);
 				String regDate = resultSet.getString(8);
+				String email = resultSet.getString(9);
+				String tel = resultSet.getString(10);
 				
 				User user = new User.UserBuilder(id).password(pw).no(no).name(name)
 						.postcode(postCode).address(address).addressDetail(addressDetail)
-						.regDate(regDate).build();
+						.regDate(regDate).email(email).tel(tel).build();
 				
 				userList.add(user);
 			}
@@ -157,7 +163,7 @@ public class UserService {
 		String id = user.getId();
 		int result = 0;
 		
-		String sql = "select count(*) AS count from user where id = ?";
+		String sql = "SELECT count(*) AS count FROM USER WHERE id = ?";
 		
 		try {
 			PreparedStatement ps = connection.prepareStatement(sql);
@@ -179,6 +185,38 @@ public class UserService {
 		Gson gson = new Gson();
 		String json = gson.toJson(map);
 		return json;
+	}
+	
+	public List<Object> loginCheck(User user) {
+		connectDB();
+		boolean check = false;
+		List<Object> list = new ArrayList<>();
+		String id = user.getId();
+		String pw = user.getPassword();
+		String name = "";
+		String sql = "SELECT ID, NAME FROM USER WHERE ID = ? AND PASSWORD = ?;";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, pw);
+			
+			resultSet = ps.executeQuery();
+			
+			if (resultSet.next()) {
+				check = true;
+				id = resultSet.getString(1);
+				name = resultSet.getString(2);
+			}
+			System.out.println(check);
+			resultSet.close();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		list.add(check);
+		list.add(id);
+		list.add(name);
+		return list;
 	}
 	
 	public void connectDB() {

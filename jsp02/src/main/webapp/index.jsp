@@ -7,9 +7,12 @@
 <body>
 <h1><%= "Hello World!" %>
 </h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+
 <br><br>
-<a href="day04/user-form.jsp">User Login</a>
+<a href="join/user-form.jsp">user join</a>
+<br>
+<hr>
+<br>
+<a href="join/login.jsp">user login</a>
 </body>
 </html>

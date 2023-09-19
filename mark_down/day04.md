@@ -70,7 +70,7 @@
     String json = gson.toJson(map);
     return json;
         }
-    ```
+```
 
 `idCheck()`에서 출력값을 json형식으로 만들어준 다음 반환. ViewPath는 `/day04/id-check.jsp`로 설정해줌.
 
@@ -78,7 +78,6 @@
 <%@ page import="java.util.Map" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <%
     response.setContentType("application/json; charset= UTF-8");
     String json = (String) request.getAttribute("count");

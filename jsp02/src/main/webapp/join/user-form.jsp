@@ -5,20 +5,10 @@
   Time: 오전 9:09
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8"/>
-    <title>Insert title here</title>
-    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
-    <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/jquery-3.7.1.min.js"></script>
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-</head>
-<body>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@include file="layout/header.jsp" %>
 <div class="container">
-    <form action="front-controller/user/user-save" method="post" class="" name="member">
+    <form action="user/user-save" method="post" class="" name="member">
         <div class="row d-flex justify-content-center mt-5">
             <div class="col-6">
                 <div class="mb-3">
@@ -61,6 +51,24 @@
         <div class="row d-flex justify-content-center">
             <div class="col-6">
                 <div class="mb-3">
+                    <label for="userEmail" class="form-label">Email</label>
+                    <input type="text" class="form-control" id="userEmail" name="userEmail"
+                           placeholder="Email"/>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label for="userTel" class="form-label">Tel</label>
+                    <input type="text" class="form-control" id="userTel" name="userTel"
+                           placeholder="Tel"/>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-6">
+                <div class="mb-3">
                     <label for="postCode" class="form-label">ZipCode</label>
                     <input type="text" class="form-control" id="postCode" placeholder="post code"
                            name="postCode"/>
@@ -96,7 +104,7 @@
         </div>
     </form>
 </div>
-<form action="front-controller/user/user-remove" method="post">
+<form action="user/user-remove" method="post">
     <div class="mt-5 mb-5 d-flex justify-content-center">
         <div class="col-6">
             <div class="mb-3">
@@ -122,7 +130,7 @@
     </div>
 </form>
 
-<form action="front-controller/user/user-list" method="post">
+<form action="user/user-list" method="post">
     <div class="mt-5 mb-5 d-flex justify-content-center">
         <div class="col-6">
             <button type="submit" class="btn btn-primary" id="btnSubmit2">모든 회원 조회</button>
@@ -219,7 +227,7 @@
 
   $("#btnIDCheck").on("click", function () {
     $.ajax({
-      url: "front-controller/user/id-check",
+      url: "user/id-check",
       data: {
         userID: $("#userID").val(),
       },
@@ -244,5 +252,4 @@
     })
   })
 </script>
-</body>
-</html>
+<%@include file="layout/footer.jsp" %>

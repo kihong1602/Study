@@ -1,14 +1,15 @@
-package com.example.jsp02.day04.frontController;
+package com.example.jsp02.frontController;
 
-import com.example.jsp02.day04.controller.Controller;
-import com.example.jsp02.day04.controller.IdCheckController;
-import com.example.jsp02.day04.controller.UserListController;
-import com.example.jsp02.day04.controller.UserRemoveController;
-import com.example.jsp02.day04.controller.UserSaveController;
-import com.example.jsp02.day04.controller.UserSelectController;
-import com.example.jsp02.day04.service.UserService;
-import com.example.jsp02.day04.view.ModelView;
-import com.example.jsp02.day04.view.MyView;
+import com.example.jsp02.View.ModelView;
+import com.example.jsp02.View.MyView;
+import com.example.jsp02.controller.Controller;
+import com.example.jsp02.controller.IdCheckController;
+import com.example.jsp02.controller.UserListController;
+import com.example.jsp02.controller.UserLoginController;
+import com.example.jsp02.controller.UserRemoveController;
+import com.example.jsp02.controller.UserSaveController;
+import com.example.jsp02.controller.UserSelectController;
+import com.example.jsp02.service.UserService;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -18,22 +19,24 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet(name = "front-controller", urlPatterns = "/day04/front-controller/user/*")
+@WebServlet(name = "front-controller", urlPatterns = "/join/user/*")
 public class FrontController extends HttpServlet {
 	
 	private final Map<String, Controller> controllerMap = new HashMap<>();
 	
 	public FrontController() {
-		controllerMap.put("/day04/front-controller/user/user-save",
+		controllerMap.put("/join/user/user-save",
 				new UserSaveController(new UserService()));
-		controllerMap.put("/day04/front-controller/user/user-select",
+		controllerMap.put("/join/user/user-select",
 				new UserSelectController(new UserService()));
-		controllerMap.put("/day04/front-controller/user/user-list",
+		controllerMap.put("/join/user/user-list",
 				new UserListController(new UserService()));
-		controllerMap.put("/day04/front-controller/user/user-remove",
+		controllerMap.put("/join/user/user-remove",
 				new UserRemoveController(new UserService()));
-		controllerMap.put("/day04/front-controller/user/id-check",
+		controllerMap.put("/join/user/id-check",
 				new IdCheckController(new UserService()));
+		controllerMap.put("/join/user/user-login",
+				new UserLoginController(new UserService()));
 	}
 	
 	@Override
@@ -56,7 +59,7 @@ public class FrontController extends HttpServlet {
 	}
 	
 	private MyView viewResolver(String viewName) {
-		return new MyView("/day04/" + viewName + ".jsp");
+		return new MyView("/join/" + viewName + ".jsp");
 	}
 	
 	private HashMap<String, String> createParamMap(HttpServletRequest request) {

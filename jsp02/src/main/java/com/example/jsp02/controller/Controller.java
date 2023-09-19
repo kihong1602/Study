@@ -1,6 +1,6 @@
-package com.example.jsp02.day04.controller;
+package com.example.jsp02.controller;
 
-import com.example.jsp02.day04.view.ModelView;
+import com.example.jsp02.View.ModelView;
 import java.util.Map;
 
 public interface Controller {

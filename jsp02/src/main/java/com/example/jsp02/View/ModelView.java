@@ -1,4 +1,4 @@
-package com.example.jsp02.day04.view;
+package com.example.jsp02.View;
 
 import java.util.HashMap;
 import java.util.Map;

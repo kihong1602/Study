@@ -1,4 +1,4 @@
-package com.example.jsp02.day04.entity;
+package com.example.jsp02.entity;
 
 public class User {
 	
@@ -10,6 +10,8 @@ public class User {
 	private String address;
 	private String addressDetail;
 	private String regDate;
+	private String email;
+	private String tel;
 	
 	public User(UserBuilder userBuilder) {
 		this.no = userBuilder.no;
@@ -24,7 +26,8 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "[ " + no + " | " + id + " | " + password + " | " + name + " | " + postcode + address
+		return "[ " + no + " | " + id + " | " + password + " | " + name + " | " + email + " | "
+				+ tel + " | " + postcode + " | " + address
 				+ " | " + addressDetail + " | " + regDate + " ]";
 	}
 	
@@ -60,6 +63,14 @@ public class User {
 		return regDate;
 	}
 	
+	public String getEmail() {
+		return email;
+	}
+	
+	public String getTel() {
+		return tel;
+	}
+	
 	public static class UserBuilder {
 		
 		private int no;
@@ -71,20 +82,25 @@ public class User {
 		private String addressDetail;
 		private String regDate;
 		
+		private String email;
+		private String tel;
+		
 		public UserBuilder(String id) {
 			
 			this.id = id;
 			
 		}
 		
-		public UserBuilder no(int no){
+		public UserBuilder no(int no) {
 			this.no = no;
 			return this;
 		}
-		public UserBuilder password(String password){
+		
+		public UserBuilder password(String password) {
 			this.password = password;
 			return this;
 		}
+		
 		public UserBuilder name(String name) {
 			this.name = name;
 			return this;
@@ -107,6 +123,16 @@ public class User {
 		
 		public UserBuilder regDate(String regDate) {
 			this.regDate = regDate;
+			return this;
+		}
+		
+		public UserBuilder email(String email) {
+			this.email = email;
+			return this;
+		}
+		
+		public UserBuilder tel(String tel) {
+			this.tel = tel;
 			return this;
 		}
 		

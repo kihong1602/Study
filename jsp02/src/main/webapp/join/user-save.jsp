@@ -1,5 +1,5 @@
 <%@ page import="java.util.Map" %>
-<%@ page import="com.example.jsp02.day04.entity.User" %><%--
+<%@ page import="com.example.jsp02.entity.User" %><%--
   Created by IntelliJ IDEA.
   User: kks45
   Date: 2023-09-18
