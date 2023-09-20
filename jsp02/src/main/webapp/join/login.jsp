@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.jsp02.cookie.CookieManager" %><%--
   Created by IntelliJ IDEA.
   User: kks45
   Date: 2023-09-19
@@ -7,13 +7,25 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="../layout/header.jsp" %>
+<%
+    String isChecked = "";
+    String userID = "";
+    String connectID = CookieManager.readCookie("saveID", request);
+    String checkBox = CookieManager.readCookie("checkBox", request);
+    if (checkBox.equals("rememberMe")) {
+        isChecked = "checked";
+        userID = connectID;
+    } else {
+        isChecked = "";
+    }
+%>
 <main>
     <div class="form-signin w-100 m-auto">
         <form action="user/user-login" method="post">
             <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
             <div class="form-floating">
                 <input type="text" name="userID" class="form-control" id="userID"
-                       placeholder="ID">
+                       placeholder="ID" value="<%=userID%>">
                 <label for="userID">userID</label>
             </div>
             <div class="form-floating">
@@ -23,8 +35,8 @@
             </div>
 
             <div class="form-check text-start my-3">
-                <input class="form-check-input" type="checkbox" value="remember-me"
-                       id="flexCheckDefault">
+                <input class="form-check-input" type="checkbox" value="rememberMe"
+                       id="flexCheckDefault" name="saveID" <%=isChecked%>>
                 <label class="form-check-label" for="flexCheckDefault">
                     Remember me
                 </label>

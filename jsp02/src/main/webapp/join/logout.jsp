@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.jsp02.cookie.CookieManager" %><%--
   Created by IntelliJ IDEA.
   User: kks45
   Date: 2023-09-19

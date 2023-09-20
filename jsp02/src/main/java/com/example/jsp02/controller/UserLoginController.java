@@ -15,13 +15,16 @@ public class UserLoginController implements Controller {
 	
 	@Override
 	public ModelView process(Map<String, String> paramMap) {
+		String viewName = "user-login";
+		
 		String id = paramMap.get("userID");
 		String pw = paramMap.get("userPW");
+		String saveCheck = paramMap.get("saveID");
 		
 		User user = new User.UserBuilder(id).password(pw).build();
 		Map<String, Object> loginCheck = userService.loginCheck(user);
 		
-		String viewName = "user-login";
+		loginCheck.put("saveID", saveCheck);
 		
 		ModelView modelView = new ModelView(viewName);
 		modelView.getModel().put("loginCheck", loginCheck);
