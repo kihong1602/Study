@@ -21,14 +21,16 @@
                 <th scope="col">address</th>
                 <th scope="col">address_detail</th>
                 <th scope="col">reg_date</th>
+                <th scope="col">삭제</th>
                 <th scope="col"><input type="checkbox" id="checkAll"></th>
             </tr>
             </thead>
             <%
                 List<User> userList = (List<User>) request.getAttribute("userList");
+                String id = null;
                 for (User user : userList) {
                     int no = user.getNo();
-                    String id = user.getId();
+                    id = user.getId();
                     String name = user.getName();
                     String email = user.getEmail();
                     String postcode = String.valueOf(user.getPostcode());
@@ -36,11 +38,11 @@
                     String addressDetail = user.getAddressDetail();
                     String regDate = user.getRegDate();
             %>
-            <tbody class=\"table-group-divider\">
+            <tbody class="table-group-divider">
             <tr>
                 <th scope="row"><%=no%>
                 </th>
-                <td><a href="/join/user/user-select?userID=<%=id%>"><%=id%>
+                <td><a href="/join/user/user-select?userID=<%=id%>" id="link"><%=id%>
                 </a></td>
                 <td><%=name%>
                 </td>
@@ -54,7 +56,12 @@
                 </td>
                 <td><%=regDate%>
                 </td>
-                <td><input type="checkbox" class="check" name="check" value="<%=no%>"></td>
+                <td>
+                    <button class="btn btn-danger btnDelete" data-no="<%=no%>">삭제
+                    </button>
+                </td>
+                <td><input type="checkbox" class="check" name="check" value="<%=no%>">
+                </td>
             </tr>
             </tbody>
             <%}%>
@@ -70,5 +77,29 @@
       $(".check").prop("checked", false);
     }
   })
+  $('.btnDelete').on("click", function () {
+
+    const $parent = $(this).parent().parent();
+    //this는 tr->td->button이므로, this.parent()는 td, this.parent().parent()는 tr이다.
+
+    $.ajax({
+      url: "/join/process/admin-delete.jsp",
+      data: {
+        userNo: $(this).data("no"),
+      },
+      success: function (response) {
+        console.log(response);
+        if (response.isDelete === "success") {
+          console.log($(this));
+        } else {
+          alert("서버오류입니다.")
+        }
+      },
+      fail: function () {
+
+      }
+    })
+    return false;
+  });
 </script>
 <%@include file="/layout/footer.jsp" %>

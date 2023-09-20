@@ -6,10 +6,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="../../css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../../css/from.css"/>
-    <script src="../../js/bootstrap.bundle.min.js"></script>
-    <script src="../../js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/from.css"/>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/jquery-3.7.1.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <title>Title</title>
 </head>

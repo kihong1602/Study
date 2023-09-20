@@ -54,13 +54,8 @@ public class UserService {
 			resultSet = ps.executeQuery();
 			while (resultSet.next()) {
 				no = resultSet.getInt("NO");
-				String confirmEmail = resultSet.getString("EMAIL");
-				String confirmTel = resultSet.getString("TEL");
-				System.out.println(confirmTel);
-				System.out.println(confirmEmail);
 			}
-			resultSet.close();
-			connection.close();
+			closeDB();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -93,13 +88,12 @@ public class UserService {
 						.address(address).addressDetail(addressDetail).regDate(regDate).build();
 			}
 			System.out.println("검색 완료");
-			resultSet.close();
-			connection.close();
+			
+			closeDB();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("검색 실패");
 		}
-		
 		return selectUser;
 	}
 	
@@ -116,6 +110,7 @@ public class UserService {
 			
 			ps.executeUpdate();
 			System.out.println("삭제완료");
+			closeDB();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("삭제 실패");
@@ -151,8 +146,7 @@ public class UserService {
 				
 				userList.add(user);
 			}
-			resultSet.close();
-			connection.close();
+			closeDB();
 			System.out.println("전체조회 완료");
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -178,8 +172,7 @@ public class UserService {
 				result = resultSet.getInt("count");
 			}
 			
-			resultSet.close();
-			connection.close();
+			closeDB();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			
@@ -187,8 +180,7 @@ public class UserService {
 		Map<String, Integer> map = new HashMap<>();
 		map.put("count", result);
 		Gson gson = new Gson();
-		String json = gson.toJson(map);
-		return json;
+		return gson.toJson(map);
 	}
 	
 	public Map<String, Object> loginCheck(User user) {
@@ -211,9 +203,8 @@ public class UserService {
 				id = resultSet.getString(1);
 				name = resultSet.getString(2);
 			}
-			System.out.println(check);
-			resultSet.close();
-			connection.close();
+			
+			closeDB();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -248,8 +239,7 @@ public class UserService {
 				email = resultSet.getString("EMAIL");
 				tel = resultSet.getString("TEL");
 			}
-			resultSet.close();
-			connection.close();
+			closeDB();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -302,8 +292,7 @@ public class UserService {
 					regDate = resultSet.getString("REG_DATE");
 				}
 			}
-			resultSet.close();
-			connection.close();
+			closeDB();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -339,12 +328,27 @@ public class UserService {
 						.postcode(postcode).address(address).addressDetail(addressDetail)
 						.regDate(regDate).build();
 			}
-			resultSet.close();
-			ps.close();
+			closeDB();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return user;
+	}
+	
+	public int adminDelete(int no) {
+		connectDB();
+		String sql = "DELETE FROM USER WHERE NO = ?";
+		int result = 0;
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, no);
+			result = ps.executeUpdate();
+			
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
 	public void connectDB() {
@@ -359,5 +363,10 @@ public class UserService {
 			e.printStackTrace();
 			System.out.println("연결실패");
 		}
+	}
+	
+	public void closeDB() throws SQLException {
+		resultSet.close();
+		connection.close();
 	}
 }
