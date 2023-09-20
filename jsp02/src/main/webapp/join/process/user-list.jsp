@@ -35,24 +35,29 @@
                     String address = user.getAddress();
                     String addressDetail = user.getAddressDetail();
                     String regDate = user.getRegDate();
-                    out.println(" <tbody class=\"table-group-divider\">");
-                    out.println("<tr>");
-                    out.println("<th scope=\"row\">" + no + "</th>");
-                    out.println("<td><a href=\"/join/user/user-select?userID=" + id + "\">" + id
-                            + "</a></td>");
-                    out.println("<td>" + name + "</td>");
-                    out.println("<td>" + email + "</td>");
-                    out.println("<td>" + postcode + "</td>");
-                    out.println("<td>" + address + "</td>");
-                    out.println("<td>" + addressDetail + "</td>");
-                    out.println("<td>" + regDate + "</td>");
-                    out.println(
-                            "<td><input type=\"checkbox\" class=\"check\" name=\"check\" value="
-                                    + no + "></td>");
-                    out.println("</tr>");
-                    out.println("</tbody>");
-                }
             %>
+            <tbody class=\"table-group-divider\">
+            <tr>
+                <th scope="row"><%=no%>
+                </th>
+                <td><a href="/join/user/user-select?userID=<%=id%>"><%=id%>
+                </a></td>
+                <td><%=name%>
+                </td>
+                <td><%=email%>
+                </td>
+                <td><%=postcode%>
+                </td>
+                <td><%=address%>
+                </td>
+                <td><%=addressDetail%>
+                </td>
+                <td><%=regDate%>
+                </td>
+                <td><input type="checkbox" class="check" name="check" value="<%=no%>"></td>
+            </tr>
+            </tbody>
+            <%}%>
         </table>
         <button class="btn btn-danger" id="btnAll">회원삭제</button>
     </form>
