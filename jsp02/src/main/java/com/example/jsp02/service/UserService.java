@@ -258,7 +258,7 @@ public class UserService {
 				.addressDetail(addressDetail).email(email).tel(tel).build();
 	}
 	
-	public User InfoUpdate(User user) {
+	public User infoUpdate(User user) {
 		connectDB();
 		String id = user.getId();
 		String name = "";
@@ -310,6 +310,41 @@ public class UserService {
 		return new User.UserBuilder(id).name(name).email(email).tel(tel)
 				.postcode(postcode)
 				.address(address).addressDetail(addressDetail).regDate(regDate).build();
+	}
+	
+	public User adminRemove(int no) {
+		connectDB();
+		User user = null;
+		String sql = "DELETE FROM USER WHERE NO = ?";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, no);
+			
+			ps.executeUpdate();
+			
+			sql = "SELECT * FROM USER";
+			ps = connection.prepareStatement(sql);
+			resultSet = ps.executeQuery();
+			while (resultSet.next()) {
+				no = resultSet.getInt("NO");
+				String id = resultSet.getString("ID");
+				String name = resultSet.getString("NAME");
+				String email = resultSet.getString("EMAIL");
+				int postcode = resultSet.getInt("POSTCODE");
+				String address = resultSet.getString("ADDRESS");
+				String addressDetail = resultSet.getString("ADDRESS_DETAIL");
+				String regDate = resultSet.getString("REG_DATE");
+				
+				user = new User.UserBuilder(id).no(no).name(name).email(email)
+						.postcode(postcode).address(address).addressDetail(addressDetail)
+						.regDate(regDate).build();
+			}
+			resultSet.close();
+			ps.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return user;
 	}
 	
 	public void connectDB() {

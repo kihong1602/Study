@@ -1,4 +1,5 @@
-<%@ page import="com.example.jsp02.entity.User" %><%--
+<%@ page import="com.example.jsp02.entity.User" %>
+<%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: kks45
   Date: 2023-09-18
@@ -10,30 +11,43 @@
 <%
     User user = (User) request.getAttribute("selectUser");
 %>
-<h4>userNo : <%=user.getNo()%>
-</h4>
-<hr>
-<h4>userID : <%=user.getId()%>
-</h4>
-<hr>
-<h4>userPW : <%=user.getPassword()%>
-</h4>
-<hr>
-<h4>userName : <%=user.getName()%>
-</h4>
-<hr>
-<h4>userPostcode : <%=user.getPostcode()%>
-</h4>
-<hr>
-<h4>userAddress : <%=user.getAddress()%>
-</h4>
-<hr>
-<h4>userAddressDetail : <%=user.getAddressDetail()%>
-</h4>
-<hr>
-<h4>userRegDate : <%=user.getRegDate()%>
-</h4>
-<hr>
+
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">no</th>
+            <th scope="col">ID</th>
+            <th scope="col">Password</th>
+            <th scope="col">Name</th>
+            <th scope="col">Postcode</th>
+            <th scope="col">Address</th>
+            <th scope="col">Address_Detail</th>
+            <th scope="col">Reg_Date</th>
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        <tr>
+            <th scope="row"><%=user.getNo()%>
+            </th>
+            <td><%=user.getId()%>
+            </td>
+            <td><%=user.getPassword()%>
+            </td>
+            <td><%=user.getName()%>
+            </td>
+            <td><%=user.getPostcode()%>
+            </td>
+            <td><%=user.getAddress()%>
+            </td>
+            <td><%=user.getAddressDetail()%>
+            </td>
+            <td><%=user.getRegDate()%>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 <div class="form-signin w-100 m-auto">
     <button class="btn btn-primary w-100 py-2" onclick="location.href='/join/modify-form.jsp'">Sign
         in

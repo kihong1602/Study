@@ -7,20 +7,18 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>user save</title>
-</head>
-<body>
+<
+<%@include file="/layout/header.jsp" %>
 <%
     User saveUser = (User) request.getAttribute("saveUser");
 %>
-<h2><%= saveUser.getNo()%>
+<h2> No : <%= saveUser.getNo()%>
 </h2>
-<h2><%= saveUser.getId()%>
+<hr>
+<h2> ID : <%= saveUser.getId()%>
 </h2>
-<h2><%= saveUser.getName()%>
+<hr>
+<h2> Name : <%= saveUser.getName()%>
 </h2>
-</body>
-</html>
+<hr>
+<%@include file="/layout/footer.jsp" %>

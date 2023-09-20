@@ -26,7 +26,7 @@ public class UserInfoUpdateController implements Controller {
 		
 		User user = new User.UserBuilder(id).email(email).tel(tel).postcode(postcode)
 				.address(address).addressDetail(addressDetail).build();
-		User updateUser = userService.InfoUpdate(user);
+		User updateUser = userService.infoUpdate(user);
 		
 		ModelView modelView = new ModelView(viewName);
 		modelView.getModel().put("updateUser", updateUser);

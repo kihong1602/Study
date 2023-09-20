@@ -8,11 +8,62 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/layout/header.jsp" %>
-<%
-    List<User> userList = (List<User>) request.getAttribute("userList");
-    for (User user : userList) {
-        out.println(user.toString() + "<br>");
-        out.println("<hr>");
+<div class="container">
+    <form action="/join/process/admin-remove.jsp" method="post">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">no</th>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">email</th>
+                <th scope="col">postcode</th>
+                <th scope="col">address</th>
+                <th scope="col">address_detail</th>
+                <th scope="col">reg_date</th>
+                <th scope="col"><input type="checkbox" id="checkAll"></th>
+            </tr>
+            </thead>
+            <%
+                List<User> userList = (List<User>) request.getAttribute("userList");
+                for (User user : userList) {
+                    int no = user.getNo();
+                    String id = user.getId();
+                    String name = user.getName();
+                    String email = user.getEmail();
+                    String postcode = String.valueOf(user.getPostcode());
+                    String address = user.getAddress();
+                    String addressDetail = user.getAddressDetail();
+                    String regDate = user.getRegDate();
+                    out.println(" <tbody class=\"table-group-divider\">");
+                    out.println("<tr>");
+                    out.println("<th scope=\"row\">" + no + "</th>");
+                    out.println("<td><a href=\"/join/user/user-select?userID=" + id + "\">" + id
+                            + "</a></td>");
+                    out.println("<td>" + name + "</td>");
+                    out.println("<td>" + email + "</td>");
+                    out.println("<td>" + postcode + "</td>");
+                    out.println("<td>" + address + "</td>");
+                    out.println("<td>" + addressDetail + "</td>");
+                    out.println("<td>" + regDate + "</td>");
+                    out.println(
+                            "<td><input type=\"checkbox\" class=\"check\" name=\"check\" value="
+                                    + no + "></td>");
+                    out.println("</tr>");
+                    out.println("</tbody>");
+                }
+            %>
+        </table>
+        <button class="btn btn-danger" id="btnAll">회원삭제</button>
+    </form>
+</div>
+<script>
+  $('#checkAll').on("click", function () {
+    if ($("#checkAll").is(":checked")) {
+      $(".check").prop("checked", true);
+    } else {
+      $(".check").prop("checked", false);
     }
-%>
+  })
+</script>
 <%@include file="/layout/footer.jsp" %>
