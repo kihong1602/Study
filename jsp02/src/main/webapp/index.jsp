@@ -40,7 +40,7 @@
             <li class="nav-item"><a href="/join/info.jsp"
                                     class="nav-link"><%=loggedName%>
             </a></li>
-            <li class="nav-item"><a href="/join/board.jsp" class="nav-link">게시판</a></li>
+            <li class="nav-item"><a href="/board/board.jsp" class="nav-link">게시판</a></li>
             <li class="nav-item"><a href="/join/withdrawal.jsp" class="nav-link">회원탈퇴</a></li>
         </ul>
         <% } %>

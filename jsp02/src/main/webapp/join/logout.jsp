@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.example.jsp02.cookie.CookieManager" %><%--
   Created by IntelliJ IDEA.
   User: kks45
   Date: 2023-09-19
@@ -10,6 +10,8 @@
 <%
     session.removeAttribute("loggedID");
     session.removeAttribute("loggedName");
+    CookieManager.removeCookie("saveID", response);
+    CookieManager.removeCookie("checkBox", response);
 %>
 <h2>로그아웃 완료</h2>
 <%@include file="/layout/footer.jsp" %>

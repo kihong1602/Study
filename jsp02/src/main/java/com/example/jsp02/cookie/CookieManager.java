@@ -7,23 +7,19 @@ import jakarta.servlet.http.HttpServletResponse;
 public class CookieManager {
 	
 	
-	public static Cookie createCookie(String cookieName, String cookieValue, int aliveTime) {
+	public static void createCookie(String cookieName, String cookieValue, int aliveTime,
+			HttpServletResponse response) {
 		Cookie cookie = new Cookie(cookieName, cookieValue);
 		cookie.setPath("/");
 		cookie.setMaxAge(aliveTime);
+		response.addCookie(cookie);
 		
-		return cookie;
 	}
 	
-	public static void removeCookie(Cookie cookie) {
-		cookie.setMaxAge(0);
+	public static void removeCookie(String cookieName, HttpServletResponse response) {
+		createCookie(cookieName, "", 0, response);
 	}
 	
-	public static void sendCookie(Cookie cookie, HttpServletResponse response) {
-		if (cookie != null) {
-			response.addCookie(cookie);
-		}
-	}
 	
 	public static String readCookie(String cookieName, HttpServletRequest request) {
 		Cookie[] cookies = request.getCookies();

@@ -1,5 +1,6 @@
 package com.example.jsp02.service;
 
+import com.example.jsp02.entity.Board;
 import com.example.jsp02.entity.User;
 import com.google.gson.Gson;
 import java.sql.Connection;
