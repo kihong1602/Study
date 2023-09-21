@@ -21,8 +21,9 @@ public class BoardService {
 		String content = board.getContent();
 		String password = board.getPassword();
 		String name = board.getName();
+		String id = board.getId();
 		
-		String sql = "insert into board (title,name,content,password) values (?,?,?,?);";
+		String sql = "insert into board (title,name,content,password,id) values (?,?,?,?,?);";
 		
 		try {
 			ps = connection.prepareStatement(sql);
@@ -30,6 +31,7 @@ public class BoardService {
 			ps.setString(2, name);
 			ps.setString(3, content);
 			ps.setString(4, password);
+			ps.setString(5, id);
 			
 			ps.executeUpdate();
 			connection.close();
@@ -51,6 +53,7 @@ public class BoardService {
 			while (resultSet.next()) {
 				//no,title,name,regDate,hit
 				int no = resultSet.getInt("NO");
+				String id = resultSet.getString("ID");
 				String title = resultSet.getString("TITLE");
 				String name = resultSet.getString("NAME");
 				String password = resultSet.getString("PASSWORD");
@@ -76,17 +79,19 @@ public class BoardService {
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setInt(1, no);
-			
+			System.out.println(no);
 			resultSet = ps.executeQuery();
 			if (resultSet.next()) {
 				no = resultSet.getInt("NO");
+				String id = resultSet.getString("ID");
 				String title = resultSet.getString("TITLE");
 				String name = resultSet.getString("NAME");
 				String content = resultSet.getString("CONTENT");
 				String regDate = resultSet.getString("REG_DATE");
 				String password = resultSet.getString("PASSWORD");
 				int hit = resultSet.getInt("HIT");
-				board = new Board.Builder(password).no(no).title(title).name(name).content(content)
+				board = new Board.Builder(password).id(id).no(no).title(title).name(name)
+						.content(content)
 						.regDate(regDate).hit(hit).build();
 			}
 			closeDB();
@@ -110,14 +115,39 @@ public class BoardService {
 		}
 	}
 	
-	public int removeContent(int no,String password) {
+	public int removeContent(int no, String password) {
 		connectDB();
 		String sql = "DELETE FROM BOARD WHERE NO = ? AND PASSWORD = ?;";
 		int result = 0;
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setInt(1, no);
-			ps.setString(2,password);
+			ps.setString(2, password);
+			result = ps.executeUpdate();
+			
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public int modifiedContent(Board board) {
+		connectDB();
+		int result = 0;
+		int no = board.getNo();
+		String title = board.getTitle();
+		String content = board.getContent();
+		String password = board.getPassword();
+		
+		String sql = "UPDATE BOARD SET TITLE = ? ,CONTENT = ? , PASSWORD = ? WHERE no =?;";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, title);
+			ps.setString(2, content);
+			ps.setString(3, password);
+			ps.setInt(4, no);
+			
 			result = ps.executeUpdate();
 			
 			connection.close();

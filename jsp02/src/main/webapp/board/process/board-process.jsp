@@ -1,4 +1,3 @@
-<%@ page import="com.example.jsp02.service.UserService" %>
 <%@ page import="com.example.jsp02.entity.Board" %>
 <%@ page import="com.example.jsp02.service.BoardService" %><%--
   Created by IntelliJ IDEA.
@@ -13,10 +12,10 @@
     String name = request.getParameter("name");
     String content = request.getParameter("content");
     String password = request.getParameter("password");
-
+    String id = request.getParameter("id");
     BoardService boardService = new BoardService();
-    Board createCon = new Board.Builder(password).name(name).
-    title(title).content(content).build();
+    Board createCon = new Board.Builder(password).id(id).name(name).
+            title(title).content(content).build();
 
     boardService.insertContent(createCon);
 

@@ -22,11 +22,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 @WebServlet(name = "front-controller", urlPatterns = "/join/user/*")
-public class FrontController extends HttpServlet {
+public class FrontUserController extends HttpServlet {
 	
 	private final Map<String, Controller> controllerMap = new HashMap<>();
 	
-	public FrontController() {
+	public FrontUserController() {
 		controllerMap.put("/join/user/user-save",
 				new UserSaveController(new UserService()));
 		controllerMap.put("/join/user/user-select",

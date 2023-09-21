@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <%
     String loggedID = (String) session.getAttribute("loggedID");
     String loggedName = (String) session.getAttribute("loggedName");
@@ -13,6 +14,7 @@
     <title>Title</title>
 </head>
 <body>
+<c:out value="hello world"/>
 <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <a href="/"

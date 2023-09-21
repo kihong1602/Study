@@ -33,7 +33,7 @@
                 <tr>
                     <th scope="row"><%=board.getNo()%>
                     </th>
-                    <td><a href="view.jsp?no=<%=board.getNo()%>"><%=board.getTitle()%>
+                    <td><a href="javascript:listView('<%=board.getNo()%>')"><%=board.getTitle()%>
                     </a>
                     </td>
                     <td><%=board.getName()%>
@@ -49,5 +49,21 @@
         </div>
     </div>
 </div>
+<script>
+  function listView(boardNo) {
+    let form = document.createElement('form');
 
+    let obj;
+    obj = document.createElement('input');
+    obj.setAttribute('type', 'hidden');
+    obj.setAttribute('name', 'no');
+    obj.setAttribute('value', boardNo);
+
+    form.appendChild(obj);
+    form.setAttribute('method', 'post');
+    form.setAttribute('action', 'progress/view');
+    document.body.appendChild(form);
+    form.submit();
+  }
+</script>
 <%@include file="/layout/footer.jsp" %>
