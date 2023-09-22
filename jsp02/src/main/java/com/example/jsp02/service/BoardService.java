@@ -60,7 +60,7 @@ public class BoardService {
 				String regDate = resultSet.getString("REG_DATE");
 				int hit = resultSet.getInt("HIT");
 				
-				Board board = new Board.Builder(password).no(no).title(title).name(name)
+				Board board = new Board.Builder(password).id(id).no(no).title(title).name(name)
 						.regDate(regDate).hit(hit).build();
 				boardList.add(board);
 			}
@@ -79,7 +79,6 @@ public class BoardService {
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setInt(1, no);
-			System.out.println(no);
 			resultSet = ps.executeQuery();
 			if (resultSet.next()) {
 				no = resultSet.getInt("NO");
@@ -155,6 +154,118 @@ public class BoardService {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	public ArrayList<Board> searchToTitle(String title) {
+		connectDB();
+		ArrayList<Board> boardList = new ArrayList<>();
+		String sql = "SELECT * FROM BOARD WHERE TITLE LIKE ?;";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, "%" + title + "%");
+			
+			resultSet = ps.executeQuery();
+			while (resultSet.next()) {
+				int no = resultSet.getInt("NO");
+				String name = resultSet.getString("NAME");
+				String password = resultSet.getString("PASSWORD");
+				title = resultSet.getString("TITLE");
+				String regDate = resultSet.getString("REG_DATE");
+				int hit = resultSet.getInt("HIT");
+				Board board = new Board.Builder(password).no(no).name(name).title(title)
+						.regDate(regDate).hit(hit).build();
+				boardList.add(board);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return boardList;
+	}
+	
+	public ArrayList<Board> searchToName(String name) {
+		connectDB();
+		ArrayList<Board> boardList = new ArrayList<>();
+		String sql = "SELECT * FROM BOARD WHERE NAME = ?;";
+		
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, name);
+			
+			resultSet = ps.executeQuery();
+			while (resultSet.next()) {
+				int no = resultSet.getInt("NO");
+				name = resultSet.getString("NAME");
+				String password = resultSet.getString("PASSWORD");
+				String title = resultSet.getString("TITLE");
+				String regDate = resultSet.getString("REG_DATE");
+				int hit = resultSet.getInt("HIT");
+				Board board = new Board.Builder(password).no(no).name(name).title(title)
+						.regDate(regDate).hit(hit).build();
+				boardList.add(board);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return boardList;
+	}
+	
+	public ArrayList<Board> searchToContent(String content) {
+		connectDB();
+		ArrayList<Board> boardList = new ArrayList<>();
+		String sql = "SELECT * FROM BOARD WHERE CONTENT LIKE ?;";
+		
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, "%" + content + "%");
+			
+			resultSet = ps.executeQuery();
+			while (resultSet.next()) {
+				int no = resultSet.getInt("NO");
+				String name = resultSet.getString("NAME");
+				String password = resultSet.getString("PASSWORD");
+				String title = resultSet.getString("TITLE");
+				String regDate = resultSet.getString("REG_DATE");
+				int hit = resultSet.getInt("HIT");
+				Board board = new Board.Builder(password).no(no).name(name).title(title)
+						.regDate(regDate).hit(hit).build();
+				boardList.add(board);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return boardList;
+	}
+	public ArrayList<Board> searchAll(String searchWord){
+		connectDB();
+		ArrayList<Board> boardList = new ArrayList<>();
+		
+		String sql = "SELECT * FROM BOARD WHERE CONTENT LIKE ? OR NAME = ? OR TITLE LIKE ?;";
+		
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1,"%"+searchWord+"%");
+			ps.setString(2,searchWord);
+			ps.setString(3,"%"+searchWord+"%");
+			
+			resultSet = ps.executeQuery();
+			while(resultSet.next()){
+				int no = resultSet.getInt("NO");
+				String name = resultSet.getString("NAME");
+				String password = resultSet.getString("PASSWORD");
+				String title = resultSet.getString("TITLE");
+				String regDate = resultSet.getString("REG_DATE");
+				int hit = resultSet.getInt("HIT");
+				Board board = new Board.Builder(password).no(no).name(name).title(title)
+						.regDate(regDate).hit(hit).build();
+				boardList.add(board);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return boardList;
 	}
 	
 	public void connectDB() {

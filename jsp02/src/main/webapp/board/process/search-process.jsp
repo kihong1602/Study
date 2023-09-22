@@ -1,12 +1,10 @@
-<%@ page import="com.example.jsp02.service.UserService" %>
 <%@ page import="com.example.jsp02.entity.Board" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="com.example.jsp02.service.BoardService" %>
-<%@ page import="com.example.jsp02.cookie.CookieManager" %><%--
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: kks45
-  Date: 2023-09-19
-  Time: 오전 10:29
+  Date: 2023-09-22
+  Time: 오전 10:49
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -26,8 +24,8 @@
                 </tr>
                 </thead>
                 <%
-                    BoardService boardService = new BoardService();
-                    ArrayList<Board> boardList = (ArrayList<Board>) boardService.scanAllContent();
+                    ArrayList<Board> boardList = (ArrayList<Board>) request.getAttribute(
+                            "resultBoard");
                     for (Board board : boardList) {
                 %>
                 <tbody class="table-group-divider">
@@ -53,6 +51,7 @@
                     <option value="title">제목</option>
                     <option value="name">글쓴이</option>
                     <option value="content">내용</option>
+
                 </select>
                 <input type="text" name="searchWord">
                 <button>검색</button>
@@ -96,7 +95,7 @@
     form.appendChild(obj);
     form.appendChild(visited);
     form.setAttribute('method', 'post');
-    form.setAttribute('action', 'progress/view');
+    form.setAttribute('action', '/board/progress/view');
     document.body.appendChild(form);
     form.submit();
   }

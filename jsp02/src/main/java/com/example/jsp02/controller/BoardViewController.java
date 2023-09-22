@@ -18,7 +18,13 @@ public class BoardViewController implements Controller {
 		String viewName = "view";
 		
 		int no = Integer.parseInt(paramMap.get("no"));
-		boardService.increaseHit(no);
+		String boardNo = "(" + no + ")";
+		String visitedCookie = paramMap.get("visitedCookie");
+		System.out.println("쿠키값 : " + visitedCookie);
+		if (!visitedCookie.contains(boardNo)) {
+			boardService.increaseHit(no);
+		}
+		
 		Board board = boardService.viewContent(no);
 		
 		ModelView modelView = new ModelView(viewName);

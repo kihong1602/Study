@@ -4,6 +4,7 @@ import com.example.jsp02.View.ModelView;
 import com.example.jsp02.View.MyView;
 import com.example.jsp02.controller.BoardModifiedController;
 import com.example.jsp02.controller.BoardRemoveController;
+import com.example.jsp02.controller.BoardSearchController;
 import com.example.jsp02.controller.BoardViewController;
 import com.example.jsp02.controller.BoardWriteController;
 import com.example.jsp02.controller.Controller;
@@ -28,6 +29,7 @@ public class FrontBoardController extends HttpServlet {
 		controllerMap.put("/board/progress/modify",
 				new BoardModifiedController(new BoardService()));
 		controllerMap.put("/board/progress/remove", new BoardRemoveController(new BoardService()));
+		controllerMap.put("/board/progress/search", new BoardSearchController(new BoardService()));
 	}
 	
 	@Override

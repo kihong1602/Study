@@ -1,7 +1,8 @@
 <%@ page import="com.example.jsp02.service.UserService" %>
 <%@ page import="com.example.jsp02.entity.User" %>
 <%@ page import="com.example.jsp02.entity.Board" %>
-<%@ page import="com.example.jsp02.service.BoardService" %><%--
+<%@ page import="com.example.jsp02.service.BoardService" %>
+<%@ page import="com.example.jsp02.cookie.CookieManager" %><%--
   Created by IntelliJ IDEA.
   User: kks45
   Date: 2023-09-21
@@ -12,6 +13,21 @@
 <%@include file="/layout/header.jsp" %>
 <%
     Board board = (Board) request.getAttribute("boardContent");
+    String boardNo = "(" + board.getNo() + ")";
+    String visitedCookieValue = CookieManager.readCookie("visitedCookie", request);
+    if (visitedCookieValue.isEmpty()) {
+        CookieManager.createCookie("visitedCookie", boardNo, 60 * 60 * 24,
+                response);
+    } else {
+//        System.out.println("조회수 중복증가는 불가능해용");
+        if (visitedCookieValue.contains(boardNo)) {
+        } else {
+            CookieManager.removeCookie("visitedCookie", response);
+            CookieManager.createCookie("visitedCookie",
+                    visitedCookieValue + "/" + boardNo, 60 * 60 * 24,
+                    response);
+        }
+    }
 %>
 <div class="container">
     <div class="row d-flex justify-content-center">
