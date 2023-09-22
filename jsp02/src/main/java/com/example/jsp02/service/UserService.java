@@ -1,6 +1,5 @@
 package com.example.jsp02.service;
 
-import com.example.jsp02.entity.Board;
 import com.example.jsp02.entity.User;
 import com.google.gson.Gson;
 import java.sql.Connection;
@@ -10,7 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class UserService {
@@ -120,9 +118,9 @@ public class UserService {
 		return new User.UserBuilder(id).build();
 	}
 	
-	public List<User> userList() {
+	public ArrayList<User> userList() {
 		connectDB();
-		List<User> userList = new ArrayList<>();
+		ArrayList<User> userList = new ArrayList<>();
 		
 		String sql = "SELECT * FROM USER;";
 		try {
@@ -350,6 +348,150 @@ public class UserService {
 			e.printStackTrace();
 		}
 		return result;
+	}
+	
+	public ArrayList<User> searchID(String id) {
+		connectDB();
+		ArrayList<User> userList = new ArrayList<>();
+		
+		String sql = "SELECT * FROM USER WHERE ID = ?;";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, id);
+			resultSet = ps.executeQuery();
+			while (resultSet.next()) {
+				int no = resultSet.getInt(1);
+				id = resultSet.getString(2);
+				String pw = resultSet.getString(3);
+				String name = resultSet.getString(4);
+				int postCode = resultSet.getInt(5);
+				String address = resultSet.getString(6);
+				String addressDetail = resultSet.getString(7);
+				String regDate = resultSet.getString(8);
+				String email = resultSet.getString(9);
+				String tel = resultSet.getString(10);
+				
+				User user = new User.UserBuilder(id).password(pw).no(no).name(name)
+						.postcode(postCode).address(address).addressDetail(addressDetail)
+						.regDate(regDate).email(email).tel(tel).build();
+				
+				userList.add(user);
+			}
+			closeDB();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return userList;
+	}
+	
+	public ArrayList<User> searchName(String name) {
+		connectDB();
+		ArrayList<User> userList = new ArrayList<>();
+		
+		String sql = "SELECT * FROM USER WHERE NAME LIKE ?;";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, "%" + name + "%");
+			
+			resultSet = ps.executeQuery();
+			while (resultSet.next()) {
+				int no = resultSet.getInt(1);
+				String id = resultSet.getString(2);
+				String pw = resultSet.getString(3);
+				name = resultSet.getString(4);
+				int postCode = resultSet.getInt(5);
+				String address = resultSet.getString(6);
+				String addressDetail = resultSet.getString(7);
+				String regDate = resultSet.getString(8);
+				String email = resultSet.getString(9);
+				String tel = resultSet.getString(10);
+				
+				User user = new User.UserBuilder(id).password(pw).no(no).name(name)
+						.postcode(postCode).address(address).addressDetail(addressDetail)
+						.regDate(regDate).email(email).tel(tel).build();
+				
+				userList.add(user);
+			}
+			closeDB();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return userList;
+	}
+	
+	public ArrayList<User> searchAddress(String address) {
+		connectDB();
+		ArrayList<User> userList = new ArrayList<>();
+		
+		String sql = "SELECT * FROM USER WHERE ADDRESS LIKE ?;";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, "%" + address + "%");
+			
+			resultSet = ps.executeQuery();
+			while (resultSet.next()) {
+				int no = resultSet.getInt(1);
+				String id = resultSet.getString(2);
+				String pw = resultSet.getString(3);
+				String name = resultSet.getString(4);
+				int postCode = resultSet.getInt(5);
+				address = resultSet.getString(6);
+				String addressDetail = resultSet.getString(7);
+				String regDate = resultSet.getString(8);
+				String email = resultSet.getString(9);
+				String tel = resultSet.getString(10);
+				
+				User user = new User.UserBuilder(id).password(pw).no(no).name(name)
+						.postcode(postCode).address(address).addressDetail(addressDetail)
+						.regDate(regDate).email(email).tel(tel).build();
+				
+				userList.add(user);
+			}
+			closeDB();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return userList;
+	}
+	
+	public ArrayList<User> searchAll(String searchWord) {
+		connectDB();
+		ArrayList<User> userList = new ArrayList<>();
+		
+		String sql = "SELECT * FROM USER WHERE ID = ? OR NAME LIKE ? OR ADDRESS LIKE ?;";
+		
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, searchWord);
+			ps.setString(2, "%" + searchWord + "%");
+			ps.setString(3, "%" + searchWord + "%");
+			
+			resultSet = ps.executeQuery();
+			while (resultSet.next()) {
+				int no = resultSet.getInt(1);
+				String id = resultSet.getString(2);
+				String pw = resultSet.getString(3);
+				String name = resultSet.getString(4);
+				int postCode = resultSet.getInt(5);
+				String address = resultSet.getString(6);
+				String addressDetail = resultSet.getString(7);
+				String regDate = resultSet.getString(8);
+				String email = resultSet.getString(9);
+				String tel = resultSet.getString(10);
+				
+				User user = new User.UserBuilder(id).password(pw).no(no).name(name)
+						.postcode(postCode).address(address).addressDetail(addressDetail)
+						.regDate(regDate).email(email).tel(tel).build();
+				
+				userList.add(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return userList;
 	}
 	
 	public void connectDB() {

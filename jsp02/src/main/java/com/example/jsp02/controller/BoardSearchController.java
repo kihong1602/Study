@@ -20,14 +20,19 @@ public class BoardSearchController implements Controller {
 		String category = paramMap.get("search");
 		String searchWord = paramMap.get("searchWord");
 		ArrayList<Board> resultBoard = null;
-		if (category.equals("title")) {
-			resultBoard = boardService.searchToTitle(searchWord);
-		} else if (category.equals("name")) {
-			resultBoard = boardService.searchToName(searchWord);
-		} else if (category.equals("content")) {
-			resultBoard = boardService.searchToContent(searchWord);
-		} else if (category.equals("all")) {
-			resultBoard = boardService.searchAll(searchWord);
+		switch (category) {
+			case "title":
+				resultBoard = boardService.searchToTitle(searchWord);
+				break;
+			case "name":
+				resultBoard = boardService.searchToName(searchWord);
+				break;
+			case "content":
+				resultBoard = boardService.searchToContent(searchWord);
+				break;
+			case "all":
+				resultBoard = boardService.searchAll(searchWord);
+				break;
 		}
 		
 		ModelView modelView = new ModelView(viewName);

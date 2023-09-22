@@ -41,6 +41,23 @@ public class BoardService {
 		
 	}
 	
+	public int boardCount() {
+		connectDB();
+		int result = 0;
+		String sql = "SELECT COUNT(*)as count FROM BOARD;";
+		try {
+			ps = connection.prepareStatement(sql);
+			
+			resultSet = ps.executeQuery();
+			if (resultSet.next()) {
+				result = resultSet.getInt("count");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
 	public List<Board> scanAllContent() {
 		connectDB();
 		List<Board> boardList = new ArrayList<>();
@@ -48,6 +65,39 @@ public class BoardService {
 		String sql = "SELECT * FROM BOARD;";
 		try {
 			ps = connection.prepareStatement(sql);
+			
+			resultSet = ps.executeQuery();
+			while (resultSet.next()) {
+				//no,title,name,regDate,hit
+				int no = resultSet.getInt("NO");
+				String id = resultSet.getString("ID");
+				String title = resultSet.getString("TITLE");
+				String name = resultSet.getString("NAME");
+				String password = resultSet.getString("PASSWORD");
+				String regDate = resultSet.getString("REG_DATE");
+				int hit = resultSet.getInt("HIT");
+				
+				Board board = new Board.Builder(password).id(id).no(no).title(title).name(name)
+						.regDate(regDate).hit(hit).build();
+				boardList.add(board);
+			}
+			closeDB();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return boardList;
+	}
+	
+	public ArrayList<Board> paginationContent(int page, int listPerPage) {
+		connectDB();
+		ArrayList<Board> boardList = new ArrayList<>();
+		
+		String sql = "SELECT * FROM BOARD LIMIT ?,?";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, page);
+			ps.setInt(2, listPerPage);
 			
 			resultSet = ps.executeQuery();
 			while (resultSet.next()) {
@@ -240,7 +290,8 @@ public class BoardService {
 		}
 		return boardList;
 	}
-	public ArrayList<Board> searchAll(String searchWord){
+	
+	public ArrayList<Board> searchAll(String searchWord) {
 		connectDB();
 		ArrayList<Board> boardList = new ArrayList<>();
 		
@@ -248,12 +299,12 @@ public class BoardService {
 		
 		try {
 			ps = connection.prepareStatement(sql);
-			ps.setString(1,"%"+searchWord+"%");
-			ps.setString(2,searchWord);
-			ps.setString(3,"%"+searchWord+"%");
+			ps.setString(1, "%" + searchWord + "%");
+			ps.setString(2, searchWord);
+			ps.setString(3, "%" + searchWord + "%");
 			
 			resultSet = ps.executeQuery();
-			while(resultSet.next()){
+			while (resultSet.next()) {
 				int no = resultSet.getInt("NO");
 				String name = resultSet.getString("NAME");
 				String password = resultSet.getString("PASSWORD");

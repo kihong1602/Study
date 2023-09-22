@@ -28,21 +28,21 @@
         </thead>
         <tbody class="table-group-divider">
         <tr>
-            <th scope="row"><%=user.getNo()%>
+            <th scope="row">${requestScope.selectUser.no}
             </th>
-            <td><%=user.getId()%>
+            <td> ${requestScope.selectUser.id}
             </td>
-            <td><%=user.getPassword()%>
+            <td>${requestScope.selectUser.password}
             </td>
-            <td><%=user.getName()%>
+            <td> ${requestScope.selectUser.name}
             </td>
-            <td><%=user.getPostcode()%>
+            <td>${requestScope.selectUser.postcode}
             </td>
-            <td><%=user.getAddress()%>
+            <td>${requestScope.selectUser.address}
             </td>
-            <td><%=user.getAddressDetail()%>
+            <td>${requestScope.selectUser.addressDetail}
             </td>
-            <td><%=user.getRegDate()%>
+            <td>${requestScope.selectUser.regDate}
             </td>
         </tr>
         </tbody>

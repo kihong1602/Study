@@ -1,12 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: kks45
-  Date: 2023-09-19
-  Time: 오전 9:24
-  To change this template use File | Settings | File Templates.
---%>
-
-
 <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">

@@ -7,6 +7,7 @@ import com.example.jsp02.controller.IdCheckController;
 import com.example.jsp02.controller.UserInfoModifiedController;
 import com.example.jsp02.controller.UserInfoUpdateController;
 import com.example.jsp02.controller.UserListController;
+import com.example.jsp02.controller.UserListSearchController;
 import com.example.jsp02.controller.UserLoginController;
 import com.example.jsp02.controller.UserRemoveController;
 import com.example.jsp02.controller.UserSaveController;
@@ -43,6 +44,8 @@ public class FrontUserController extends HttpServlet {
 				new UserInfoModifiedController(new UserService()));
 		controllerMap.put("/join/user/user-update",
 				new UserInfoUpdateController(new UserService()));
+		controllerMap.put("/join/user/user-search",
+				new UserListSearchController(new UserService()));
 	}
 	
 	@Override

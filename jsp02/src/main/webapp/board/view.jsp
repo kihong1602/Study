@@ -43,25 +43,25 @@
                 <tbody>
                 <tr>
                     <th>제목</th>
-                    <td colspan="3"><%=board.getTitle()%>
+                    <td colspan="3">${requestScope.boardContent.title}
                     </td>
                 </tr>
                 <tr>
                     <th>글쓴이</th>
-                    <td colspan="3"><%=board.getName()%>
+                    <td colspan="3">${requestScope.boardContent.name}
                     </td>
                 </tr>
                 <tr>
                     <th>날짜</th>
-                    <td><%=board.getRegDate()%>
+                    <td>${requestScope.boardContent.regDate}
                     </td>
                     <th>조회수</th>
-                    <td><%=board.getHit()%>
+                    <td>${requestScope.boardContent.hit}
                     </td>
                 </tr>
                 <tr>
                     <th>내용</th>
-                    <td colspan="3" class="content"><%=board.getContent()%>
+                    <td colspan="3" class="content">${requestScope.boardContent.content}
                     </td>
                 </tr>
 
@@ -73,9 +73,9 @@
                 <a href="write.jsp" class="btn btn-primary mx-1">글쓰기</a>
                 <%
                     if (loggedID.equals(board.getId())) { %>
-                <a href="javascript:modify('<%=board.getNo()%>')"
+                <a href="javascript:modify('${requestScope.boardContent.no}')"
                    class="btn btn-danger mx-1">수정하기</a>
-                <a href="javascript:remove('<%=board.getNo()%>')"
+                <a href="javascript:remove('${requestScope.boardContent.no}')"
                    class="btn btn-danger mx-1">지우기</a>
                 <%}%>
             </div>

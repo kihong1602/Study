@@ -1,4 +1,3 @@
-<%@ page import="java.util.Map" %>
 <%@ page import="com.example.jsp02.entity.User" %><%--
   Created by IntelliJ IDEA.
   User: kks45
@@ -6,7 +5,7 @@
   Time: 오전 9:09
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <
 <%@include file="/layout/header.jsp" %>
 <%
