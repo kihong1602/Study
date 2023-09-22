@@ -176,6 +176,7 @@ public class BoardService {
 						.regDate(regDate).hit(hit).build();
 				boardList.add(board);
 			}
+			closeDB();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -204,6 +205,7 @@ public class BoardService {
 						.regDate(regDate).hit(hit).build();
 				boardList.add(board);
 			}
+			closeDB();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -232,6 +234,7 @@ public class BoardService {
 						.regDate(regDate).hit(hit).build();
 				boardList.add(board);
 			}
+			closeDB();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -261,6 +264,7 @@ public class BoardService {
 						.regDate(regDate).hit(hit).build();
 				boardList.add(board);
 			}
+			closeDB();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
