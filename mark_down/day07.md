@@ -17,9 +17,10 @@
                 <a href="javascript:modify('<%=board.getNo()%>')"
                    class="btn btn-danger mx-1">수정하기</a>
                 <a href="javascript:remove('<%=board.getNo()%>')"
-                   class="btn btn-danger mx-1">지우기</a>
-                
-<script>
+                   class="btn btn-danger mx-1">지우기</a>      
+```
+
+```javascript
   function modify(userNo) {
     let form = document.createElement('form');
 
@@ -51,7 +52,6 @@
     document.body.appendChild(form);
     form.submit();
   }
-</script>
 ```
 
 - a태그의 하이퍼링크 클릭 시 `JavaScript`로 `form` `input`을 생성해 request를 하도록 구현하였음.
