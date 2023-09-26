@@ -1,4 +1,4 @@
-<%@include file="/WEB-INF/layout/header.jsp" %>
+<%@include file="/layout/header.jsp" %>
 <h1><%="hello"%>
 </h1>
 <br><br>
@@ -7,4 +7,4 @@
 <hr>
 <br>
 <a href="join/login.jsp">user login</a>
-<%@include file="/WEB-INF/layout/footer.jsp" %>
+<%@include file="/layout/footer.jsp" %>
