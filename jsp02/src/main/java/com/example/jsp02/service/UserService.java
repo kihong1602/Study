@@ -73,18 +73,19 @@ public class UserService {
 			
 			resultSet = ps.executeQuery();
 			while (resultSet.next()) {
-				int no = resultSet.getInt(1);
-				id = resultSet.getString(2);
-				String password = resultSet.getString(3);
-				String name = resultSet.getString(4);
-				int postcode = resultSet.getInt(5);
-				String address = resultSet.getString(6);
-				String addressDetail = resultSet.getString(7);
-				String regDate = resultSet.getString(8);
+				int no = resultSet.getInt("NO");
+				id = resultSet.getString("ID");
+				String pw = resultSet.getString("PASSWORD");
+				String name = resultSet.getString("NAME");
+				int postCode = resultSet.getInt("POSTCODE");
+				String address = resultSet.getString("ADDRESS");
+				String addressDetail = resultSet.getString("ADDRESS_DETAIL");
+				String regDate = resultSet.getString("REG_DATE");
+				String profile = resultSet.getString("PROFILE");
 				
-				selectUser = new User.UserBuilder(id).no(no).password(password).name(name)
-						.postcode(postcode)
-						.address(address).addressDetail(addressDetail).regDate(regDate).build();
+				selectUser = new User.UserBuilder(id).no(no).password(pw).name(name)
+						.postcode(postCode).address(address).addressDetail(addressDetail)
+						.regDate(regDate).profile(profile).build();
 			}
 			System.out.println("검색 완료");
 			
@@ -492,6 +493,53 @@ public class UserService {
 		}
 		
 		return userList;
+	}
+	
+	
+	public User userProfileUpdate(String id, String filePath) {
+		connectDB();
+		User user = null;
+		
+		String sql = "UPDATE USER SET PROFILE = ? WHERE ID = ?";
+		
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, filePath);
+			ps.setString(2, id);
+			
+			int result = ps.executeUpdate();
+			if (result > 0) {
+				System.out.println("이미지 저장 성공~~");
+				sql = "SELECT * FROM USER WHERE ID = ?";
+				
+				ps = connection.prepareStatement(sql);
+				ps.setString(1, id);
+				
+				resultSet = ps.executeQuery();
+				if (resultSet.next()) {
+					int no = resultSet.getInt("NO");
+					id = resultSet.getString("ID");
+					String pw = resultSet.getString("PASSWORD");
+					String name = resultSet.getString("NAME");
+					int postCode = resultSet.getInt("POSTCODE");
+					String address = resultSet.getString("ADDRESS");
+					String addressDetail = resultSet.getString("ADDRESS_DETAIL");
+					String regDate = resultSet.getString("REG_DATE");
+					String profile = resultSet.getString("PROFILE");
+					
+					user = new User.UserBuilder(id).no(no).password(pw).name(name)
+							.postcode(postCode).address(address).addressDetail(addressDetail)
+							.regDate(regDate).profile(profile).build();
+				}
+			} else {
+				System.out.println("이미지 저장실패!!!!!");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return user;
 	}
 	
 	public void connectDB() {

@@ -12,6 +12,7 @@ public class User {
 	private String regDate;
 	private String email;
 	private String tel;
+	private String profile;
 	
 	public User(UserBuilder userBuilder) {
 		this.no = userBuilder.no;
@@ -24,6 +25,7 @@ public class User {
 		this.regDate = userBuilder.regDate;
 		this.email = userBuilder.email;
 		this.tel = userBuilder.tel;
+		this.profile = userBuilder.profile;
 	}
 	
 	@Override
@@ -73,6 +75,10 @@ public class User {
 		return tel;
 	}
 	
+	public String getProfile() {
+		return profile;
+	}
+	
 	public static class UserBuilder {
 		
 		private int no;
@@ -83,9 +89,9 @@ public class User {
 		private String address;
 		private String addressDetail;
 		private String regDate;
-		
 		private String email;
 		private String tel;
+		private String profile;
 		
 		public UserBuilder(String id) {
 			
@@ -135,6 +141,11 @@ public class User {
 		
 		public UserBuilder tel(String tel) {
 			this.tel = tel;
+			return this;
+		}
+		
+		public UserBuilder profile(String profile) {
+			this.profile = profile;
 			return this;
 		}
 		

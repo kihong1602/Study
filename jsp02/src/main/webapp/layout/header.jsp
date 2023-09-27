@@ -49,6 +49,8 @@
             </li>
             <li class="nav-item"><a href="<c:url value="/join/logout.jsp"/>"
                                     class="nav-link">로그아웃</a></li>
+            <li class="nav-item"><a href="<c:url value="/join/file-upload.jsp"/>"
+                                    class="nav-link">프로필업로드</a></li>
             <li class="nav-item"><a href="<c:url value="/join/info.jsp"/>"
                                     class="nav-link"><%=loggedName%>
             </a></li>

@@ -8,15 +8,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/layout/header.jsp" %>
-<%
-    User user = (User) request.getAttribute("selectUser");
-%>
-
 <div class="container">
     <table class="table">
         <thead>
         <tr>
             <th scope="col">No</th>
+            <th scope="col">Profile</th>
             <th scope="col">ID</th>
             <th scope="col">Password</th>
             <th scope="col">Name</th>
@@ -30,6 +27,10 @@
         <tr>
             <th scope="row">${requestScope.selectUser.no}
             </th>
+            <td><img
+                    src="${pageContext.request.contextPath}/upload/${requestScope.selectUser.profile}"
+                    alt="">
+            </td>
             <td> ${requestScope.selectUser.id}
             </td>
             <td>${requestScope.selectUser.password}
