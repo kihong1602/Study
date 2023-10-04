@@ -58,7 +58,7 @@
                                     class="nav-link"></a><img
                     src="${pageContext.request.contextPath}/upload/${sessionScope.filePath}"
                     alt="" class="profile"></li>
-            <li class="nav-item"><a href="<c:url value="/board/board.jsp"/>"
+            <li class="nav-item"><a href="<c:url value="/board/progress/board"/>"
                                     class="nav-link">게시판</a></li>
             <li class="nav-item"><a href="<c:url value="/board/write.jsp"/>"
                                     class="nav-link">글쓰기</a></li>

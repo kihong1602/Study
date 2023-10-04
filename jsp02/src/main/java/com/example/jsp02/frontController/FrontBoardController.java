@@ -2,6 +2,7 @@ package com.example.jsp02.frontController;
 
 import com.example.jsp02.View.ModelView;
 import com.example.jsp02.View.MyView;
+import com.example.jsp02.controller.BoardListController;
 import com.example.jsp02.controller.BoardModifiedController;
 import com.example.jsp02.controller.BoardRemoveController;
 import com.example.jsp02.controller.BoardSearchController;
@@ -24,6 +25,7 @@ public class FrontBoardController extends HttpServlet {
 	private final Map<String, Controller> controllerMap = new HashMap<>();
 	
 	public FrontBoardController() {
+		controllerMap.put("/board/progress/board", new BoardListController(new BoardService()));
 		controllerMap.put("/board/progress/write", new BoardWriteController(new BoardService()));
 		controllerMap.put("/board/progress/view", new BoardViewController(new BoardService()));
 		controllerMap.put("/board/progress/modify",

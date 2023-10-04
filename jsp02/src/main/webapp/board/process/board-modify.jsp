@@ -50,5 +50,12 @@
         </div>
     </div>
 </div>
-
+<script src="../../js/ckeditor.js"></script>
+<script>
+  ClassicEditor
+  .create(document.querySelector('#text-content'))
+  .catch(error => {
+    console.error(error);
+  });
+</script>
 <%@include file="/layout/footer.jsp" %>
