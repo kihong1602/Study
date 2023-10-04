@@ -16,12 +16,16 @@
     String id = (String) loginMap.get("userID");
     String name = (String) loginMap.get("userName");
     String saveID = (String) loginMap.get("saveID");
+    if (loginMap.get("profile") != null) {
+        String filePath = (String) loginMap.get("profile");
+        session.setAttribute("filePath", filePath);
+    }
 
     session.setAttribute("loggedID", id);
     session.setAttribute("loggedName", name);
 
     if (check) {
-        ScriptWriter.alertAndNext(response, "로그인성공!", "/join/user/user-select?userID=" + id);
+        ScriptWriter.alertAndNext(response, "로그인성공!", "/");
         if (saveID != null) {
             if (saveID.equals("rememberMe")) {
                 System.out.println("쿠키보내용");

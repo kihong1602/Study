@@ -3,6 +3,8 @@ package com.example.jsp02.controller;
 import com.example.jsp02.View.ModelView;
 import com.example.jsp02.entity.User;
 import com.example.jsp02.service.UserService;
+import jakarta.servlet.http.Part;
+import java.io.IOException;
 import java.util.Map;
 
 public class UserInfoUpdateController implements Controller {
@@ -14,18 +16,22 @@ public class UserInfoUpdateController implements Controller {
 	}
 	
 	@Override
-	public ModelView process(Map<String, String> paramMap) {
+	public ModelView process(Map<String, Object> paramMap) throws IOException {
 		String viewName = "user-update";
 		
-		String id = paramMap.get("userID");
-		String email = paramMap.get("userEmail");
-		String tel = paramMap.get("userTel");
-		int postcode = Integer.parseInt(paramMap.get("postCode"));
-		String address = paramMap.get("address");
-		String addressDetail = paramMap.get("addressDetail");
+		String id = (String) paramMap.get("userID");
+		String email = (String) paramMap.get("userEmail");
+		String tel = (String) paramMap.get("userTel");
+		int postcode = Integer.parseInt((String) paramMap.get("postCode"));
+		String address = (String) paramMap.get("address");
+		String addressDetail = (String) paramMap.get("addressDetail");
 		
+		Part profile = (Part) paramMap.get("profile");
+		String uploadPath = (String) paramMap.get("uploadPath");
+		
+		String url = userService.urlParsing(profile, uploadPath);
 		User user = new User.UserBuilder(id).email(email).tel(tel).postcode(postcode)
-				.address(address).addressDetail(addressDetail).build();
+				.address(address).addressDetail(addressDetail).profile(url).build();
 		User updateUser = userService.infoUpdate(user);
 		
 		ModelView modelView = new ModelView(viewName);

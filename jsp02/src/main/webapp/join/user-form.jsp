@@ -202,6 +202,7 @@
   $("#btnIDCheck").on("click", function () {
     $.ajax({
       url: "user/id-check",
+      method: "POST",
       data: {
         userID: $("#userID").val(),
       },

@@ -12,7 +12,7 @@
     <form action="user/user-select" method="post">
         <div class="form-floating">
             <input type="text" name="userID" class="form-control" id="userID"
-                   placeholder="ID">
+                   placeholder="ID" value="${sessionScope.loggedID}">
             <label for="userID">userID</label>
         </div>
         <button class="btn btn-primary w-100 py-2" type="submit">Sign in</button>

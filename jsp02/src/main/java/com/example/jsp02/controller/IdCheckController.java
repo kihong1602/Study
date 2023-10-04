@@ -14,10 +14,10 @@ public class IdCheckController implements Controller {
 	}
 	
 	@Override
-	public ModelView process(Map<String, String> paramMap) {
+	public ModelView process(Map<String, Object> paramMap) {
 		String viewName = "id-check";
 		
-		String id = paramMap.get("userID");
+		String id = (String) paramMap.get("userID");
 		User user = new User.UserBuilder(id).build();
 		String json = userService.idCheck(user);
 		

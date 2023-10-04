@@ -7,23 +7,15 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/layout/header.jsp" %>
-<%
-    User modifiedUser = (User) request.getAttribute("userCheck");
-    String name = modifiedUser.getName();
-    int postcode = modifiedUser.getPostcode();
-    String address = modifiedUser.getAddress();
-    String addressDetail = modifiedUser.getAddressDetail();
-    String email = modifiedUser.getEmail();
-    String tel = modifiedUser.getTel();
-%>
 <div class="container">
-    <form action="user-update" method="post" class="" name="member">
+    <form action="user-update" method="post" class="" name="member" enctype="multipart/form-data">
         <input type="hidden" name="userID" value="<%=loggedID%>">
         <div class="row d-flex justify-content-center">
             <div class="col-6">
                 <div class="mb-3">
                     <label for="userName" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="userName" value="<%=name%>"
+                    <input type="text" class="form-control" id="userName"
+                           value="${requestScope.userCheck.name}"
                            name="userName" readonly/>
 
                 </div>
@@ -34,7 +26,7 @@
                 <div class="mb-3">
                     <label for="userEmail" class="form-label">Email</label>
                     <input type="text" class="form-control" id="userEmail" name="userEmail"
-                           value="<%=email%>"/>
+                           value="${requestScope.userCheck.email}"/>
 
                 </div>
             </div>
@@ -44,7 +36,7 @@
                 <div class="mb-3">
                     <label for="userTel" class="form-label">Tel</label>
                     <input type="text" class="form-control" id="userTel" name="userTel"
-                           value="<%=tel%>"/>
+                           value="${requestScope.userCheck.tel}"/>
 
                 </div>
             </div>
@@ -54,7 +46,7 @@
                 <div class="mb-3">
                     <label for="postCode" class="form-label">postCode</label>
                     <input type="text" class="form-control" id="postCode"
-                           value="<%=postcode%>"
+                           value="${requestScope.userCheck.postcode}"
                            name="postCode"/>
 
                     <div>
@@ -68,7 +60,7 @@
                 <div class="mb-3">
                     <label for="address" class="form-label">Address</label>
                     <input type="text" class="form-control" id="address" name="address"
-                           value="<%=address%>"/>
+                           value="${requestScope.userCheck.address}"/>
 
                 </div>
             </div>
@@ -78,8 +70,24 @@
                 <div class="mb-3">
                     <label for="addressDetail" class="form-label">Detail Address</label>
                     <input type="text" class="form-control" id="addressDetail"
-                           value="<%=addressDetail%>" name="addressDetail"/>
+                           value="${requestScope.userCheck.addressDetail}" name="addressDetail"/>
 
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-6">
+                <div class="mb-3">
+                    <input type="file" class="form-control"
+                           id="profile" placeholder="png,jpg" name="profile"
+                           accept="image/gif, image/jpeg,image/png"/>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <div class="col-6">
+                <div class="mb-3">
+                    <div class="preview"></div>
                 </div>
             </div>
         </div>
@@ -150,6 +158,25 @@
   $("btnPostCode").on("click", function () {
     DaumPostcode();
     return false;
+  })
+  //이미지 미리보기
+  $("#profile").on("change", function (e) {
+    const file = e.target.files[0];
+    console.log(e.target.files);
+    console.log(file.name);
+    const ext = file.name.substring(file.name.lastIndexOf(".") + 1);
+    console.log(ext);
+    if (!(ext === "png" || ext === "jpg" || ext === "gif")) {
+      alert("png,jpg,gif만 쓸 수 있슴");
+      $("#profile").val("");
+      return false;
+    }
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      $(".preview").html(`<img src="\${e.target.result}" alt="">`);
+    }
+    reader.readAsDataURL(file);
+
   })
 </script>
 <%@include file="/layout/footer.jsp" %>

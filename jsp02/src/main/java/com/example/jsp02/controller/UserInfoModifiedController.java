@@ -14,10 +14,10 @@ public class UserInfoModifiedController implements Controller {
 	}
 	
 	@Override
-	public ModelView process(Map<String, String> paramMap) {
+	public ModelView process(Map<String, Object> paramMap) {
 		String viewName = "user-modified";
-		String id = paramMap.get("userID");
-		String pw = paramMap.get("userPW");
+		String id = (String) paramMap.get("userID");
+		String pw = (String) paramMap.get("userPW");
 		
 		User user = new User.UserBuilder(id).password(pw).build();
 		User userCheck = userService.checkUser(user);

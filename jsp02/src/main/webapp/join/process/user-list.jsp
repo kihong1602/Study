@@ -27,13 +27,12 @@
                 </th>
             </tr>
             </thead>
-            <%--            <%ArrayList<User> userList = (ArrayList<User>) request.getAttribute("userList");%>--%>
             <c:forEach items="${requestScope.userList}" var="user" varStatus="status">
                 <tbody class="table-group-divider">
                 <tr>
                     <th scope="row">${user.no}
                     </th>
-                    <td><a href="<c:url value="/join/user/user-select?userID=${user.id}"/>"
+                    <td><a href="javascript:info('${user.id}')"
                            id="link">${user.id}
                     </a></td>
                     <td>${user.name}
@@ -77,6 +76,21 @@
 
 </div>
 <script>
+  function info(name) {
+    const form = document.createElement('form');
+
+    const obj = document.createElement('input');
+    obj.setAttribute('name', 'userID');
+    obj.setAttribute('type', 'hidden');
+    obj.setAttribute('value', name);
+
+    form.appendChild(obj);
+    form.setAttribute('action', '/join/user/user-select');
+    form.setAttribute('method', 'post');
+    document.body.appendChild(form);
+    form.submit();
+  }
+
   $('#checkAll').on("click", function () {
     if ($("#checkAll").is(":checked")) {
       $(".check").prop("checked", true);

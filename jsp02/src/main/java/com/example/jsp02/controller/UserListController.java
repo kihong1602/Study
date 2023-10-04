@@ -15,7 +15,7 @@ public class UserListController implements Controller {
 	}
 	
 	@Override
-	public ModelView process(Map<String, String> paramMap) {
+	public ModelView process(Map<String, Object> paramMap) {
 		String viewName = "user-list";
 		
 		ArrayList<User> userList = userService.userList();

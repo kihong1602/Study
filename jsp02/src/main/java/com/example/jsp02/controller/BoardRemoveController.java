@@ -13,11 +13,11 @@ public class BoardRemoveController implements Controller {
 	}
 	
 	@Override
-	public ModelView process(Map<String, String> paramMap) {
+	public ModelView process(Map<String, Object> paramMap) {
 		String viewName = "process/remove-process";
 		
-		int no = Integer.parseInt(paramMap.get("no"));
-		String password = paramMap.get("password");
+		int no = Integer.parseInt(String.valueOf(paramMap.get("no")));
+		String password = (String) paramMap.get("password");
 		
 		int result = boardService.removeContent(no, password);
 		

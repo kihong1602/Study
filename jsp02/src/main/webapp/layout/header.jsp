@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>"/>
-    <link rel="stylesheet" href="<c:url value="/css/from.css"/>"/>
+    <link rel="stylesheet" href="<c:url value="/css/layout.css"/>"/>
     <script src="<c:url value="/js/bootstrap.bundle.min.js"/>"></script>
     <script src="<c:url value="/js/jquery-3.7.1.min.js"/>"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -54,6 +54,10 @@
             <li class="nav-item"><a href="<c:url value="/join/info.jsp"/>"
                                     class="nav-link"><%=loggedName%>
             </a></li>
+            <li class="nav-item"><a href="<c:url value="/join/info.jsp"/>"
+                                    class="nav-link"></a><img
+                    src="${pageContext.request.contextPath}/upload/${sessionScope.filePath}"
+                    alt="" class="profile"></li>
             <li class="nav-item"><a href="<c:url value="/board/board.jsp"/>"
                                     class="nav-link">게시판</a></li>
             <li class="nav-item"><a href="<c:url value="/board/write.jsp"/>"

@@ -9,6 +9,7 @@
 <%@include file="/layout/header.jsp" %>
 <%
     User user = (User) request.getAttribute("removeUser");
+	session.invalidate();
 %>
 <hr>
 <h2>Delete Complete <%=user.getId()%>

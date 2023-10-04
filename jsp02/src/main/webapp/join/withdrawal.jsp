@@ -11,6 +11,7 @@
     <form action="user/user-remove" method="post">
         <h1 class="h3 mb-3 fw-normal">회원 탈퇴</h1>
         <div class="form-floating">
+            <input type="hidden" name="filePath" value="${sessionScope.filePath}">
             <input type="text" name="userID" class="form-control" id="userID"
                    placeholder="ID">
             <label for="userID">userID</label>

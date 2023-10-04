@@ -15,10 +15,10 @@ public class BoardSearchController implements Controller {
 	}
 	
 	@Override
-	public ModelView process(Map<String, String> paramMap) {
+	public ModelView process(Map<String, Object> paramMap) {
 		String viewName = "process/search-process";
-		String category = paramMap.get("search");
-		String searchWord = paramMap.get("searchWord");
+		String category = (String) paramMap.get("search");
+		String searchWord = (String) paramMap.get("searchWord");
 		ArrayList<Board> resultBoard = null;
 		switch (category) {
 			case "title":

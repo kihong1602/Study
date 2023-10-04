@@ -14,12 +14,12 @@ public class BoardViewController implements Controller {
 	}
 	
 	@Override
-	public ModelView process(Map<String, String> paramMap) {
+	public ModelView process(Map<String, Object> paramMap) {
 		String viewName = "view";
 		
-		int no = Integer.parseInt(paramMap.get("no"));
+		int no = Integer.parseInt(String.valueOf(paramMap.get("no")));
 		String boardNo = "(" + no + ")";
-		String visitedCookie = paramMap.get("visitedCookie");
+		String visitedCookie = (String) paramMap.get("visitedCookie");
 		System.out.println("쿠키값 : " + visitedCookie);
 		if (!visitedCookie.contains(boardNo)) {
 			boardService.increaseHit(no);

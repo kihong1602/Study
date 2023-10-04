@@ -14,14 +14,14 @@ public class BoardWriteController implements Controller {
 	}
 	
 	@Override
-	public ModelView process(Map<String, String> paramMap) {
+	public ModelView process(Map<String, Object> paramMap) {
 		String viewName = "board";
 		
-		String id = paramMap.get("id");
-		String name = paramMap.get("name");
-		String title = paramMap.get("title");
-		String content = paramMap.get("content");
-		String password = paramMap.get("password");
+		String id = (String) paramMap.get("id");
+		String name = (String) paramMap.get("name");
+		String title = (String) paramMap.get("title");
+		String content = (String) paramMap.get("content");
+		String password = (String) paramMap.get("password");
 		
 		Board board = new Board.Builder(password).id(id).name(name).title(title).content(content)
 				.build();

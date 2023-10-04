@@ -14,13 +14,13 @@ public class UserRemoveController implements Controller {
 	}
 	
 	@Override
-	public ModelView process(Map<String, String> paramMap) {
+	public ModelView process(Map<String, Object> paramMap) {
 		String viewName = "user-delete";
 		
-		String id = paramMap.get("userID");
-		String password = paramMap.get("userPW");
-		
-		User user = new User.UserBuilder(id).password(password).build();
+		String id = (String) paramMap.get("userID");
+		String password = (String) paramMap.get("userPW");
+		String filePath = (String) paramMap.get("filePath");
+		User user = new User.UserBuilder(id).password(password).profile(filePath).build();
 		User removeUser = userService.removeUser(user);
 		
 		ModelView modelView = new ModelView(viewName);

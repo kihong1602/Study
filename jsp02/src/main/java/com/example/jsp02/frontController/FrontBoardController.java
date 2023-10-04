@@ -42,7 +42,7 @@ public class FrontBoardController extends HttpServlet {
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
 			return;
 		}
-		HashMap<String, String> paramMap = createParamMap(request);
+		HashMap<String, Object> paramMap = createParamMap(request);
 		ModelView modelView = controller.process(paramMap);
 		String viewName = modelView.getViewName();
 		
@@ -56,8 +56,8 @@ public class FrontBoardController extends HttpServlet {
 		return new MyView("/board/" + viewName + ".jsp");
 	}
 	
-	private HashMap<String, String> createParamMap(HttpServletRequest request) {
-		HashMap<String, String> paramMap = new HashMap<>();
+	private HashMap<String, Object> createParamMap(HttpServletRequest request) {
+		HashMap<String, Object> paramMap = new HashMap<>();
 		
 		request.getParameterNames().asIterator().forEachRemaining(
 				paramName -> paramMap.put(paramName, request.getParameter(paramName)));

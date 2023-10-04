@@ -15,14 +15,14 @@ public class BoardModifiedController implements Controller {
 	}
 	
 	@Override
-	public ModelView process(Map<String, String> paramMap) {
+	public ModelView process(Map<String, Object> paramMap) {
 		String viewName = "process/modify-process";
 		
-		int no = Integer.parseInt(paramMap.get("no"));
-		String name = paramMap.get("name");
-		String title = paramMap.get("title");
-		String content = paramMap.get("content");
-		String password = paramMap.get("password");
+		int no = Integer.parseInt(String.valueOf(paramMap.get("no")));
+		String name = (String) paramMap.get("name");
+		String title = (String) paramMap.get("title");
+		String content = (String) paramMap.get("content");
+		String password = (String) paramMap.get("password");
 		
 		Board board = new Board.Builder(password).no(no).name(name).title(title).content(content)
 				.build();

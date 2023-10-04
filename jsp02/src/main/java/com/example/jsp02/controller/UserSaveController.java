@@ -14,17 +14,17 @@ public class UserSaveController implements Controller {
 	}
 	
 	@Override
-	public ModelView process(Map<String, String> paramMap) {
+	public ModelView process(Map<String, Object> paramMap) {
 		String viewName = "user-save";
 		
-		String id = paramMap.get("userID");
-		String password = paramMap.get("userPW");
-		String name = paramMap.get("userName");
-		int postCode = Integer.parseInt(paramMap.get("postCode"));
-		String address = paramMap.get("address");
-		String addressDetail = paramMap.get("addressDetail");
-		String email = paramMap.get("userEmail");
-		String tel = paramMap.get("userTel");
+		String id = (String) paramMap.get("userID");
+		String password = (String) paramMap.get("userPW");
+		String name = (String) paramMap.get("userName");
+		int postCode = Integer.parseInt(String.valueOf(paramMap.get("postCode")));
+		String address = (String) paramMap.get("address");
+		String addressDetail = (String) paramMap.get("addressDetail");
+		String email = (String) paramMap.get("userEmail");
+		String tel = (String) paramMap.get("userTel");
 		
 		User user = new User.UserBuilder(id).password(password).name(name).postcode(postCode)
 				.address(address).addressDetail(addressDetail).email(email).tel(tel).build();

@@ -2,12 +2,17 @@ package com.example.jsp02.service;
 
 import com.example.jsp02.entity.User;
 import com.google.gson.Gson;
+import jakarta.servlet.http.Part;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -101,16 +106,26 @@ public class UserService {
 		connectDB();
 		String id = user.getId();
 		String password = user.getPassword();
-		
+		String profile = user.getProfile();
 		String sql = "DELETE FROM USER WHERE ID = ? AND PASSWORD = ?;";
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setString(2, password);
 			
-			ps.executeUpdate();
+			int result = ps.executeUpdate();
+			System.out.println(result);
+			if (result > 0) {
+				String uploadDirectory = "C:\\upload";
+				String realUploadPath = uploadDirectory;
+				System.out.println(realUploadPath + File.separator + profile);
+				File profileFile = new File(realUploadPath + File.separator + profile);
+				if (profileFile.exists()) {
+					profileFile.delete();
+				}
+			}
 			System.out.println("삭제완료");
-			closeDB();
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 			System.out.println("삭제 실패");
@@ -190,7 +205,8 @@ public class UserService {
 		String id = user.getId();
 		String pw = user.getPassword();
 		String name = "";
-		String sql = "SELECT ID, NAME FROM USER WHERE ID = ? AND PASSWORD = ?;";
+		String filePath = "";
+		String sql = "SELECT ID, NAME,PROFILE FROM USER WHERE ID = ? AND PASSWORD = ?;";
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, id);
@@ -200,8 +216,9 @@ public class UserService {
 			
 			if (resultSet.next()) {
 				check = true;
-				id = resultSet.getString(1);
-				name = resultSet.getString(2);
+				id = resultSet.getString("ID");
+				name = resultSet.getString("NAME");
+				filePath = resultSet.getString("PROFILE");
 			}
 			
 			closeDB();
@@ -211,6 +228,7 @@ public class UserService {
 		loginMap.put("check", check);
 		loginMap.put("userID", id);
 		loginMap.put("userName", name);
+		loginMap.put("profile", filePath);
 		return loginMap;
 	}
 	
@@ -257,11 +275,29 @@ public class UserService {
 		int postcode = user.getPostcode();
 		String address = user.getAddress();
 		String addressDetail = user.getAddressDetail();
+		String profile = user.getProfile();
 		String regDate = "";
 		
-		String sql = "UPDATE USER SET TEL =?,EMAIL=?,ADDRESS = ?, ADDRESS_DETAIL = ?,POSTCODE = ? WHERE ID = ?;";
+		String sql = "SELECT PROFILE FROM USER WHERE ID = ?;";
 		
 		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1,id);
+			
+			resultSet = ps.executeQuery();
+			if(resultSet.next()){
+				String fileName = resultSet.getString("PROFILE");
+				
+				String filePath = "C:\\upload";
+				String realPath = filePath + File.separator;
+				File oldFile = new File(realPath + fileName);
+				if (oldFile.exists()) {
+					oldFile.delete();
+				}
+			}
+			
+			
+			sql = "UPDATE USER SET TEL =?,EMAIL=?,ADDRESS = ?, ADDRESS_DETAIL = ?,POSTCODE = ?,PROFILE = ? WHERE ID = ?;";
 			ps = connection.prepareStatement(sql);
 			
 			ps.setString(1, tel);
@@ -269,7 +305,8 @@ public class UserService {
 			ps.setString(3, address);
 			ps.setString(4, addressDetail);
 			ps.setInt(5, postcode);
-			ps.setString(6, id);
+			ps.setString(6, profile);
+			ps.setString(7, id);
 			
 			int result = ps.executeUpdate();
 			if (result <= 0) {
@@ -289,6 +326,7 @@ public class UserService {
 					postcode = resultSet.getInt("POSTCODE");
 					address = resultSet.getString("ADDRESS");
 					addressDetail = resultSet.getString("ADDRESS_DETAIL");
+					profile = resultSet.getString("PROFILE");
 					regDate = resultSet.getString("REG_DATE");
 				}
 			}
@@ -298,7 +336,8 @@ public class UserService {
 		}
 		return new User.UserBuilder(id).name(name).email(email).tel(tel)
 				.postcode(postcode)
-				.address(address).addressDetail(addressDetail).regDate(regDate).build();
+				.address(address).addressDetail(addressDetail).regDate(regDate).profile(profile)
+				.build();
 	}
 	
 	public User adminRemove(int no) {
@@ -540,6 +579,41 @@ public class UserService {
 		}
 		
 		return user;
+	}
+	
+	public String urlParsing(Part profile, String realUploadPath) throws IOException {
+		File dir = new File(realUploadPath);
+		if (!dir.exists()) {
+			dir.mkdir();
+		}
+		
+		String partHeader = profile.getHeader("Content-disposition");
+		
+		String[] partHeaderArr = partHeader.split("filename=");
+		
+		String originalFileName = partHeaderArr[1].trim().replace("\"", "");
+		System.out.println(realUploadPath);
+		if (!originalFileName.isEmpty()) {
+			//물리경로
+			profile.write(realUploadPath + File.separator + originalFileName);
+			//운영체제에 따라 separator 가 달라지므로 삽입해주어야함.
+		}
+		
+		String ext = originalFileName.substring(originalFileName.lastIndexOf("."));
+		
+		String firstFileName = originalFileName.substring(0, originalFileName.indexOf("."));
+		
+		Date now = new Date();
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd-HHmmss");
+		String strNow = simpleDateFormat.format(now);
+		String newFileName = firstFileName + strNow + ext;
+		System.out.println(newFileName);
+		
+		File oldFile = new File(realUploadPath + File.separator + originalFileName);
+		File newFile = new File(realUploadPath + File.separator + newFileName);
+		oldFile.renameTo(newFile);
+		
+		return newFileName;
 	}
 	
 	public void connectDB() {

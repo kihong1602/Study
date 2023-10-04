@@ -15,11 +15,11 @@ public class UserListSearchController implements Controller {
 	}
 	
 	@Override
-	public ModelView process(Map<String, String> paramMap) {
+	public ModelView process(Map<String, Object> paramMap) {
 		String viewName = "user-list";
 		
-		String category = paramMap.get("searchUser");
-		String searchWord = paramMap.get("searchWord");
+		String category = (String) paramMap.get("searchUser");
+		String searchWord = (String) paramMap.get("searchWord");
 		ArrayList<User> userList = null;
 		
 		switch (category) {

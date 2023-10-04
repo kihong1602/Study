@@ -9,6 +9,8 @@
 <%@include file="/layout/header.jsp" %>
 <%
     User user = (User) request.getAttribute("updateUser");
+    session.removeAttribute("filePath");
+    session.setAttribute("filePath", user.getProfile());
     int temp = user.getPostcode();
     String postcodeStr = String.valueOf(temp);
     String postcode = postcodeStr.replace(

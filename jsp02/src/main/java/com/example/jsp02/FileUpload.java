@@ -47,10 +47,12 @@ public class FileUpload extends HttpServlet {
 		
 		String ext = originalFileName.substring(originalFileName.lastIndexOf("."));
 		
+		String firstFileName = originalFileName.substring(0, originalFileName.indexOf("."));
+		
 		Date now = new Date();
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd-HHmmss");
 		String strNow = simpleDateFormat.format(now);
-		String newFileName = strNow + ext;
+		String newFileName = firstFileName + strNow + ext;
 		System.out.println(newFileName);
 		
 		File oldFile = new File(realUploadPath + File.separator + originalFileName);

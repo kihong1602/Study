@@ -1,5 +1,4 @@
-<%@ page import="com.example.jsp02.entity.User" %>
-<%@ page import="java.util.List" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: kks45
   Date: 2023-09-18
@@ -29,7 +28,7 @@
             </th>
             <td><img
                     src="${pageContext.request.contextPath}/upload/${requestScope.selectUser.profile}"
-                    alt="">
+                    alt="" class="profile">
             </td>
             <td> ${requestScope.selectUser.id}
             </td>
