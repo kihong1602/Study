@@ -78,12 +78,15 @@ public class FrontUserController extends HttpServlet {
 		request.getParameterNames().asIterator()
 				.forEachRemaining(
 						paramName -> paramMap.put(paramName, request.getParameter(paramName)));
-		if (request.getContentType().startsWith("multipart/")) {
-			Part part = request.getPart("profile");
+		
+		if (request.getContentType() != null) {
+			if (request.getContentType().startsWith("multipart/")) {
+				Part part = request.getPart("profile");
 //			String realUploadPath = getServletContext().getRealPath("C:\\upload");
-			String realUploadPath = "C:\\upload";
-			paramMap.put("uploadPath", realUploadPath);
-			paramMap.put("profile", part);
+				String realUploadPath = "C:\\upload";
+				paramMap.put("uploadPath", realUploadPath);
+				paramMap.put("profile", part);
+			}
 		}
 		return paramMap;
 	}

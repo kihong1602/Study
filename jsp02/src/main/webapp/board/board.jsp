@@ -1,7 +1,5 @@
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
-<%@ page import="com.example.jsp02.entity.Board" %>
-<%@ page import="java.util.ArrayList" %>
-<%@ page import="com.example.jsp02.service.BoardService" %>
+<%@page isELIgnored="false" %>
 <%--
   Created by IntelliJ IDEA.
   User: kks45
@@ -13,11 +11,12 @@
 <%@include file="/layout/header.jsp" %>
 <fmt:parseNumber var="pagination" value="${requestScope.pagination}"/>
 <fmt:parseNumber var="currentPage" value="${requestScope.currentPage}"/>
-<c:set var="currentGroupCal" value="${(currentPage-1)/5}"/>
+<c:set var="currentGroupCal" value="${Math.floor((currentPage-1)/5)}"/>
+<%--내림처리 해줘야함--%>
 <fmt:formatNumber var="currentGroup" maxFractionDigits="0" value="${currentGroupCal}"/>
-<%--<c:set var="startPageCal" value="${currentGroup*5+1}"/>
+<c:set var="startPageCal" value="${currentGroup*5+1}"/>
 <fmt:formatNumber var="startPage" maxFractionDigits="0" value="${startPageCal}"/>
-<c:set var="endPage1" value="${startPage+4}"/>--%>
+<c:set var="endPage1" value="${startPage+4}"/>
 <%--<c:set var="pagaination" value="${requestScope.pagination}"/>--%>
 <div class="container">
     <div class="row d-flex justify-content-center">
@@ -54,44 +53,22 @@
 
             </table>
             <nav aria-label="Page navigation">
-                <%--<c:choose>
+                <c:choose>
                     <c:when test="${endPage1>pagination}">
                         <c:set var="endPage" value="${pagination}"/>
                     </c:when>
                     <c:otherwise>
                         <c:set var="endPage" value="${endPage1}"/>
                     </c:otherwise>
-                </c:choose>--%>
-                <c:set var="startPage" value="${currentPage-2}"/>
-                <c:set var="endPage" value="${currentPage+2}"/>
-                <c:choose>
-                    <c:when test="${startPage lt 1}">
-                        <c:set var="startPage" value="1"/>
-                        <c:set var="endPage" value="5"/>
-                    </c:when>
-                    <c:when test="${endPage gt pagination}">
-                        <c:set var="endPage" value="${pagination}"/>
-                        <c:set var="startPage" value="${pagination-4}"/>
-                    </c:when>
                 </c:choose>
                 <ul class="pagination">
-                    <c:choose>
-                        <c:when test="${currentGroup>0}">
-                            <li class="page-item"><a class="page-link"
-                                                     href="?page=${startPage-5}"
-                                                     aria-label="Previous"> <span
-                                    aria-hidden="true">&laquo;</span>
-                            </a></li>
-                        </c:when>
-                        <c:when test="${startPage-5<1}">
-                            <li class="page-item"><a class="page-link"
-                                                     href="?page=1"
-                                                     aria-label=" Previous"> <span
-                                    aria-hidden="true">&laquo;</span>
-                            </a></li>
-                        </c:when>
-<%--                        페이지  음수로 떨어지는거 고치기--%>
-                    </c:choose>
+                    <c:if test="${currentGroup>0}">
+                        <li class="page-item"><a class="page-link"
+                                                 href="?page=${startPage-5}"
+                                                 aria-label="Previous"> <span
+                                aria-hidden="true">&laquo;</span>
+                        </a></li>
+                    </c:if>
                     <c:forEach var="i" begin="${startPage}" end="${endPage}">
                         <c:choose>
                             <c:when test="${i == requestScope.currentPage}">

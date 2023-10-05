@@ -1,12 +1,17 @@
 package com.example.jsp02.service;
 
 import com.example.jsp02.entity.Board;
+import jakarta.servlet.http.Part;
+import java.io.File;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class BoardService {
@@ -237,11 +242,11 @@ public class BoardService {
 	public ArrayList<Board> searchToName(String name) {
 		connectDB();
 		ArrayList<Board> boardList = new ArrayList<>();
-		String sql = "SELECT * FROM BOARD WHERE NAME = ?;";
+		String sql = "SELECT * FROM BOARD WHERE NAME LIKE ?;";
 		
 		try {
 			ps = connection.prepareStatement(sql);
-			ps.setString(1, name);
+			ps.setString(1, "%" + name + "%");
 			
 			resultSet = ps.executeQuery();
 			while (resultSet.next()) {
@@ -295,12 +300,12 @@ public class BoardService {
 		connectDB();
 		ArrayList<Board> boardList = new ArrayList<>();
 		
-		String sql = "SELECT * FROM BOARD WHERE CONTENT LIKE ? OR NAME = ? OR TITLE LIKE ?;";
+		String sql = "SELECT * FROM BOARD WHERE CONTENT LIKE ? OR NAME LIKE ? OR TITLE LIKE ?;";
 		
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, "%" + searchWord + "%");
-			ps.setString(2, searchWord);
+			ps.setString(2, "%" + searchWord + "%");
 			ps.setString(3, "%" + searchWord + "%");
 			
 			resultSet = ps.executeQuery();
@@ -321,6 +326,38 @@ public class BoardService {
 		}
 		
 		return boardList;
+	}
+	
+	
+	public String urlParsing(Part ckUpload, String realUploadPath) throws IOException {
+		
+		String partHeader = ckUpload.getHeader("Content-disposition");
+		
+		String[] partHeaderArr = partHeader.split("filename=");
+		
+		String originalFileName = partHeaderArr[1].trim().replace("\"", "");
+		System.out.println("realUploadPath : " + realUploadPath);
+		if (!originalFileName.isEmpty()) {
+			//물리경로
+			ckUpload.write(realUploadPath + File.separator + originalFileName);
+			//운영체제에 따라 separator 가 달라지므로 삽입해주어야함.
+		}
+		
+		String ext = originalFileName.substring(originalFileName.lastIndexOf("."));
+		
+		String firstFileName = originalFileName.substring(0, originalFileName.indexOf("."));
+		
+		Date now = new Date();
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd-HHmmss");
+		String strNow = simpleDateFormat.format(now);
+		String newFileName = firstFileName + strNow + ext;
+		System.out.println(newFileName);
+		
+		File oldFile = new File(realUploadPath + File.separator + originalFileName);
+		File newFile = new File(realUploadPath + File.separator + newFileName);
+		oldFile.renameTo(newFile);
+		
+		return newFileName;
 	}
 	
 	public void connectDB() {

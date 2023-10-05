@@ -1,5 +1,3 @@
-<%@ page import="com.example.jsp02.service.BoardService" %>
-<%@ page import="com.example.jsp02.entity.Board" %>
 <%@ page import="com.example.jsp02.alert.ScriptWriter" %><%--
   Created by IntelliJ IDEA.
   User: kks45
@@ -13,7 +11,7 @@
     int result = (int) request.getAttribute("result");
 
     if (result > 0) {
-        ScriptWriter.alertAndNext(response, "수정완료", "../board.jsp");
+        ScriptWriter.alertAndNext(response, "수정완료", "/board/progress/board");
     }
 %>
 

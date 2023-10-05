@@ -297,8 +297,8 @@ public class UserService {
 			}
 			
 			
-			sql = "UPDATE USER SET TEL =?,EMAIL=?,ADDRESS = ?, ADDRESS_DETAIL = ?,POSTCODE = ?,PROFILE = ? WHERE ID = ?;";
-			ps = connection.prepareStatement(sql);
+			String sql2 = "UPDATE USER SET TEL =?,EMAIL=?,ADDRESS = ?, ADDRESS_DETAIL = ?,POSTCODE = ?,PROFILE = ? WHERE ID = ?;";
+			ps = connection.prepareStatement(sql2);
 			
 			ps.setString(1, tel);
 			ps.setString(2, email);
@@ -313,8 +313,8 @@ public class UserService {
 				System.out.println("업데이트 실패");
 			} else {
 				System.out.println("업데이트 성공");
-				sql = "SELECT * FROM USER WHERE ID = ?;";
-				ps = connection.prepareStatement(sql);
+				String sql3 = "SELECT * FROM USER WHERE ID = ?;";
+				ps = connection.prepareStatement(sql3);
 				ps.setString(1, id);
 				
 				resultSet = ps.executeQuery();

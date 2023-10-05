@@ -15,7 +15,7 @@ public class BoardWriteController implements Controller {
 	
 	@Override
 	public ModelView process(Map<String, Object> paramMap) {
-		String viewName = "board";
+		String viewName = "process/go-to-board";
 		
 		String id = (String) paramMap.get("id");
 		String name = (String) paramMap.get("name");

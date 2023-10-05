@@ -2,6 +2,7 @@ package com.example.jsp02.frontController;
 
 import com.example.jsp02.View.ModelView;
 import com.example.jsp02.View.MyView;
+import com.example.jsp02.controller.BoardImgUploadController;
 import com.example.jsp02.controller.BoardListController;
 import com.example.jsp02.controller.BoardModifiedController;
 import com.example.jsp02.controller.BoardRemoveController;
@@ -15,6 +16,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.Part;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,6 +27,8 @@ public class FrontBoardController extends HttpServlet {
 	private final Map<String, Controller> controllerMap = new HashMap<>();
 	
 	public FrontBoardController() {
+		controllerMap.put("/board/progress/upload",
+				new BoardImgUploadController(new BoardService()));
 		controllerMap.put("/board/progress/board", new BoardListController(new BoardService()));
 		controllerMap.put("/board/progress/write", new BoardWriteController(new BoardService()));
 		controllerMap.put("/board/progress/view", new BoardViewController(new BoardService()));
@@ -58,12 +62,22 @@ public class FrontBoardController extends HttpServlet {
 		return new MyView("/board/" + viewName + ".jsp");
 	}
 	
-	private HashMap<String, Object> createParamMap(HttpServletRequest request) {
+	private HashMap<String, Object> createParamMap(HttpServletRequest request)
+			throws ServletException, IOException {
 		HashMap<String, Object> paramMap = new HashMap<>();
 		
 		request.getParameterNames().asIterator().forEachRemaining(
 				paramName -> paramMap.put(paramName, request.getParameter(paramName)));
-		
+		System.out.println("request.getContentType : " + request.getContentType());
+		if (request.getContentType() != null) {
+			if (request.getContentType().startsWith("multipart/")) {
+				Part part = request.getPart("upload");
+//			String realUploadPath = getServletContext().getRealPath("C:\\upload");
+				String realUploadPath = "C:\\upload";
+				paramMap.put("uploadPath", realUploadPath);
+				paramMap.put("part", part);
+			}
+		}
 		return paramMap;
 	}
 }

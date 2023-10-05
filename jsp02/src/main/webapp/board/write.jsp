@@ -41,12 +41,13 @@
         </div>
     </div>
 </div>
-<script src="../js/ckeditor.js"></script>
+<%--<script src="../js/ckeditor.js"></script>--%>
+<script src="https://cdn.ckeditor.com/ckeditor5/39.0.2/classic/ckeditor.js"></script>
 <script>
   ClassicEditor
   .create(document.querySelector('#text-content'), {
     ckfinder: {
-      uploadUrl: '/upload'
+      uploadUrl: '/board/progress/upload'
     }
   })
   .catch(error => {
