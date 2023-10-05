@@ -100,7 +100,7 @@ public class BoardService {
 		connectDB();
 		ArrayList<Board> boardList = new ArrayList<>();
 		
-		String sql = "SELECT * FROM BOARD LIMIT ?,?";
+		String sql = "SELECT * FROM BOARD ORDER BY NO DESC LIMIT ?,?";
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setInt(1, page);
@@ -240,7 +240,7 @@ public class BoardService {
 	public ArrayList<Board> searchToTitle(String title, int page, int listPerPage) {
 		connectDB();
 		ArrayList<Board> boardList = new ArrayList<>();
-		String sql = "SELECT * FROM BOARD WHERE TITLE LIKE ? LIMIT ?,? ;";
+		String sql = "SELECT * FROM BOARD WHERE TITLE LIKE ? ORDER BY NO DESC LIMIT ?,? ;";
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, "%" + title + "%");
@@ -269,7 +269,7 @@ public class BoardService {
 	public ArrayList<Board> searchToName(String name, int page, int listPerPage) {
 		connectDB();
 		ArrayList<Board> boardList = new ArrayList<>();
-		String sql = "SELECT * FROM BOARD WHERE NAME LIKE ? LIMIT ?,?;";
+		String sql = "SELECT * FROM BOARD WHERE NAME LIKE ? ORDER BY NO DESC LIMIT ?,?;";
 		
 		try {
 			ps = connection.prepareStatement(sql);
@@ -300,7 +300,7 @@ public class BoardService {
 	public ArrayList<Board> searchToContent(String content, int page, int listPerPage) {
 		connectDB();
 		ArrayList<Board> boardList = new ArrayList<>();
-		String sql = "SELECT * FROM BOARD WHERE CONTENT LIKE ? LIMIT ?,?;";
+		String sql = "SELECT * FROM BOARD WHERE CONTENT LIKE ? ORDER BY NO DESC LIMIT ?,?;";
 		
 		try {
 			ps = connection.prepareStatement(sql);
@@ -331,7 +331,7 @@ public class BoardService {
 		connectDB();
 		ArrayList<Board> boardList = new ArrayList<>();
 		
-		String sql = "SELECT * FROM BOARD WHERE CONTENT LIKE ? OR NAME LIKE ? OR TITLE LIKE ? LIMIT ?,?;";
+		String sql = "SELECT * FROM BOARD WHERE CONTENT LIKE ? OR NAME LIKE ? OR TITLE LIKE ? ORDER BY NO DESC LIMIT ?,?;";
 		
 		try {
 			ps = connection.prepareStatement(sql);
