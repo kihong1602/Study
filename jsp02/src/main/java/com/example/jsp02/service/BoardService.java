@@ -211,14 +211,15 @@ public class BoardService {
 		return result;
 	}
 	
-	public ArrayList<Board> searchToTitle(String title) {
+	public ArrayList<Board> searchToTitle(String title, int page, int listPerPage) {
 		connectDB();
 		ArrayList<Board> boardList = new ArrayList<>();
-		String sql = "SELECT * FROM BOARD WHERE TITLE LIKE ?;";
+		String sql = "SELECT * FROM BOARD WHERE TITLE LIKE ? LIMIT ?,? ;";
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, "%" + title + "%");
-			
+			ps.setInt(2, page);
+			ps.setInt(3, listPerPage);
 			resultSet = ps.executeQuery();
 			while (resultSet.next()) {
 				int no = resultSet.getInt("NO");
@@ -239,14 +240,16 @@ public class BoardService {
 		return boardList;
 	}
 	
-	public ArrayList<Board> searchToName(String name) {
+	public ArrayList<Board> searchToName(String name, int page, int listPerPage) {
 		connectDB();
 		ArrayList<Board> boardList = new ArrayList<>();
-		String sql = "SELECT * FROM BOARD WHERE NAME LIKE ?;";
+		String sql = "SELECT * FROM BOARD WHERE NAME LIKE ? LIMIT ?,?;";
 		
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, "%" + name + "%");
+			ps.setInt(2, page);
+			ps.setInt(3, listPerPage);
 			
 			resultSet = ps.executeQuery();
 			while (resultSet.next()) {
@@ -268,14 +271,16 @@ public class BoardService {
 		return boardList;
 	}
 	
-	public ArrayList<Board> searchToContent(String content) {
+	public ArrayList<Board> searchToContent(String content, int page, int listPerPage) {
 		connectDB();
 		ArrayList<Board> boardList = new ArrayList<>();
-		String sql = "SELECT * FROM BOARD WHERE CONTENT LIKE ?;";
+		String sql = "SELECT * FROM BOARD WHERE CONTENT LIKE ? LIMIT ?,?;";
 		
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, "%" + content + "%");
+			ps.setInt(2, page);
+			ps.setInt(3, listPerPage);
 			
 			resultSet = ps.executeQuery();
 			while (resultSet.next()) {
@@ -296,17 +301,19 @@ public class BoardService {
 		return boardList;
 	}
 	
-	public ArrayList<Board> searchAll(String searchWord) {
+	public ArrayList<Board> searchAll(String searchWord, int page, int listPerPage) {
 		connectDB();
 		ArrayList<Board> boardList = new ArrayList<>();
 		
-		String sql = "SELECT * FROM BOARD WHERE CONTENT LIKE ? OR NAME LIKE ? OR TITLE LIKE ?;";
+		String sql = "SELECT * FROM BOARD WHERE CONTENT LIKE ? OR NAME LIKE ? OR TITLE LIKE ? LIMIT ?,?;";
 		
 		try {
 			ps = connection.prepareStatement(sql);
 			ps.setString(1, "%" + searchWord + "%");
 			ps.setString(2, "%" + searchWord + "%");
 			ps.setString(3, "%" + searchWord + "%");
+			ps.setInt(4, page);
+			ps.setInt(5, listPerPage);
 			
 			resultSet = ps.executeQuery();
 			while (resultSet.next()) {
@@ -328,6 +335,87 @@ public class BoardService {
 		return boardList;
 	}
 	
+	public int countSearchToTitle(String word) {
+		connectDB();
+		int count = 0;
+		
+		String sql = "SELECT COUNT(*) AS COUNT FROM BOARD WHERE TITLE LIKE ?";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, "%" + word + "%");
+			
+			resultSet = ps.executeQuery();
+			if (resultSet.next()) {
+				count = resultSet.getInt("COUNT");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
+	
+	public int countSearchToName(String word) {
+		connectDB();
+		int count = 0;
+		
+		String sql = "SELECT COUNT(*) AS COUNT FROM BOARD WHERE NAME LIKE ?";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, "%" + word + "%");
+			
+			resultSet = ps.executeQuery();
+			if (resultSet.next()) {
+				count = resultSet.getInt("COUNT");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
+	
+	public int countSearchToContent(String word) {
+		connectDB();
+		int count = 0;
+		
+		String sql = "SELECT COUNT(*) AS COUNT FROM BOARD WHERE CONTENT LIKE ?";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, "%" + word + "%");
+			
+			resultSet = ps.executeQuery();
+			if (resultSet.next()) {
+				count = resultSet.getInt("COUNT");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
+	
+	public int countSearchAll(String word) {
+		connectDB();
+		int count = 0;
+		
+		String sql = "SELECT COUNT(*) AS COUNT FROM BOARD WHERE TITLE LIKE ? OR NAME LIKE ? OR CONTENT LIKE ?;";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, "%" + word + "%");
+			ps.setString(2, "%" + word + "%");
+			ps.setString(3, "%" + word + "%");
+			
+			resultSet = ps.executeQuery();
+			if (resultSet.next()) {
+				count = resultSet.getInt("COUNT");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
 	
 	public String urlParsing(Part ckUpload, String realUploadPath) throws IOException {
 		
