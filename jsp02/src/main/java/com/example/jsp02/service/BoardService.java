@@ -13,6 +13,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class BoardService {
 	
@@ -171,10 +173,34 @@ public class BoardService {
 	
 	public int removeContent(int no, String password) {
 		connectDB();
-		String sql = "DELETE FROM BOARD WHERE NO = ? AND PASSWORD = ?;";
+		
+		String sql = "SELECT CONTENT FROM BOARD WHERE NO = ? AND PASSWORD = ?;";
+		List<String> imgNameList = new ArrayList<>();
 		int result = 0;
 		try {
 			ps = connection.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.setString(2, password);
+			
+			resultSet = ps.executeQuery();
+			while (resultSet.next()) {
+				String content = resultSet.getString("CONTENT");
+				String imgFilePattern = "<img src=\"([^\"]+)\"";
+				Pattern pattern = Pattern.compile(imgFilePattern);
+				Matcher matcher = pattern.matcher(content);
+				if (matcher.find()) {
+					String imgFilePath = matcher.group(1);
+					File imgFile = new File(imgFilePath);
+					if (imgFile.exists() && imgFile.delete()) {
+						System.out.println("이미지 삭제 완료");
+					} else {
+						System.out.println("이미지 삭제 실패");
+					}
+				}
+			}
+			
+			String sql1 = "DELETE FROM BOARD WHERE NO = ? AND PASSWORD = ?;";
+			ps = connection.prepareStatement(sql1);
 			ps.setInt(1, no);
 			ps.setString(2, password);
 			result = ps.executeUpdate();
