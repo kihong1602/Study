@@ -188,15 +188,16 @@ public class BoardService {
 				String imgFilePattern = "<img src=\"([^\"]+)\"";
 				Pattern pattern = Pattern.compile(imgFilePattern);
 				Matcher matcher = pattern.matcher(content);
-				if (matcher.find()) {
+				while (matcher.find()) {
 					String imgFilePath = matcher.group(1);
 					File imgFile = new File(imgFilePath);
 					if (imgFile.exists() && imgFile.delete()) {
-						System.out.println("이미지 삭제 완료");
+						System.out.println("이미지 삭제 완료" + imgFilePath);
 					} else {
 						System.out.println("이미지 삭제 실패");
 					}
 				}
+				System.out.println("이미지 전체 삭제 완료");
 			}
 			
 			String sql1 = "DELETE FROM BOARD WHERE NO = ? AND PASSWORD = ?;";

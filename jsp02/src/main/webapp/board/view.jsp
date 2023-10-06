@@ -71,18 +71,22 @@
             <div class="d-flex justify-content-center mt-5">
                 <a href="board.jsp" class="btn btn-primary">목록</a>
                 <a href="write.jsp" class="btn btn-primary mx-1">글쓰기</a>
-                <%
-                    if (loggedID.equals(board.getId())) { %>
-                <a href="javascript:modify('${requestScope.boardContent.no}')"
-                   class="btn btn-danger mx-1">수정하기</a>
-                <a href="javascript:remove('${requestScope.boardContent.no}')"
-                   class="btn btn-danger mx-1">지우기</a>
-                <%}%>
+                <c:if test="${sessionScope.loggedID eq requestScope.boardContent.id}">
+                    <a href="javascript:modify('${requestScope.boardContent.no}')"
+                       class="btn btn-danger mx-1">수정하기</a>
+                    <a href="javascript:remove('${requestScope.boardContent.no}')"
+                       class="btn btn-danger mx-1">지우기</a>
+                </c:if>
             </div>
         </div>
     </div>
 </div>
+<script charset="utf-8" src="//cdn.iframe.ly/embed.js?api_key=7d41513e5f4e4434bc023d"></script>
 <script>
+  document.querySelectorAll('oembed[url]').forEach(element => {
+    iframely.load(element, element.attributes.url.value);
+  });
+
   function modify(userNo) {
     let form = document.createElement('form');
 

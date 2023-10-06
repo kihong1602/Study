@@ -23,6 +23,10 @@
   max-width: 150px;
 }
 
-.ck-editor__main .ck-content{
-  height:300px;
+.ck-editor__main .ck-content {
+  height: 300px;
+}
+
+.main {
+  min-height: 500px;
 }
