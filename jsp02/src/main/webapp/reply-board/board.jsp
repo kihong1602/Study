@@ -22,7 +22,8 @@
         <c:forEach items="${requestScope.boardList}" var="board" varStatus="status">
             <tr>
                 <th scope="row">${status.index}</th>
-                <td><a href="javascript:listView('${board.no}')">${board.title}</a></td>
+                <td><a href="javascript:listView('${board.no}')"
+                       class="step step${board.reStep}">${board.title}</a></td>
                 <td>${board.name}</td>
                 <td>${board.regDate}</td>
                 <td>${board.hit}</td>

@@ -3,7 +3,10 @@ package com.example.jsp02.frontController;
 import com.example.jsp02.View.ModelView;
 import com.example.jsp02.View.MyView;
 import com.example.jsp02.controller.Controller;
+import com.example.jsp02.controller.replyBoardControl.ReplyBoardGoToReplController;
 import com.example.jsp02.controller.replyBoardControl.ReplyBoardListController;
+import com.example.jsp02.controller.replyBoardControl.ReplyBoardReplController;
+import com.example.jsp02.controller.replyBoardControl.ReplyBoardViewController;
 import com.example.jsp02.controller.replyBoardControl.ReplyBoardWriteController;
 import com.example.jsp02.service.ReplyBoardService;
 import jakarta.servlet.ServletException;
@@ -24,6 +27,10 @@ public class FrontReplyBoardController extends HttpServlet {
 	public FrontReplyBoardController() {
 		controllerMap.put("/reply/write", new ReplyBoardWriteController(new ReplyBoardService()));
 		controllerMap.put("/reply/board", new ReplyBoardListController(new ReplyBoardService()));
+		controllerMap.put("/reply/view", new ReplyBoardViewController(new ReplyBoardService()));
+		controllerMap.put("/reply/reply-process", new ReplyBoardGoToReplController());
+		controllerMap.put("/reply/reply-write",
+				new ReplyBoardReplController(new ReplyBoardService()));
 	}
 	
 	@Override
@@ -45,6 +52,9 @@ public class FrontReplyBoardController extends HttpServlet {
 	}
 	
 	private MyView viewResolver(String viewName) {
+		if (viewName.equals("redirect")) {
+			return new MyView("/reply/board");
+		}
 		return new MyView("/reply-board/" + viewName + ".jsp");
 	}
 	

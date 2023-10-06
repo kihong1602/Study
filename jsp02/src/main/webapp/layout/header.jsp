@@ -61,7 +61,7 @@
                             <li><a href="<c:url value="/board/write.jsp"/>"
                                    class="nav-link px-2 link-body-emphasis">Normal Board write</a>
                             </li>
-                            <li><a href="<c:url value="/reply-board/board.jsp"/>"
+                            <li><a href="<c:url value="/reply/board"/>"
                                    class="nav-link px-2 link-body-emphasis">Reply Board</a>
                             </li>
                             <li><a href="<c:url value="/reply-board/write.jsp"/>"

@@ -19,6 +19,50 @@ public class ReplyBoardDTO {
 		this.available = builder.available;
 	}
 	
+	public void setNo(int no) {
+		this.no = no;
+	}
+	
+	public void setHit(int hit) {
+		this.hit = hit;
+	}
+	
+	public void setReGroup(int reGroup) {
+		this.reGroup = reGroup;
+	}
+	
+	public void setReLevel(int reLevel) {
+		this.reLevel = reLevel;
+	}
+	
+	public void setReStep(int reStep) {
+		this.reStep = reStep;
+	}
+	
+	public void setAvailable(int available) {
+		this.available = available;
+	}
+	
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public void setContent(String content) {
+		this.content = content;
+	}
+	
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
+	}
+	
 	public int getNo() {
 		return no;
 	}

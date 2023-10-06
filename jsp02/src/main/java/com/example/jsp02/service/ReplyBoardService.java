@@ -45,7 +45,7 @@ public class ReplyBoardService {
 	public List<ReplyBoardDTO> PostList() {
 		connectDB();
 		List<ReplyBoardDTO> list = new ArrayList<>();
-		String sql = "SELECT * FROM REPLYBOARD ORDER BY RE_GROUP DESC";
+		String sql = "SELECT * FROM REPLYBOARD ORDER BY RE_GROUP DESC, RE_LEVEL ASC";
 		try {
 			ps = connection.prepareStatement(sql);
 			
@@ -77,6 +77,7 @@ public class ReplyBoardService {
 	}
 	
 	public ReplyBoardDTO viewPost(int no) {
+		connectDB();
 		ReplyBoardDTO replyBoardDTO = null;
 		
 		String sql = "SELECT * FROM REPLYBOARD WHERE NO = ?";
@@ -91,16 +92,59 @@ public class ReplyBoardService {
 				String title = resultSet.getString("TITLE");
 				String content = resultSet.getString("CONTENT");
 				String regDate = resultSet.getString("REG_DATE");
+				int reGroup = resultSet.getInt("RE_GROUP");
+				int reLevel = resultSet.getInt("RE_LEVEL");
+				int reStep = resultSet.getInt("RE_STEP");
 				int hit = resultSet.getInt("HIT");
 				
 				replyBoardDTO = new ReplyBoardDTO.Builder(id).name(name).title(title)
-						.content(content).hit(hit).build();
+						.content(content).hit(hit).regDate(regDate).reGroup(reGroup)
+						.reLevel(reLevel).reStep(reStep).build();
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
 		return replyBoardDTO;
+	}
+	
+	public int updateReLevel(ReplyBoardDTO replyBoardDTO) {
+		int result = 0;
+		connectDB();
+		String sql = "UPDATE REPLYBOARD SET RE_LEVEL = RE_LEVEL+1 WHERE RE_GROUP = ? AND RE_LEVEL > ?";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, replyBoardDTO.getReGroup());
+			ps.setInt(2, replyBoardDTO.getReLevel());
+			result = ps.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	public int reply(ReplyBoardDTO replyBoardDTO) {
+		connectDB();
+		int result = 0;
+		String sql = "INSERT INTO replyboard(ID,NAME,TITLE,CONTENT,RE_GROUP,RE_LEVEL,RE_STEP) VALUES (?,?,?,?,?,?,?);";
+		
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, replyBoardDTO.getId());
+			ps.setString(2, replyBoardDTO.getName());
+			ps.setString(3, replyBoardDTO.getTitle());
+			ps.setString(4, replyBoardDTO.getContent());
+			ps.setInt(5, replyBoardDTO.getReGroup());    //regroup max찾아서 1증가
+			ps.setInt(6, replyBoardDTO.getReLevel());
+			ps.setInt(7, replyBoardDTO.getReStep());
+			result = ps.executeUpdate();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
 	public int getMaxRegroup() {
