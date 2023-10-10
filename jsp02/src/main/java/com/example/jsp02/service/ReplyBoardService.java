@@ -97,7 +97,7 @@ public class ReplyBoardService {
 				int reStep = resultSet.getInt("RE_STEP");
 				int hit = resultSet.getInt("HIT");
 				
-				replyBoardDTO = new ReplyBoardDTO.Builder(id).name(name).title(title)
+				replyBoardDTO = new ReplyBoardDTO.Builder(id).no(no).name(name).title(title)
 						.content(content).hit(hit).regDate(regDate).reGroup(reGroup)
 						.reLevel(reLevel).reStep(reStep).build();
 			}
@@ -182,6 +182,141 @@ public class ReplyBoardService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public int postUpdate(ReplyBoardDTO replyBoardDTO) {
+		connectDB();
+		int result = 0;
+		String sql = "UPDATE REPLYBOARD SET TITLE = ?, CONTENT = ? WHERE NO = ?";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, replyBoardDTO.getTitle());
+			ps.setString(2, replyBoardDTO.getContent());
+			ps.setInt(3, replyBoardDTO.getNo());
+			
+			result = ps.executeUpdate();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public int removePost(int no) {
+		int result = 0;
+		connectDB();
+		String sql = "UPDATE REPLYBOARD SET AVAILABLE = 0 WHERE NO = ?";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, no);
+			
+			result = ps.executeUpdate();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+	
+	public void increaseHit(int no) {
+		connectDB();
+		String sql = "UPDATE REPLYBOARD SET HIT = HIT + 1 WHERE NO = ?;";
+		try {
+			ps = connection.prepareStatement(sql);
+			
+			ps.executeUpdate();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public int selectPrevNo(int no) {
+		int result = 0;
+		connectDB();
+//		이전글
+		String sql = "SELECT no FROM replyboard WHERE (re_group = (SELECT re_group FROM replyboard WHERE no = ?) AND re_level < (SELECT re_level FROM replyboard WHERE no = ?)) AND available = 1 ORDER BY re_group DESC, re_level ASC LIMIT 1;";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.setInt(2, no);
+			
+			resultSet = ps.executeQuery();
+			if (resultSet.next()) {
+				result = resultSet.getInt(1);
+			}
+			closeDB();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+		
+	}
+	
+	public int selectNextNo(int no) {
+		int result = 0;
+//		다음글
+		String sql = "SELECT no FROM replyboard WHERE (re_group = (SELECT re_group FROM replyboard WHERE no = ?) AND re_level > (SELECT re_level FROM replyboard WHERE no = ?)) AND available = 1 ORDER BY re_group ASC, re_level ASC LIMIT 1;";
+		connectDB();
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, no);
+			ps.setInt(2, no);
+			
+			resultSet = ps.executeQuery();
+			if (resultSet.next()) {
+				result = resultSet.getInt(1);
+			}
+			closeDB();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	public ReplyBoardDTO selectPrevTitle(int no) {
+		connectDB();
+		ReplyBoardDTO replyBoardDTO = null;
+		String sql = "select title,id from replyboard where no = ?";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, no);
+			
+			resultSet = ps.executeQuery();
+			if (resultSet.next()) {
+				String title = resultSet.getString("title");
+				String id = resultSet.getString("id");
+				replyBoardDTO = new ReplyBoardDTO.Builder(id).no(no).title(title).build();
+			}
+			closeDB();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return replyBoardDTO;
+	}
+	
+	public ReplyBoardDTO selectNextTitle(int no) {
+		connectDB();
+		ReplyBoardDTO replyBoardDTO = null;
+		String sql = "select title,id from replyboard where no = ?";
+		try {
+			ps = connection.prepareStatement(sql);
+			ps.setInt(1, no);
+			
+			resultSet = ps.executeQuery();
+			if (resultSet.next()) {
+				String title = resultSet.getString("title");
+				String id = resultSet.getString("id");
+				replyBoardDTO = new ReplyBoardDTO.Builder(id).no(no).title(title).build();
+				
+			}
+			closeDB();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return replyBoardDTO;
 	}
 	
 	public String urlParsing(Part ckUpload, String realUploadPath) throws IOException {

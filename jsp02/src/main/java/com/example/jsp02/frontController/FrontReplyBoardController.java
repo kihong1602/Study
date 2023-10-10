@@ -4,8 +4,11 @@ import com.example.jsp02.View.ModelView;
 import com.example.jsp02.View.MyView;
 import com.example.jsp02.controller.Controller;
 import com.example.jsp02.controller.replyBoardControl.ReplyBoardGoToReplController;
+import com.example.jsp02.controller.replyBoardControl.ReplyBoardGotoUpdateController;
 import com.example.jsp02.controller.replyBoardControl.ReplyBoardListController;
+import com.example.jsp02.controller.replyBoardControl.ReplyBoardRemoveController;
 import com.example.jsp02.controller.replyBoardControl.ReplyBoardReplController;
+import com.example.jsp02.controller.replyBoardControl.ReplyBoardUpdateController;
 import com.example.jsp02.controller.replyBoardControl.ReplyBoardViewController;
 import com.example.jsp02.controller.replyBoardControl.ReplyBoardWriteController;
 import com.example.jsp02.service.ReplyBoardService;
@@ -31,6 +34,10 @@ public class FrontReplyBoardController extends HttpServlet {
 		controllerMap.put("/reply/reply-process", new ReplyBoardGoToReplController());
 		controllerMap.put("/reply/reply-write",
 				new ReplyBoardReplController(new ReplyBoardService()));
+		controllerMap.put("/reply/modify",
+				new ReplyBoardGotoUpdateController(new ReplyBoardService()));
+		controllerMap.put("/reply/update", new ReplyBoardUpdateController(new ReplyBoardService()));
+		controllerMap.put("/reply/remove", new ReplyBoardRemoveController(new ReplyBoardService()));
 	}
 	
 	@Override

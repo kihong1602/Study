@@ -21,9 +21,15 @@ public class ReplyBoardViewController implements Controller {
 		
 		int no = Integer.parseInt((String) paramMap.get("no"));
 		ReplyBoardDTO replyBoardDTO = replyBoardService.viewPost(no);
+		int prevNo = replyBoardService.selectPrevNo(no);
+		int nextNo = replyBoardService.selectNextNo(no);
+		ReplyBoardDTO prevPost = replyBoardService.selectPrevTitle(prevNo);
+		ReplyBoardDTO nextPost = replyBoardService.selectNextTitle(nextNo);
 		
 		ModelView modelView = new ModelView(viewName);
 		modelView.getModel().put("board", replyBoardDTO);
+		modelView.getModel().put("prevPost", prevPost);
+		modelView.getModel().put("nextPost", nextPost);
 		
 		return modelView;
 	}

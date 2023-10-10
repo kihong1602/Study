@@ -56,24 +56,49 @@
                 <a href="javascript:reply('${requestScope.board.reGroup}','${requestScope.board.reLevel}','${requestScope.board.reStep}')"
                    class="btn btn-primary mx-1">답글
                     달기</a>
-                <c:choose>
-                    <c:when test="${sessionScope.loggedID eq requestScope.board.id}">
-                        <a href="javascript:modify('${requestScope.board.no}')"
-                           class="btn btn-danger mx-1">수정하기</a>
-                        <a href="javascript:remove('${requestScope.board.no}')"
-                           class="btn btn-danger mx-1">지우기</a>
-                    </c:when>
-                    <c:otherwise>
-                        <a href="<c:url value="/reply/reply-process"/>"
-                           class="btn btn-primary mx-1">답글
-                            달기</a>
-                    </c:otherwise>
-                </c:choose>
+
+                <c:if test="${sessionScope.loggedID eq requestScope.board.id}">
+                    <a href="javascript:modify('${requestScope.board.no}')"
+                       class="btn btn-danger mx-1">수정하기</a>
+                    <a href="javascript:remove('${requestScope.board.no}')"
+                       class="btn btn-danger mx-1">지우기</a>
+                </c:if>
             </div>
         </div>
     </div>
+    <div class="content">
+        <!-- 이전 글과 다음 글을 표시하는 리스트 -->
+        <ul class="pagination pagination1">
+            <li>
+                <c:if test="${requestScope.prevPost != null}">
+                    <a href="javascript:view('${requestScope.prevPost.no}')">${requestScope.prevPost.title}</a>
+                </c:if>
+            </li>
+            <li>
+                <c:if test="${requestScope.nextPost != null}">
+                    <a href="javascript:view('${requestScope.nextPost.no}')">${requestScope.nextPost.title}</a>
+                </c:if>
+            </li>
+        </ul>
+    </div>
 </div>
 <script>
+  function view(boardNo) {
+    let form = document.createElement('form');
+    let obj;
+
+    obj = document.createElement('input');
+    obj.setAttribute('type', 'hidden');
+    obj.setAttribute('name', 'no');
+    obj.setAttribute('value', boardNo);
+
+    form.appendChild(obj);
+    form.setAttribute('method', 'post');
+    form.setAttribute('action', '/reply/view');
+    document.body.appendChild(form);
+    form.submit();
+  }
+
   function reply(reGroup, reLevel, reStep) {
     let form = document.createElement('form');
 
@@ -114,7 +139,7 @@
     obj.setAttribute('value', userNo);
 
     form.appendChild(obj);
-    form.setAttribute('action', '/board/process/board-modify.jsp');
+    form.setAttribute('action', '/reply/modify');
     form.setAttribute('method', 'post');
     document.body.appendChild(form);
     form.submit();
@@ -130,7 +155,7 @@
     obj.setAttribute('value', userNo);
 
     form.appendChild(obj);
-    form.setAttribute('action', '/board/process/board-remove.jsp');
+    form.setAttribute('action', '/reply/remove');
     form.setAttribute('method', 'post');
     document.body.appendChild(form);
     form.submit();

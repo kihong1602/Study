@@ -31,10 +31,40 @@
   min-height: 500px;
 }
 
+.step:before {
+  font-family: "bootstrap-icons", serif;
+  content: "\F132";
+  display: inline-block;
+}
+
 .step2 {
   padding-left: 20px;
 }
 
 .step3 {
   padding-left: 40px;
+}
+
+.list a {
+  text-decoration: none !important;
+  color: #111;
+}
+
+.pagination1 {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination1 li {
+  margin: 0 10px;
+}
+
+.pagination1 a {
+  text-decoration: none;
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
 }

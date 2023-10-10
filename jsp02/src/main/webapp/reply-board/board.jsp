@@ -20,17 +20,41 @@
         </thead>
         <tbody>
         <c:forEach items="${requestScope.boardList}" var="board" varStatus="status">
-            <tr>
-                <th scope="row">${status.index}</th>
-                <td><a href="javascript:listView('${board.no}')"
-                       class="step step${board.reStep}">${board.title}</a></td>
-                <td>${board.name}</td>
-                <td>${board.regDate}</td>
-                <td>${board.hit}</td>
+            <tr class="list">
+                <th scope="row">${status.index+1}</th>
+                <c:choose>
+                    <c:when test="${board.available == 0}">
+                        <td>삭제된 게시글 입니다.</td>
+                        <td>None</td>
+                        <td>None</td>
+                        <td>None</td>
+                    </c:when>
+                    <c:otherwise>
+                        <c:choose>
+                            <c:when test="${board.reStep >1}">
+                                <td><a href="javascript:listView('${board.no}')"
+                                       class="step step${board.reStep}">
+                                    <c:forEach begin="1" end="${board.reStep-1}">
+                                        <c:out value="[re]"/>
+                                    </c:forEach> ${board.title}</a></td>
+                            </c:when>
+                            <c:otherwise>
+                                <td><a href="javascript:listView('${board.no}')">${board.title}</a>
+                                </td>
+                            </c:otherwise>
+                        </c:choose>
+                        <td>${board.name}</td>
+                        <td>${board.regDate}</td>
+                        <td>${board.hit}</td>
+                    </c:otherwise>
+                </c:choose>
             </tr>
         </c:forEach>
         </tbody>
     </table>
+    <div class="d-flex justify-content-center mt-3 mb-3">
+        <a href="<c:url value="/reply-board/write.jsp"/>" class="btn btn-primary">글쓰기</a>
+    </div>
 </div>
 <script>
   function listView(boardNo) {
