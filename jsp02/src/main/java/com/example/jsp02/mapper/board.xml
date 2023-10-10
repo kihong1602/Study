@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.jsp02.mapper">
+  <select id="getAllReplyBoard" resultType="com.example.jsp02.dto.NewBoardDTO">
+    select * from replyboard where available = 1
+  </select>
+  <select id="getOneBoard" resultType="com.example.jsp02.dto.NewBoardDTO" parameterType="Integer">
+    select * from replyboard where no = #{no}
+  </select>
+</mapper>
