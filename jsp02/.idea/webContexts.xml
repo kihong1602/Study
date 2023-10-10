@@ -5,6 +5,7 @@
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/board/board.jsp" value="file://$PROJECT_DIR$/src/main/webapp/board" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/join/process/user-list.jsp" value="file://$PROJECT_DIR$/src/main/webapp/join/process" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/reply-board/view.jsp" value="file://$PROJECT_DIR$/src/main/webapp/reply-board" />
       </map>
     </option>
   </component>

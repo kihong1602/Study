@@ -236,21 +236,23 @@ public class ReplyBoardService {
 		int result = 0;
 		connectDB();
 //		이전글
-		String sql = "SELECT no FROM replyboard WHERE (re_group = (SELECT re_group FROM replyboard WHERE no = ?) AND re_level < (SELECT re_level FROM replyboard WHERE no = ?)) AND available = 1 ORDER BY re_group DESC, re_level ASC LIMIT 1;";
+		String sql = "select no,lag(no) over (order by re_group desc, re_level) as prevNo from replyboard where available = 1 order by re_group desc ,re_level;";
+//		LAG,LEAD를 사용해서 해당 컬럼의 이전 value, 이후 value를 검색할 수 있음.
 		try {
 			ps = connection.prepareStatement(sql);
-			ps.setInt(1, no);
-			ps.setInt(2, no);
 			
 			resultSet = ps.executeQuery();
-			if (resultSet.next()) {
-				result = resultSet.getInt(1);
+			while (resultSet.next()) {
+				if (resultSet.getInt("no") == no) {
+					
+					result = resultSet.getInt("prevNo");
+					break;
+				}
 			}
 			closeDB();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return result;
 		
 	}
@@ -258,16 +260,17 @@ public class ReplyBoardService {
 	public int selectNextNo(int no) {
 		int result = 0;
 //		다음글
-		String sql = "SELECT no FROM replyboard WHERE (re_group = (SELECT re_group FROM replyboard WHERE no = ?) AND re_level > (SELECT re_level FROM replyboard WHERE no = ?)) AND available = 1 ORDER BY re_group ASC, re_level ASC LIMIT 1;";
+		String sql = "select no,lead(no) over (order by re_group desc, re_level) as nextNo from replyboard where available = 1 order by re_group desc ,re_level;";
 		connectDB();
 		try {
 			ps = connection.prepareStatement(sql);
-			ps.setInt(1, no);
-			ps.setInt(2, no);
 			
 			resultSet = ps.executeQuery();
-			if (resultSet.next()) {
-				result = resultSet.getInt(1);
+			while (resultSet.next()) {
+				if (resultSet.getInt("no") == no) {
+					result = resultSet.getInt("nextNo");
+					break;
+				}
 			}
 			closeDB();
 		} catch (SQLException e) {
