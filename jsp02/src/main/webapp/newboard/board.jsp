@@ -1,3 +1,5 @@
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<%@page isELIgnored="false" %>
 <%--
   Created by IntelliJ IDEA.
   User: kks45
@@ -7,6 +9,19 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="/layout/header.jsp" %>
+<fmt:parseNumber var="pagination" value="${requestScope.pagination}"/>
+<%--pagintaion : paging을 표현할 총 개수--%>
+<fmt:parseNumber var="currentPage" value="${requestScope.currentPage}"/>
+<%--currentPage = 현재 페이지--%>
+<c:set var="currentGroupCal" value="${Math.floor((currentPage-1)/5)}"/>
+<%--currentGroup : Pagin 버튼 표현 개수--%>
+<%--내림처리 해줘야함--%>
+<fmt:formatNumber var="currentGroup" maxFractionDigits="0" value="${currentGroupCal}"/>
+<c:set var="startPageCal" value="${currentGroup*5+1}"/>
+<%--startPage : currentGroup내에서 표현할 시작 페이지--%>
+<fmt:formatNumber var="startPage" maxFractionDigits="0" value="${startPageCal}"/>
+<c:set var="endPage1" value="${startPage+4}"/>
+<%--endPage : currentGroup에서 표현할 마지막 페이지--%>
 <div class="container">
     <table class="table">
         <thead>
@@ -52,8 +67,48 @@
         </c:forEach>
         </tbody>
     </table>
+    <nav aria-label="Page navigation">
+        <c:choose>
+            <c:when test="${endPage1>pagination}">
+                <c:set var="endPage" value="${pagination}"/>
+            </c:when>
+            <c:otherwise>
+                <c:set var="endPage" value="${endPage1}"/>
+            </c:otherwise>
+        </c:choose>
+        <ul class="pagination">
+            <c:if test="${currentGroup>0}">
+                <li class="page-item"><a class="page-link"
+                                         href="?page=${startPage-5}"
+                                         aria-label="Previous"> <span
+                        aria-hidden="true">&laquo;</span>
+                </a></li>
+            </c:if>
+            <c:forEach var="i" begin="${startPage}" end="${endPage}">
+                <c:choose>
+                    <c:when test="${i == requestScope.currentPage}">
+                        <li class="page-item"><a class="page-link active"
+                                                 href="?page=${i}">${i}
+                        </a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li class="page-item"><a class="page-link"
+                                                 href="?page=${i}">${i}
+                        </a></li>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
+            <c:if test="${endPage<pagination}">
+                <li class="page-item"><a class="page-link"
+                                         href="?page=${endPage+1}"
+                                         aria-label="Next"> <span
+                        aria-hidden="true">&raquo;</span>
+                </a></li>
+            </c:if>
+        </ul>
+    </nav>
     <div class="d-flex justify-content-center mt-3 mb-3">
-        <a href="<c:url value="/reply-board/write.jsp"/>" class="btn btn-primary">글쓰기</a>
+        <a href="<c:url value="/new/write"/>" class="btn btn-primary">글쓰기</a>
     </div>
 </div>
 <script>

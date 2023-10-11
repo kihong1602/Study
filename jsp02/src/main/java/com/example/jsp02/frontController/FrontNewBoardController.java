@@ -3,8 +3,16 @@ package com.example.jsp02.frontController;
 import com.example.jsp02.View.ModelView;
 import com.example.jsp02.View.MyView;
 import com.example.jsp02.controller.Controller;
+import com.example.jsp02.controller.newBoardControl.GotoModifyController;
+import com.example.jsp02.controller.newBoardControl.GotoReplyController;
+import com.example.jsp02.controller.newBoardControl.GotoWriteController;
+import com.example.jsp02.controller.newBoardControl.NewBoardAllRemoveController;
 import com.example.jsp02.controller.newBoardControl.NewBoardListController;
+import com.example.jsp02.controller.newBoardControl.NewBoardRemoveController;
+import com.example.jsp02.controller.newBoardControl.NewBoardReplyWriteController;
+import com.example.jsp02.controller.newBoardControl.NewBoardUpdateController;
 import com.example.jsp02.controller.newBoardControl.NewBoardViewController;
+import com.example.jsp02.controller.newBoardControl.NewBoardWriteContoller;
 import com.example.jsp02.dao.NewBoardDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -24,6 +32,16 @@ public class FrontNewBoardController extends HttpServlet {
 	public FrontNewBoardController() {
 		controllerMap.put("/new/list", new NewBoardListController(new NewBoardDAO()));
 		controllerMap.put("/new/view", new NewBoardViewController(new NewBoardDAO()));
+		controllerMap.put("/new/write", new GotoWriteController());
+		controllerMap.put("/new/save", new NewBoardWriteContoller(new NewBoardDAO()));
+		controllerMap.put("/new/remove", new NewBoardRemoveController(new NewBoardDAO()));
+		controllerMap.put("/new/reply", new GotoReplyController());
+		controllerMap.put("/new/reply-process",
+				new NewBoardReplyWriteController(new NewBoardDAO()));
+		controllerMap.put("/new/modify", new GotoModifyController(new NewBoardDAO()));
+		controllerMap.put("/new/update", new NewBoardUpdateController(new NewBoardDAO()));
+		controllerMap.put("/new/all-delete", new NewBoardAllRemoveController(new NewBoardDAO()));
+		
 	}
 	
 	@Override

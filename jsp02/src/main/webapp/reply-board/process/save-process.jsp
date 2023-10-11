@@ -15,7 +15,7 @@
 <%
     int result = Integer.parseInt(String.valueOf(request.getAttribute("result")));
     if (result > 0) {
-        ScriptWriter.alertAndNext(response, "저장성공", "/");
+        ScriptWriter.alertAndNext(response, "저장성공", "/reply/board");
     } else {
         ScriptWriter.alertAndBack(response, "알수없는 오류");
     }

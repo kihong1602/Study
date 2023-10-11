@@ -51,8 +51,8 @@
 
             </table>
             <div class="d-flex justify-content-center mt-5">
-                <a href="board.jsp" class="btn btn-primary">목록</a>
-                <a href="write.jsp" class="btn btn-primary mx-1">글쓰기</a>
+                <a href="<c:url value="/new/list"/>" class="btn btn-primary">목록</a>
+                <a href="<c:url value="/new/write"/> " class="btn btn-primary mx-1">글쓰기</a>
                 <a href="javascript:reply('${requestScope.board.reGroup}','${requestScope.board.reLevel}','${requestScope.board.reStep}')"
                    class="btn btn-primary mx-1">답글
                     달기</a>
@@ -94,7 +94,7 @@
 
     form.appendChild(obj);
     form.setAttribute('method', 'post');
-    form.setAttribute('action', '/reply/view');
+    form.setAttribute('action', '/new/view');
     document.body.appendChild(form);
     form.submit();
   }
@@ -123,7 +123,7 @@
     form.appendChild(re_group);
     form.appendChild(re_level);
     form.appendChild(re_step);
-    form.setAttribute('action', '/reply/reply-process');
+    form.setAttribute('action', '/new/reply');
     form.setAttribute('method', 'POST');
     document.body.appendChild(form);
     form.submit();
@@ -139,7 +139,7 @@
     obj.setAttribute('value', userNo);
 
     form.appendChild(obj);
-    form.setAttribute('action', '/reply/modify');
+    form.setAttribute('action', '/new/modify');
     form.setAttribute('method', 'post');
     document.body.appendChild(form);
     form.submit();
@@ -155,7 +155,7 @@
     obj.setAttribute('value', userNo);
 
     form.appendChild(obj);
-    form.setAttribute('action', '/reply/remove');
+    form.setAttribute('action', '/new/remove');
     form.setAttribute('method', 'post');
     document.body.appendChild(form);
     form.submit();

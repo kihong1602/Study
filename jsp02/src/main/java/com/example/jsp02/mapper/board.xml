@@ -2,11 +2,46 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--<![CDATA{특수문자]]>  부등호 등 특수문자 사용법-->
 <mapper namespace="com.example.jsp02.mapper">
-  <select id="getAllReplyBoard" resultType="com.example.jsp02.dto.NewBoardDTO">
+  <select id="getAllReplyBoard" resultType="NewBoardDTO">
     select * from replyboard where available = 1
   </select>
-  <select id="getOneBoard" resultType="com.example.jsp02.dto.NewBoardDTO" parameterType="Integer">
+  <select id="getOneBoard" resultType="NewBoardDTO" parameterType="Integer">
     select * from replyboard where no = #{no}
   </select>
+  <select id="getPagingBoard" resultType="NewBoardDTO"
+    parameterType="com.example.jsp02.dto.PageDTO">
+    <![CDATA[select * from replyboard order by re_group desc, re_level limit #{start},#{end}]]>
+  </select>
+  <select id="getBoardCount" resultType="Integer">
+    select count(*) as count from replyboard
+  </select>
+  <insert id="writeBoard" parameterType="NewBoardDTO">
+    insert into replyboard (id,name,title,content,re_group) values
+    (#{id},#{name},#{title},#{content},#{re_group})
+  </insert>
+  <select id="getMaxRegroup" resultType="Integer">
+    select ifnull(max(re_group),0)as max FROM replyboard
+  </select>
+  <delete id="deleteBoard" parameterType="Integer">
+    delete from replyboard where no = #{no}
+  </delete>
+  <update id="updateBoard" parameterType="NewBoardDTO">
+    update replyboard set title = #{title}, content = ${content} where no = #{no}
+  </update>
+  <update id="updateReLevel" parameterType="NewBoardDTO">
+    UPDATE REPLYBOARD SET RE_LEVEL = RE_LEVEL+1 WHERE RE_GROUP = #{re_group} AND RE_LEVEL >
+    #{re_level}
+  </update>
+  <update id="saveReply" parameterType="NewBoardDTO">
+    insert into replyboard (id,name,title,content,re_group,re_level,re_step) values
+    (#{id},#{name},#{title},#{content},#{re_group},#{re_level},#{re_step})
+  </update>
+  <delete id="deleteAllBoard" parameterType="ArrayList">
+    delete from replyboard where no in
+    <foreach collection="list" item="iterator" index="i" open="(" close=")" separator=",">
+      ${iterator}
+    </foreach>
+  </delete>
 </mapper>
