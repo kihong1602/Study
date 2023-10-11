@@ -4,6 +4,7 @@
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--<![CDATA{특수문자]]>  부등호 등 특수문자 사용법-->
 <mapper namespace="com.example.jsp02.mapper">
+  <!-- SELECT-->
   <select id="getAllReplyBoard" resultType="NewBoardDTO">
     select * from replyboard where available = 1
   </select>
@@ -17,16 +18,39 @@
   <select id="getBoardCount" resultType="Integer">
     select count(*) as count from replyboard
   </select>
+  <select id="getMaxRegroup" resultType="Integer">
+    select ifnull(max(re_group),0)as max FROM replyboard
+  </select>
+  <select id="searchBoard" resultType="NewBoardDTO" parameterType="HashMap">
+    select * from replyboard where
+    <choose>
+      <when test="category == 'name'">
+        name like concat('%',#{keyword},'%')
+      </when>
+      <when test="category == 'title'">
+        title like concat('%',#{keyword},'%')
+      </when>
+      <when test="category == 'content'">
+        content like concat('%',#{keyword},'%')
+      </when>
+      <when test="category == 'all'">
+        name like concat('%',#{keyword},'%')
+        or title like concat('%',#{keyword},'%')
+        or content like concat('%',#{keyword},'%')
+      </when>
+    </choose>
+    order by re_group desc, re_level limit #{start}, #{end}
+  </select>
+  <!--  INSERT-->
   <insert id="writeBoard" parameterType="NewBoardDTO">
     insert into replyboard (id,name,title,content,re_group) values
     (#{id},#{name},#{title},#{content},#{re_group})
   </insert>
-  <select id="getMaxRegroup" resultType="Integer">
-    select ifnull(max(re_group),0)as max FROM replyboard
-  </select>
-  <delete id="deleteBoard" parameterType="Integer">
-    delete from replyboard where no = #{no}
-  </delete>
+  <insert id="saveReply" parameterType="NewBoardDTO">
+    insert into replyboard (id,name,title,content,re_group,re_level,re_step) values
+    (#{id},#{name},#{title},#{content},#{re_group},#{re_level},#{re_step})
+  </insert>
+  <!--  UPDATE-->
   <update id="updateBoard" parameterType="NewBoardDTO">
     update replyboard set title = #{title}, content = ${content} where no = #{no}
   </update>
@@ -34,10 +58,10 @@
     UPDATE REPLYBOARD SET RE_LEVEL = RE_LEVEL+1 WHERE RE_GROUP = #{re_group} AND RE_LEVEL >
     #{re_level}
   </update>
-  <update id="saveReply" parameterType="NewBoardDTO">
-    insert into replyboard (id,name,title,content,re_group,re_level,re_step) values
-    (#{id},#{name},#{title},#{content},#{re_group},#{re_level},#{re_step})
-  </update>
+  <!--  DELETE-->
+  <delete id="deleteBoard" parameterType="Integer">
+    delete from replyboard where no = #{no}
+  </delete>
   <delete id="deleteAllBoard" parameterType="ArrayList">
     delete from replyboard where no in
     <foreach collection="list" item="iterator" index="i" open="(" close=")" separator=",">

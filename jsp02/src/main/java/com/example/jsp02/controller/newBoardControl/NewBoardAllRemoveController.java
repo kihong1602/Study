@@ -19,15 +19,17 @@ public class NewBoardAllRemoveController implements Controller {
 	public ModelView process(Map<String, Object> paramMap) throws IOException {
 		String viewName = "go-to-board";
 		ArrayList<Integer> list = new ArrayList<>();
-		list.add(5);
-		list.add(25);
-		list.add(28);
-		int result = newBoardDAO.deleteAllBoard(list);
-		if (result > list.size()) {
-			System.out.println("삭제완료");
-		} else {
-			System.out.println("삭제실패");
-		}
+		String obj = (String) paramMap.get("no");
+		System.out.println(obj);
+//		list.add(5);
+//		list.add(25);
+//		list.add(28);
+//		int result = newBoardDAO.deleteAllBoard(list);
+//		if (result > list.size()) {
+//			System.out.println("삭제완료");
+//		} else {
+//			System.out.println("삭제실패");
+//		}
 		ModelView modelView = new ModelView(viewName);
 		
 		return modelView;

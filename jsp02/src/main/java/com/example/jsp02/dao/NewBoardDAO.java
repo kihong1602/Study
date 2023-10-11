@@ -4,6 +4,7 @@ import com.example.jsp02.dto.NewBoardDTO;
 import com.example.jsp02.dto.PageDTO;
 import com.example.jsp02.mapper.MybatisConnectionFactory;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
@@ -91,5 +92,13 @@ public class NewBoardDAO {
 		result = sqlSession.delete("deleteAllBoard", list);
 		sqlSession.close();
 		return result;
+	}
+	
+	public List<NewBoardDTO> getSearchBoard(HashMap<String, Object> searchMap) {
+		
+		SqlSession sqlSession = MybatisConnectionFactory.getSqlSession();
+		List<NewBoardDTO> list = sqlSession.selectList("searchBoard", searchMap);
+		sqlSession.close();
+		return list;
 	}
 }

@@ -10,6 +10,7 @@ import com.example.jsp02.controller.newBoardControl.NewBoardAllRemoveController;
 import com.example.jsp02.controller.newBoardControl.NewBoardListController;
 import com.example.jsp02.controller.newBoardControl.NewBoardRemoveController;
 import com.example.jsp02.controller.newBoardControl.NewBoardReplyWriteController;
+import com.example.jsp02.controller.newBoardControl.NewBoardSearchController;
 import com.example.jsp02.controller.newBoardControl.NewBoardUpdateController;
 import com.example.jsp02.controller.newBoardControl.NewBoardViewController;
 import com.example.jsp02.controller.newBoardControl.NewBoardWriteContoller;
@@ -41,7 +42,7 @@ public class FrontNewBoardController extends HttpServlet {
 		controllerMap.put("/new/modify", new GotoModifyController(new NewBoardDAO()));
 		controllerMap.put("/new/update", new NewBoardUpdateController(new NewBoardDAO()));
 		controllerMap.put("/new/all-delete", new NewBoardAllRemoveController(new NewBoardDAO()));
-		
+		controllerMap.put("/new/search", new NewBoardSearchController(new NewBoardDAO()));
 	}
 	
 	@Override
