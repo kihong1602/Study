@@ -32,6 +32,10 @@
     history.back();
   })
   document.getElementById('goTO').addEventListener("click", function () {
-    location.href = '/new/list';
+    if ('${requestScope.url}' === 'back') {
+      history.back();
+    } else {
+      location.href = '${requestScope.url}';
+    }
   })
 </script>

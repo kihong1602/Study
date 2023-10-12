@@ -31,9 +31,9 @@ public class UserLoginController implements Controller {
 		ModelView modelView = new ModelView(viewName);
 		modelView.getModel().put("loginCheck", loginCheck);
 		if (check) {
-			SendModal.writeMsg(modelView, "로그인 성공!", "반갑습니다," + id + " 님!");
+			SendModal.writeMsg(modelView, "로그인 성공!", "반갑습니다," + id + " 님!","/");
 		} else {
-			SendModal.writeMsg(modelView, "로그인실패..", "아이디와 비밀번호가 맞는지 확인해보세용");
+			SendModal.writeMsg(modelView, "로그인실패..", "아이디와 비밀번호가 맞는지 확인해보세용","back");
 		}
 		return modelView;
 	}

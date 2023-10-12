@@ -10,6 +10,7 @@
     <script src="<c:url value="/js/bootstrap.bundle.min.js"/>"></script>
     <script src="<c:url value="/js/jquery-3.7.1.min.js"/>"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="<c:url value="/js/cookieManager.js"/>"></script>
     <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <title>Title</title>
@@ -34,6 +35,8 @@
                                    class="nav-link px-2 link-secondary">join</a></li>
                             <li><a href="<c:url value="/join/login.jsp"/>"
                                    class="nav-link px-2 link-body-emphasis">sign up</a></li>
+                            <li><a href="<c:url value="/newmember/login-process"/>"
+                                   class="nav-link px-2 link-body-emphasis">Login</a></li>
                             <li><a href="<c:url value="/board/progress/board"/>"
                                    class="nav-link px-2 link-body-emphasis">Normal Board</a>
                             </li>
