@@ -23,9 +23,7 @@ public class MemberLoginController implements Controller {
 		String id = (String) paramMap.get("id");
 		String password = (String) paramMap.get("password");
 		
-		UserDTO userDTO = new UserDTO();
-		userDTO.setId(id);
-		userDTO.setPassword(password);
+		UserDTO userDTO = new UserDTO.Builder().id(id).password(password).build();
 		
 		UserDTO userResponseDTO = userDao.loginCheck(userDTO);
 		
@@ -37,7 +35,7 @@ public class MemberLoginController implements Controller {
 			SendModal.writeMsg(modelView, "로그인 성공!", "반갑습니다. " + userResponseDTO.getId() + " 님!",
 					"/");
 		} else {
-			SendModal.writeMsg(modelView, "로그인 실패..", "ID와 Password를 확인해주세요!","back");
+			SendModal.writeMsg(modelView, "로그인 실패..", "ID와 Password를 확인해주세요!", "back");
 		}
 		
 		return modelView;
