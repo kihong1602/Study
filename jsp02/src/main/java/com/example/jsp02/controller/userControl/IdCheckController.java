@@ -19,7 +19,7 @@ public class IdCheckController implements Controller {
 		String viewName = "id-check";
 		
 		String id = (String) paramMap.get("userID");
-		User user = new User.UserBuilder(id).build();
+		User user = new User.Builder().id(id).build();
 		String json = userService.idCheck(user);
 		
 		ModelView modelView = new ModelView(viewName);

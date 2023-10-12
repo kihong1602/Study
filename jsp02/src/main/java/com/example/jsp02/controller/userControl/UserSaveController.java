@@ -27,7 +27,7 @@ public class UserSaveController implements Controller {
 		String email = (String) paramMap.get("userEmail");
 		String tel = (String) paramMap.get("userTel");
 		
-		User user = new User.UserBuilder(id).password(password).name(name).postcode(postCode)
+		User user = new User.Builder().id(id).password(password).name(name).postcode(postCode)
 				.address(address).addressDetail(addressDetail).email(email).tel(tel).build();
 		User saveUser = userService.saveUser(user);
 		

@@ -20,7 +20,7 @@ public class UserSelectController implements Controller {
 		
 		String id = (String) paramMap.get("userID");
 		
-		User user = new User.UserBuilder(id).build();
+		User user = new User.Builder().id(id).build();
 		User selectUser = userService.selectUser(user);
 		
 		ModelView modelView = new ModelView(viewName);

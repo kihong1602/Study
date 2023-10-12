@@ -20,7 +20,7 @@ public class UserInfoModifiedController implements Controller {
 		String id = (String) paramMap.get("userID");
 		String pw = (String) paramMap.get("userPW");
 		
-		User user = new User.UserBuilder(id).password(pw).build();
+		User user = new User.Builder().id(id).password(pw).build();
 		User userCheck = userService.checkUser(user);
 		
 		ModelView modelView = new ModelView(viewName);

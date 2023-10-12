@@ -64,7 +64,7 @@ public class UserService {
 			e.printStackTrace();
 		}
 		
-		return new User.UserBuilder(id).no(no).name(name).build();
+		return new User.Builder().id(id).no(no).name(name).build();
 	}
 	
 	public User selectUser(User user) {
@@ -88,7 +88,7 @@ public class UserService {
 				String regDate = resultSet.getString("REG_DATE");
 				String profile = resultSet.getString("PROFILE");
 				
-				selectUser = new User.UserBuilder(id).no(no).password(pw).name(name)
+				selectUser = new User.Builder().id(id).no(no).password(pw).name(name)
 						.postcode(postCode).address(address).addressDetail(addressDetail)
 						.regDate(regDate).profile(profile).build();
 			}
@@ -131,7 +131,7 @@ public class UserService {
 			System.out.println("삭제 실패");
 		}
 		
-		return new User.UserBuilder(id).build();
+		return new User.Builder().id(id).build();
 	}
 	
 	public ArrayList<User> userList() {
@@ -155,7 +155,7 @@ public class UserService {
 				String email = resultSet.getString(9);
 				String tel = resultSet.getString(10);
 				
-				User user = new User.UserBuilder(id).password(pw).no(no).name(name)
+				User user = new User.Builder().id(id).password(pw).no(no).name(name)
 						.postcode(postCode).address(address).addressDetail(addressDetail)
 						.regDate(regDate).email(email).tel(tel).build();
 				
@@ -262,7 +262,7 @@ public class UserService {
 			e.printStackTrace();
 		}
 		
-		return new User.UserBuilder(id).name(name).postcode(postcode).address(address)
+		return new User.Builder().id(id).name(name).postcode(postcode).address(address)
 				.addressDetail(addressDetail).email(email).tel(tel).build();
 	}
 	
@@ -282,10 +282,10 @@ public class UserService {
 		
 		try {
 			ps = connection.prepareStatement(sql);
-			ps.setString(1,id);
+			ps.setString(1, id);
 			
 			resultSet = ps.executeQuery();
-			if(resultSet.next()){
+			if (resultSet.next()) {
 				String fileName = resultSet.getString("PROFILE");
 				
 				String filePath = "C:\\upload";
@@ -295,7 +295,6 @@ public class UserService {
 					oldFile.delete();
 				}
 			}
-			
 			
 			String sql2 = "UPDATE USER SET TEL =?,EMAIL=?,ADDRESS = ?, ADDRESS_DETAIL = ?,POSTCODE = ?,PROFILE = ? WHERE ID = ?;";
 			ps = connection.prepareStatement(sql2);
@@ -334,7 +333,7 @@ public class UserService {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return new User.UserBuilder(id).name(name).email(email).tel(tel)
+		return new User.Builder().id(id).name(name).email(email).tel(tel)
 				.postcode(postcode)
 				.address(address).addressDetail(addressDetail).regDate(regDate).profile(profile)
 				.build();
@@ -363,7 +362,7 @@ public class UserService {
 				String addressDetail = resultSet.getString("ADDRESS_DETAIL");
 				String regDate = resultSet.getString("REG_DATE");
 				
-				user = new User.UserBuilder(id).no(no).name(name).email(email)
+				user = new User.Builder().id(id).no(no).name(name).email(email)
 						.postcode(postcode).address(address).addressDetail(addressDetail)
 						.regDate(regDate).build();
 			}
@@ -411,7 +410,7 @@ public class UserService {
 				String email = resultSet.getString(9);
 				String tel = resultSet.getString(10);
 				
-				User user = new User.UserBuilder(id).password(pw).no(no).name(name)
+				User user = new User.Builder().id(id).password(pw).no(no).name(name)
 						.postcode(postCode).address(address).addressDetail(addressDetail)
 						.regDate(regDate).email(email).tel(tel).build();
 				
@@ -447,7 +446,7 @@ public class UserService {
 				String email = resultSet.getString(9);
 				String tel = resultSet.getString(10);
 				
-				User user = new User.UserBuilder(id).password(pw).no(no).name(name)
+				User user = new User.Builder().id(id).password(pw).no(no).name(name)
 						.postcode(postCode).address(address).addressDetail(addressDetail)
 						.regDate(regDate).email(email).tel(tel).build();
 				
@@ -483,7 +482,7 @@ public class UserService {
 				String email = resultSet.getString(9);
 				String tel = resultSet.getString(10);
 				
-				User user = new User.UserBuilder(id).password(pw).no(no).name(name)
+				User user = new User.Builder().id(id).password(pw).no(no).name(name)
 						.postcode(postCode).address(address).addressDetail(addressDetail)
 						.regDate(regDate).email(email).tel(tel).build();
 				
@@ -521,7 +520,7 @@ public class UserService {
 				String email = resultSet.getString(9);
 				String tel = resultSet.getString(10);
 				
-				User user = new User.UserBuilder(id).password(pw).no(no).name(name)
+				User user = new User.Builder().id(id).password(pw).no(no).name(name)
 						.postcode(postCode).address(address).addressDetail(addressDetail)
 						.regDate(regDate).email(email).tel(tel).build();
 				
@@ -566,7 +565,7 @@ public class UserService {
 					String regDate = resultSet.getString("REG_DATE");
 					String profile = resultSet.getString("PROFILE");
 					
-					user = new User.UserBuilder(id).no(no).password(pw).name(name)
+					user = new User.Builder().id(id).no(no).password(pw).name(name)
 							.postcode(postCode).address(address).addressDetail(addressDetail)
 							.regDate(regDate).profile(profile).build();
 				}

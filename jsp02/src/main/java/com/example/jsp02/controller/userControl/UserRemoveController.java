@@ -21,7 +21,7 @@ public class UserRemoveController implements Controller {
 		String id = (String) paramMap.get("userID");
 		String password = (String) paramMap.get("userPW");
 		String filePath = (String) paramMap.get("filePath");
-		User user = new User.UserBuilder(id).password(password).profile(filePath).build();
+		User user = new User.Builder().id(id).password(password).profile(filePath).build();
 		User removeUser = userService.removeUser(user);
 		
 		ModelView modelView = new ModelView(viewName);

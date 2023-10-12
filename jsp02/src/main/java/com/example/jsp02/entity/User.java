@@ -14,7 +14,7 @@ public class User {
 	private String tel;
 	private String profile;
 	
-	public User(UserBuilder userBuilder) {
+	public User(Builder userBuilder) {
 		this.no = userBuilder.no;
 		this.id = userBuilder.id;
 		this.password = userBuilder.password;
@@ -79,7 +79,7 @@ public class User {
 		return profile;
 	}
 	
-	public static class UserBuilder {
+	public static class Builder {
 		
 		private int no;
 		private String id;
@@ -93,58 +93,60 @@ public class User {
 		private String tel;
 		private String profile;
 		
-		public UserBuilder(String id) {
-			
-			this.id = id;
-			
+		public Builder() {
 		}
 		
-		public UserBuilder no(int no) {
+		public Builder id(String id) {
+			this.id = id;
+			return this;
+		}
+		
+		public Builder no(int no) {
 			this.no = no;
 			return this;
 		}
 		
-		public UserBuilder password(String password) {
+		public Builder password(String password) {
 			this.password = password;
 			return this;
 		}
 		
-		public UserBuilder name(String name) {
+		public Builder name(String name) {
 			this.name = name;
 			return this;
 		}
 		
-		public UserBuilder postcode(int postcode) {
+		public Builder postcode(int postcode) {
 			this.postcode = postcode;
 			return this;
 		}
 		
-		public UserBuilder address(String address) {
+		public Builder address(String address) {
 			this.address = address;
 			return this;
 		}
 		
-		public UserBuilder addressDetail(String addressDetail) {
+		public Builder addressDetail(String addressDetail) {
 			this.addressDetail = addressDetail;
 			return this;
 		}
 		
-		public UserBuilder regDate(String regDate) {
+		public Builder regDate(String regDate) {
 			this.regDate = regDate;
 			return this;
 		}
 		
-		public UserBuilder email(String email) {
+		public Builder email(String email) {
 			this.email = email;
 			return this;
 		}
 		
-		public UserBuilder tel(String tel) {
+		public Builder tel(String tel) {
 			this.tel = tel;
 			return this;
 		}
 		
-		public UserBuilder profile(String profile) {
+		public Builder profile(String profile) {
 			this.profile = profile;
 			return this;
 		}

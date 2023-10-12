@@ -22,7 +22,7 @@ public class UserLoginController implements Controller {
 		String pw = (String) paramMap.get("userPW");
 		String saveCheck = (String) paramMap.get("saveID");
 		
-		User user = new User.UserBuilder(id).password(pw).build();
+		User user = new User.Builder().id(id).password(pw).build();
 		Map<String, Object> loginCheck = userService.loginCheck(user);
 		
 		loginCheck.put("saveID", saveCheck);

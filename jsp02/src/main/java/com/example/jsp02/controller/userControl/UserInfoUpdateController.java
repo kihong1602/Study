@@ -31,7 +31,7 @@ public class UserInfoUpdateController implements Controller {
 		String uploadPath = (String) paramMap.get("uploadPath");
 		
 		String url = userService.urlParsing(profile, uploadPath);
-		User user = new User.UserBuilder(id).email(email).tel(tel).postcode(postcode)
+		User user = new User.Builder().id(id).email(email).tel(tel).postcode(postcode)
 				.address(address).addressDetail(addressDetail).profile(url).build();
 		User updateUser = userService.infoUpdate(user);
 		

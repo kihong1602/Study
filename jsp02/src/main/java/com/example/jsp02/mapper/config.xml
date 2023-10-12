@@ -5,6 +5,8 @@
 <configuration>
   <typeAliases>
     <typeAlias alias="NewBoardDTO" type="com.example.jsp02.dto.NewBoardDTO"/>
+    <typeAlias alias="UserDTO" type="com.example.jsp02.dto.UserDTO"/>
+    <typeAlias alias="User" type="com.example.jsp02.entity.User"/>
   </typeAliases>
   <environments default="development">
     <environment id="development">
@@ -19,5 +21,6 @@
   </environments>
   <mappers>
     <mapper resource="com/example/jsp02/mapper/board.xml"/>
+    <mapper resource="com/example/jsp02/mapper/member.xml"/>
   </mappers>
 </configuration>
