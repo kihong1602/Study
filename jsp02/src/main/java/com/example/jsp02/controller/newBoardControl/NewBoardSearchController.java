@@ -5,6 +5,7 @@ import com.example.jsp02.controller.Controller;
 import com.example.jsp02.dao.NewBoardDAO;
 import com.example.jsp02.dto.NewBoardDTO;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,12 +38,14 @@ public class NewBoardSearchController implements Controller {
 		searchMap.put("end", recodesPerPage);
 		
 		List<NewBoardDTO> boardList = newBoardDAO.getSearchBoard(searchMap);
-		
+		System.out.println(Arrays.toString(boardList.toArray()));
 		ModelView modelView = new ModelView(viewName);
 		modelView.getModel().put("boardList", boardList);
 		modelView.getModel().put("pagination", pagination);
 		modelView.getModel().put("currentPage", currentPage);
-		
+		if (boardList.isEmpty()) {
+			modelView.getModel().put("state", "show");
+		}
 		return modelView;
 	}
 }

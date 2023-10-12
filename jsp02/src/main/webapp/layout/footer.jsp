@@ -30,5 +30,13 @@
         </ul>
     </footer>
 </div>
+<c:if test="${state eq 'show'|| param.state eq 'show'||requestScope.state eq 'show'}">
+    <%--동적으로 include 하는 코드--%>
+    <jsp:include page="/layout/modal.jsp"></jsp:include>
+</c:if>
+<script>
+  const myModal = new bootstrap.Modal("#myModal");
+  myModal.show();
+</script>
 </body>
 </html>
