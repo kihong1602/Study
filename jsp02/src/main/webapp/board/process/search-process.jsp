@@ -109,20 +109,6 @@
     </div>
 </div>
 <script>
-  function getCookie(name) {
-    const cookies = document.cookie.split(';');
-    for (const cookie of cookies) {
-      const trimCookie = cookie.trim();
-      //trim 해주지 않으면 cookieName을 조회하지 못함..
-      const [cookieName, cookieValue] = trimCookie.split('=');
-      if (cookieName === name) {
-
-        return decodeURIComponent(cookieValue);
-      }
-    }
-    return null;
-  }
-
   function listView(boardNo) {
     let form = document.createElement('form');
 
