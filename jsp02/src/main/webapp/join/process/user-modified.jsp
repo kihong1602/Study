@@ -9,7 +9,7 @@
 <%@include file="/layout/header.jsp" %>
 <div class="container">
     <form action="user-update" method="post" class="" name="member" enctype="multipart/form-data">
-        <input type="hidden" name="userID" value="<%=loggedID%>">
+        <input type="hidden" name="userID" value="${sessionScope.loggedID}">
         <div class="row d-flex justify-content-center">
             <div class="col-6">
                 <div class="mb-3">

@@ -45,6 +45,8 @@ public class NewBoardSearchController implements Controller {
 		modelView.getModel().put("currentPage", currentPage);
 		if (boardList.isEmpty()) {
 			modelView.getModel().put("state", "show");
+			modelView.getModel().put("topMsg", "검색 결과");
+			modelView.getModel().put("bodyMsg", "아무것도 검색되지 않았어요..");
 		}
 		return modelView;
 	}

@@ -13,7 +13,7 @@
         <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
         <div class="form-floating">
             <input type="text" name="userID" class="form-control" id="userID"
-                   placeholder="ID" value="<%=loggedID%>">
+                   placeholder="ID" value="${sessionScope.loggedID}">
             <label for="userID">ID
             </label>
         </div>

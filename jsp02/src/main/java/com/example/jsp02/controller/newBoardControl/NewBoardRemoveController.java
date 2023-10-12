@@ -20,9 +20,13 @@ public class NewBoardRemoveController implements Controller {
 		int no = Integer.parseInt(String.valueOf(paramMap.get("no")));
 		
 		int result = newBoardDAO.deleteBoard(no);
-		
 		ModelView modelView = new ModelView(viewName);
 		modelView.getModel().put("result", result);
+		if (result > 0) {
+			modelView.getModel().put("state", "show");
+			modelView.getModel().put("topMsg","삭제 결과");
+			modelView.getModel().put("bodyMsg","삭제가 완료되었어요!");
+		}
 		
 		return modelView;
 	}

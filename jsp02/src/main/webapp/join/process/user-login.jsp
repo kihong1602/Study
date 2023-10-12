@@ -13,19 +13,20 @@
 <%
     HashMap<String, Object> loginMap = (HashMap<String, Object>) request.getAttribute("loginCheck");
     boolean check = (boolean) loginMap.get("check");
+    System.out.println("check: " + check);
     String id = (String) loginMap.get("userID");
     String name = (String) loginMap.get("userName");
     String saveID = (String) loginMap.get("saveID");
-    if (loginMap.get("profile") != null) {
-        String filePath = (String) loginMap.get("profile");
-        session.setAttribute("filePath", filePath);
-    }
-
-    session.setAttribute("loggedID", id);
-    session.setAttribute("loggedName", name);
 
     if (check) {
-        ScriptWriter.alertAndNext(response, "로그인성공!", "/");
+//        ScriptWriter.alertAndNext(response, "로그인성공!", "/");
+        if (loginMap.get("profile") != null) {
+            String filePath = (String) loginMap.get("profile");
+            session.setAttribute("filePath", filePath);
+        }
+
+        session.setAttribute("loggedID", id);
+        session.setAttribute("loggedName", name);
         if (saveID != null) {
             if (saveID.equals("rememberMe")) {
                 System.out.println("쿠키보내용");
@@ -40,7 +41,7 @@
             // removeCookie로 setMaxAge를 0으로 만들어준 후 sendCookie를 해줘야한다.
         }
     } else {
-        ScriptWriter.alertAndBack(response, "로그인 실패..");
+//        ScriptWriter.alertAndBack(response, "로그인 실패..");
     }
 %>
 <%@include file="/layout/footer.jsp" %>
