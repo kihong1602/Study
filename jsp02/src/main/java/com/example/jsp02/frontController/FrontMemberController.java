@@ -7,6 +7,8 @@ import com.example.jsp02.controller.memberControl.GoToLoginController;
 import com.example.jsp02.controller.memberControl.GoToSignController;
 import com.example.jsp02.controller.memberControl.GotoWithdrawalController;
 import com.example.jsp02.controller.memberControl.IdCheckController;
+import com.example.jsp02.controller.memberControl.MemberInfoController;
+import com.example.jsp02.controller.memberControl.MemberListController;
 import com.example.jsp02.controller.memberControl.MemberLoginController;
 import com.example.jsp02.controller.memberControl.MemberLogoutController;
 import com.example.jsp02.controller.memberControl.MemberSignController;
@@ -36,6 +38,8 @@ public class FrontMemberController extends HttpServlet {
 		controllerMap.put("/new-member/logout", new MemberLogoutController());
 		controllerMap.put("/new-member/withdrawal-process", new GotoWithdrawalController());
 		controllerMap.put("/new-member/withdrawal", new MemberWithdrawalController(new UserDAO()));
+		controllerMap.put("/new-member/list", new MemberListController(new UserDAO()));
+		controllerMap.put("/new-member/info", new MemberInfoController(new UserDAO()));
 	}
 	
 	@Override

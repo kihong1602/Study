@@ -37,6 +37,20 @@
 <script>
   const myModal = new bootstrap.Modal("#myModal");
   myModal.show();
+
+  function viewProfile(id) {
+    let form = document.createElement('form');
+    let obj = document.createElement('input');
+    obj.setAttribute('type', 'hidden');
+    obj.setAttribute('name', 'id');
+    obj.setAttribute('value', id);
+
+    form.appendChild(obj);
+    form.setAttribute('action', '/new-member/info');
+    form.setAttribute('method', 'post');
+    document.body.appendChild(form);
+    form.submit();
+  }
 </script>
 </body>
 </html>

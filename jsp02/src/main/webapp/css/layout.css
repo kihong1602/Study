@@ -68,3 +68,14 @@
   padding: 5px 10px;
   border-radius: 5px;
 }
+
+.customImg {
+  width: 50px;
+  height: 50px;
+}
+
+.infoImg {
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+}

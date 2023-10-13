@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 public class UserDAO {
@@ -58,6 +59,24 @@ public class UserDAO {
 		
 		sqlSession.close();
 		return result;
+	}
+	
+	public List<UserDTO> getUserList() {
+		connSql();
+		
+		List<UserDTO> userList = sqlSession.selectList("userList");
+		
+		sqlSession.close();
+		return userList;
+	}
+	
+	public UserDTO getUserInfo(User user) {
+		connSql();
+		
+		UserDTO userDto = sqlSession.selectOne("userInfo", user);
+		
+		sqlSession.close();
+		return userDto;
 	}
 	
 	public boolean removeProfileImg(String filePath) {

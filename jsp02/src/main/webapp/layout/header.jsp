@@ -78,8 +78,12 @@
                             <li><a href="<c:url value="/new/list"/>"
                                    class="nav-link px-2 link-body-emphasis">New Board</a>
                             </li>
+                            <c:if test="${sessionScope.loggedID eq 'kks4517'}">
+                                <li><a href="<c:url value="/new-member/list"/>"
+                                       class="nav-link px-2 link-body-emphasis">회원 목록</a>
+                                </li>
+                            </c:if>
                         </ul>
-
                         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                             <input type="search" class="form-control" placeholder="Search..."
                                    aria-label="Search">
@@ -93,7 +97,8 @@
                                      alt="mdo" width="32" height="32" class="rounded-circle">
                             </a>
                             <ul class="dropdown-menu text-small">
-                                <li><a class="dropdown-item" href="<c:url value="/join/info.jsp"/>">Profile</a>
+                                <li><a class="dropdown-item"
+                                       href="javascript:viewProfile('${sessionScope.loggedID}')">Profile</a>
                                 </li>
                                 <li>
                                     <hr class="dropdown-divider">

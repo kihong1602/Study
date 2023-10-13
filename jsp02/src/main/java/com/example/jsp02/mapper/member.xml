@@ -9,11 +9,25 @@
   <select id="idCheck" parameterType="String" resultType="int">
     select count(*) from user where id = #{id}
   </select>
+  <select id="userInfo" parameterType="User" resultType="UserDTO">
+    select id,name,password,email,tel,postcode,address,address_detail as addressDetail,reg_date as
+    regDate,profile from user where id = #{id}
+  </select>
+  <select id="userList" resultType="UserDTO">
+    select no,id,name,email,tel,postcode,address,address_detail as addressDetail, reg_date as
+    regDate,profile from user
+  </select>
   <insert id="saveUser" parameterType="User">
     insert into user (id,password,name,postcode,address,address_detail,email,tel,profile)
     values(#{id},#{password},#{name},#{postcode},#{address},#{addressDetail},#{email},#{tel},#{profile})
   </insert>
+  <update id="updateInfo" parameterType="User">
+    update set user
+    password = #{password}, postcode = #{postcode}, address = #{address}, address_detail =
+    #{addressDetail},
+    email = #{email}, tel = #{tel}, profile = #{profile} where id = #{id} where no = #{no}
+  </update>
   <delete id="removeUser" parameterType="User">
-    delete from user where id = #{id} and password = #{password};
+    delete from user where id = #{id} and password = #{password}
   </delete>
 </mapper>
