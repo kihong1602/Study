@@ -22,16 +22,19 @@ public class MemberLoginController implements Controller {
 		String viewName = "login";
 		String id = (String) paramMap.get("id");
 		String password = (String) paramMap.get("password");
+		String rememberMe = (String) paramMap.get("rememberMe");
 		
 		UserDTO userDTO = new UserDTO.Builder().id(id).password(password).build();
 		
 		UserDTO userResponseDTO = userDao.loginCheck(userDTO);
 		
 		ModelView modelView = new ModelView(viewName);
+		modelView.getModel().put("rememberMe", rememberMe);
 		if (userResponseDTO != null) {
 			HttpSession session = (HttpSession) paramMap.get("session");
 			session.setAttribute("loggedID", userResponseDTO.getId());
 			session.setAttribute("loggedName", userResponseDTO.getName());
+			session.setAttribute("filePath", userResponseDTO.getProfile());
 			SendModal.writeMsg(modelView, "로그인 성공!", "반갑습니다. " + userResponseDTO.getId() + " 님!",
 					"/");
 		} else {

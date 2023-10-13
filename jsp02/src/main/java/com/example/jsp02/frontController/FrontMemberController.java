@@ -5,6 +5,7 @@ import com.example.jsp02.View.MyView;
 import com.example.jsp02.controller.Controller;
 import com.example.jsp02.controller.memberControl.GoToLoginController;
 import com.example.jsp02.controller.memberControl.GoToSignController;
+import com.example.jsp02.controller.memberControl.IdCheckController;
 import com.example.jsp02.controller.memberControl.MemberLoginController;
 import com.example.jsp02.controller.memberControl.MemberSignController;
 import com.example.jsp02.dao.UserDAO;
@@ -28,6 +29,7 @@ public class FrontMemberController extends HttpServlet {
 		controllerMap.put("/new-member/login", new MemberLoginController(new UserDAO()));
 		controllerMap.put("/new-member/sign-process", new GoToSignController());
 		controllerMap.put("/new-member/sign", new MemberSignController(new UserDAO()));
+		controllerMap.put("/new-member/id-check", new IdCheckController(new UserDAO()));
 	}
 	
 	@Override

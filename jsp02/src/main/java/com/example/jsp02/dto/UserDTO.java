@@ -14,6 +14,23 @@ public class UserDTO {
 	private String tel;
 	private String profile;
 	
+	public UserDTO() {
+	}
+	
+	public UserDTO(int no, String id, String password, String name, int postcode, String address,
+			String addressDetail, String regDate, String email, String tel, String profile) {
+		this.no = no;
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.postcode = postcode;
+		this.address = address;
+		this.addressDetail = addressDetail;
+		this.regDate = regDate;
+		this.email = email;
+		this.tel = tel;
+		this.profile = profile;
+	}
 	
 	public UserDTO(Builder userBuilder) {
 		this.no = userBuilder.no;

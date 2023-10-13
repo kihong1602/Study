@@ -10,7 +10,7 @@
 
 <main>
     <div class="form-signin w-100 m-auto">
-        <form action="<c:url value="/newmember/login"/>" method="post">
+        <form action="<c:url value="/new-member/login"/>" method="post">
             <h1 class="h3 mb-3 fw-normal">로그인</h1>
             <div class="form-floating">
                 <input type="text" name="id" class="form-control" id="userID"
@@ -25,7 +25,7 @@
 
             <div class="form-check text-start my-3">
                 <input class="form-check-input" type="checkbox" value="rememberMe"
-                       id="idCheck" name="saveID">
+                       id="idCheck" name="rememberMe">
                 <label class="form-check-label" for="idCheck">
                     Remember me
                 </label>
@@ -40,10 +40,11 @@
     const idCookie = getCookie('saveID');
     const checkCookie = getCookie('checkBox');
 
-    document.getElementById('userID').value = idCookie;
-    const checkBox = document.getElementById('idCheck');
-    checkCookie === 'rememberMe' ? checkBox.checked = true : checkBox.checked = false;
-
+    if (idCookie != null && checkCookie != null) {
+      document.getElementById('userID').value = idCookie;
+      const checkBox = document.getElementById('idCheck');
+      checkCookie === 'rememberMe' ? checkBox.checked = true : checkBox.checked = false;
+    }
   }
 </script>
 <%@include file="/layout/footer.jsp" %>

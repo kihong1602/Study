@@ -185,7 +185,7 @@
       url: "/new-member/id-check",
       method: "POST",
       data: {
-        userID: $("#userID").val(),
+        id: $("#userID").val(),
       },
       success: function (data) {
         console.log(data.count);

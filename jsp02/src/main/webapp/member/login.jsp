@@ -9,8 +9,13 @@
 <%@include file="/layout/header.jsp" %>
 <script>
   window.onload = function () {
-    createCookie('saveID', '${sessionScope.loggedID}');
-    createCookie('checkBox', 'rememberMe');
+    if ('${requestScope.rememberMe}' === 'rememberMe') {
+      createCookie('saveID', '${sessionScope.loggedID}');
+      createCookie('checkBox', 'rememberMe');
+    } else {
+      removeCookie('saveID');
+      removeCookie('checkBox');
+    }
   }
 </script>
 <%@include file="/layout/footer.jsp" %>

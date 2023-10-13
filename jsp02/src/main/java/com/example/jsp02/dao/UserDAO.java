@@ -40,6 +40,15 @@ public class UserDAO {
 		return result;
 	}
 	
+	public int idCheck(String id) {
+		connSql();
+		
+		int result = sqlSession.selectOne("idCheck", id);
+		
+		sqlSession.close();
+		return result;
+	}
+	
 	private void connSql() {
 		sqlSession = MybatisConnectionFactory.getSqlSession();
 	}
