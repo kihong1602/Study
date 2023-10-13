@@ -5,9 +5,12 @@ import com.example.jsp02.View.MyView;
 import com.example.jsp02.controller.Controller;
 import com.example.jsp02.controller.memberControl.GoToLoginController;
 import com.example.jsp02.controller.memberControl.GoToSignController;
+import com.example.jsp02.controller.memberControl.GotoWithdrawalController;
 import com.example.jsp02.controller.memberControl.IdCheckController;
 import com.example.jsp02.controller.memberControl.MemberLoginController;
+import com.example.jsp02.controller.memberControl.MemberLogoutController;
 import com.example.jsp02.controller.memberControl.MemberSignController;
+import com.example.jsp02.controller.memberControl.MemberWithdrawalController;
 import com.example.jsp02.dao.UserDAO;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -30,6 +33,9 @@ public class FrontMemberController extends HttpServlet {
 		controllerMap.put("/new-member/sign-process", new GoToSignController());
 		controllerMap.put("/new-member/sign", new MemberSignController(new UserDAO()));
 		controllerMap.put("/new-member/id-check", new IdCheckController(new UserDAO()));
+		controllerMap.put("/new-member/logout", new MemberLogoutController());
+		controllerMap.put("/new-member/withdrawal-process", new GotoWithdrawalController());
+		controllerMap.put("/new-member/withdrawal", new MemberWithdrawalController(new UserDAO()));
 	}
 	
 	@Override

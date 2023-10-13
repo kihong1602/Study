@@ -99,9 +99,10 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item"
-                                       href="<c:url value="/join/logout.jsp"/>">로그아웃</a></li>
+                                       href="<c:url value="/new-member/logout"/>">로그아웃</a></li>
                                 <li><a class="dropdown-item"
-                                       href="<c:url value="/join/withdrawal.jsp"/>">회원탈퇴</a></li>
+                                       href="<c:url value="/new-member/withdrawal-process"/>">회원탈퇴</a>
+                                </li>
                             </ul>
                         </div>
                     </c:otherwise>

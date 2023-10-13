@@ -29,13 +29,18 @@
 </div>
 <script>
   document.getElementById('goBack').addEventListener("click", function () {
-    history.back();
+    document.querySelector(".modal-dialog").display = "none";
+    goUrl();
   })
   document.getElementById('goTO').addEventListener("click", function () {
+    goUrl();
+  })
+
+  function goUrl() {
     if ('${requestScope.url}' === 'back') {
       history.back();
     } else {
       location.href = '${requestScope.url}';
     }
-  })
+  }
 </script>

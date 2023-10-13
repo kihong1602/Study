@@ -2,6 +2,7 @@ package com.example.jsp02.dao;
 
 import com.example.jsp02.dto.UserDTO;
 import com.example.jsp02.entity.User;
+import com.example.jsp02.entity.User.Builder;
 import com.example.jsp02.mapper.MybatisConnectionFactory;
 import jakarta.servlet.http.Part;
 import java.io.File;
@@ -47,6 +48,29 @@ public class UserDAO {
 		
 		sqlSession.close();
 		return result;
+	}
+	
+	public int removeUser(String id, String password) {
+		connSql();
+		
+		User user = new Builder().id(id).password(password).build();
+		int result = sqlSession.delete("removeUser", user);
+		
+		sqlSession.close();
+		return result;
+	}
+	
+	public boolean removeProfileImg(String filePath) {
+		boolean isRemove = false;
+		
+		String uploadDirectory = "C:\\upload";
+		
+		File file = new File(uploadDirectory + File.separator + filePath);
+		if (file.exists()) {
+			isRemove = file.delete();
+		}
+		
+		return isRemove;
 	}
 	
 	private void connSql() {

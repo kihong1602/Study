@@ -13,4 +13,7 @@
     insert into user (id,password,name,postcode,address,address_detail,email,tel,profile)
     values(#{id},#{password},#{name},#{postcode},#{address},#{addressDetail},#{email},#{tel},#{profile})
   </insert>
+  <delete id="removeUser" parameterType="User">
+    delete from user where id = #{id} and password = #{password};
+  </delete>
 </mapper>
